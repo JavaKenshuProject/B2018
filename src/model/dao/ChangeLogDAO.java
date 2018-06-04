@@ -10,6 +10,12 @@ import java.util.List;
 
 import model.entity.ChangeLogBean;
 
+/**
+ * 変更ログのDAO
+ *
+ * @author okawa
+ *
+ */
 public class ChangeLogDAO {
 
 	/**

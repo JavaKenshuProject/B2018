@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 /**
  * 変更ログBean
  *
- * @author 大川
+ * @author okawa
  *
  */
 public class ChangeLogBean implements Serializable {
