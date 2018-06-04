@@ -24,7 +24,7 @@ public class ChangeLogDAO {
 	 * @return 変更ログのリスト
 	 */
 	public List<ChangeLogBean> selectAll(){
-		List<ChangeLogBean> changeLogList = new ArrayList<>();
+		List<ChangeLogBean> changeLogList = null;
 		String sql = "select etcl.update_date,etcl.user_id,etcl.operation,ems.section_name,etcl.emp_code"
 				+ "from (emp_sys_db.t_change_log etcl JOIN emp_sys_db.m_user emu ON etcl.user_id = emu.user_id)"
 				+ "JOIN emp_sys_db.m_section ems ON emu.section_code = ems.section_code";
@@ -34,6 +34,10 @@ public class ChangeLogDAO {
 					ResultSet res = stmt.executeQuery(sql)){
 
 			while(res.next()) {
+				if(changeLogList == null) {
+					changeLogList = new ArrayList<>();
+				}
+
 				ChangeLogBean clBean = new ChangeLogBean();
 				clBean.setUpdateDate(res.getTimestamp("update_date"));
 				clBean.setUserId(res.getString("user_id"));
