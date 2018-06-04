@@ -18,8 +18,8 @@ import model.entity.LicenseBean;
  */
 public class LicenseDAO {
 
-	//資格をすべてリストに入れて従業員登録処理の際にセレクトで表示する
 	/**
+	 * 資格をすべてリストに入れて従業員登録処理の際にセレクトで表示する
 	 * @return list
 	 */
 	public List<LicenseBean> getLicenseList(){
@@ -27,7 +27,7 @@ public class LicenseDAO {
 
 		try(Connection con = ConnectionManager.getConnection();
 				Statement stmt= con.createStatement();
-						ResultSet res=stmt.executeQuery("select license_code,license_name from m_license");){
+				ResultSet res=stmt.executeQuery("select license_code,license_name from m_license");){
 
 
 
@@ -53,8 +53,8 @@ public class LicenseDAO {
 
 	}
 
-	//クライアントが入力した資格をクライアントの保有資格に追加する
 	/**
+	 * クライアントが入力した資格をクライアントの保有資格に追加する
 	 * @param empCode
 	 * @param licenseCode
 	 * @param licenseDate
@@ -81,6 +81,7 @@ public class LicenseDAO {
 	}
 
 	/**
+	 * licenseDateが入力されなかった場合の処理メソッド
 	 * @param empCode
 	 * @param licenseCode
 	 */
@@ -104,10 +105,8 @@ public class LicenseDAO {
 
 	}
 
-
-
-	//クライアントが入力した資格を新たに追加する
 	/**
+	 * クライアントが入力した資格を新たに追加する
 	 * @param licenseCode
 	 * @param licenseName
 	 */
@@ -129,7 +128,5 @@ public class LicenseDAO {
 			e.printStackTrace();
 		}
 	}
-
-
 
 }
