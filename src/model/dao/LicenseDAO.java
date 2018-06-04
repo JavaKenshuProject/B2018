@@ -79,6 +79,31 @@ public class LicenseDAO {
 
 	}
 
+	/**
+	 * @param empCode
+	 * @param licenseCode
+	 */
+	public void licenseRegistration(String empCode,String licenseCode) {
+
+		try(Connection con =ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(
+						"INSERT INTO t_get_license(emp_code,license_code,get_license_date) VALUES (?,?,?)")){
+
+			pstmt.setString(1, empCode);
+			pstmt.setString(2, licenseCode);
+
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		}
+
+	}
+
+
 
 	//クライアントが入力した資格を新たに追加する
 	/**
