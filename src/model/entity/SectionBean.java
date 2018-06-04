@@ -14,31 +14,29 @@ public class SectionBean implements Serializable {
 	private String sectionName;
 
 	/**
-	 * @param sectionCode 所属コード
+	 * @return sectionCode
+	 */
+	public String getSectionCode() {
+		return sectionCode;
+	}
+	/**
+	 * @param sectionCode セットする sectionCode
 	 */
 	public void setSectionCode(String sectionCode) {
 		this.sectionCode = sectionCode;
 	}
-
 	/**
-	 * @return sectionCode 所属コード
+	 * @return sectionName
 	 */
-	public String getSectionCode() {
-		return this.sectionCode;
+	public String getSectionName() {
+		return sectionName;
 	}
-
 	/**
-	 * @param sectionName 所属部署名
+	 * @param sectionName セットする sectionName
 	 */
 	public void setSectionName(String sectionName) {
 		this.sectionName = sectionName;
 	}
 
-	/**
-	 * @return sectionName 所属部署名
-	 */
-	public String getSectionName() {
-		return this.sectionName;
-	}
 
 }
