@@ -26,9 +26,10 @@ public class LicenseDAO {
 		List<LicenseBean> list =null;
 
 		try(Connection con = ConnectionManager.getConnection();
-				Statement stmt= con.createStatement()){
+				Statement stmt= con.createStatement();
+						ResultSet res=stmt.executeQuery("select license_code,license_name from m_license");){
 
-			ResultSet res=stmt.executeQuery("select license_code,license_name from m_license");
+
 
 			while(res.next()) {
 				if(list==null) {
