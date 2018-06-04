@@ -22,7 +22,7 @@ public class LicenseDAO {
 	/**
 	 * @return list
 	 */
-	public List getLicenseList(){
+	public List<LicenseBean> getLicenseList(){
 		List<LicenseBean> list =null;
 
 		try(Connection con = ConnectionManager.getConnection();
@@ -68,7 +68,7 @@ public class LicenseDAO {
 			pstmt.setString(2, licenseCode);
 			pstmt.setDate(3, licenseDate);
 
-			int count =pstmt.executeUpdate();
+			pstmt.executeUpdate();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -94,7 +94,7 @@ public class LicenseDAO {
 			pstmt.setString(1, licenseCode);
 			pstmt.setString(2, licenseName);
 
-			int count = pstmt.executeUpdate();
+			pstmt.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
