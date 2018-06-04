@@ -1,7 +1,7 @@
 package model.entity;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * 変更ログBean
@@ -10,21 +10,22 @@ import java.sql.Date;
  *
  */
 public class ChangeLogBean implements Serializable {
-	private Date updateDate;
+	private Timestamp updateDate;
 	private String userId;
 	private String section;
 	private String operation;
 	private String empCode;
+
 	/**
 	 * @return updateDate 編集日時
 	 */
-	public Date getUpdateDate() {
+	public Timestamp getUpdateDate() {
 		return updateDate;
 	}
 	/**
 	 * @param updateDate セットする updateDate
 	 */
-	public void setUpdateDate(Date updateDate) {
+	public void setUpdateDate(Timestamp updateDate) {
 		this.updateDate = updateDate;
 	}
 	/**
