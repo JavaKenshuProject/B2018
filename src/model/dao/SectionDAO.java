@@ -27,9 +27,8 @@ public class SectionDAO {
 		List<SectionBean> sectionList = null;
 
 		try(Connection con = ConnectionManager.getConnection();
-				Statement stmt = con.createStatement()) {
-
-			ResultSet res = stmt.executeQuery("SELECT * FROM m_section");
+				Statement stmt = con.createStatement();
+					ResultSet res = stmt.executeQuery("SELECT * FROM m_section")) {
 
 			while(res.next()) {
 				if(sectionList == null) {
