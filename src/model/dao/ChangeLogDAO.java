@@ -22,8 +22,10 @@ public class ChangeLogDAO {
 	 * 変更ログを全てもってくる
 	 *
 	 * @return 変更ログのリスト
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
 	 */
-	public List<ChangeLogBean> selectAll(){
+	public List<ChangeLogBean> selectAll() throws SQLException, ClassNotFoundException{
 		List<ChangeLogBean> changeLogList = null;
 		String sql = "select etcl.update_date,etcl.user_id,etcl.operation,ems.section_name,etcl.emp_code"
 				+ "from (emp_sys_db.t_change_log etcl JOIN emp_sys_db.m_user emu ON etcl.user_id = emu.user_id)"
@@ -50,8 +52,10 @@ public class ChangeLogDAO {
 
 		}catch(SQLException e) {
 			e.printStackTrace();
+			throw e;
 		}catch(ClassNotFoundException e) {
 			e.printStackTrace();
+			throw e;
 		}
 		return changeLogList;
 	}
@@ -60,8 +64,10 @@ public class ChangeLogDAO {
 	 * DBに変更ログを挿入する
 	 *
 	 * @param changeLog 変更ログ
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
 	 */
-	public void insert(ChangeLogBean changeLog) {
+	public void insert(ChangeLogBean changeLog) throws SQLException, ClassNotFoundException {
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement("INSERT INTO t_change_log (user_id, operation, emp_code) VALUES (?, ?, ?)")){
 
@@ -72,8 +78,10 @@ public class ChangeLogDAO {
 			pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
+			throw e;
 		}catch(ClassNotFoundException e) {
 			e.printStackTrace();
+			throw e;
 		}
 	}
 }
