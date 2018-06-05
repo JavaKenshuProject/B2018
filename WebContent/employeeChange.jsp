@@ -13,7 +13,8 @@
 			<div class="box">
 			<h1>従業員情報変更</h1>
 			<h2>現在の内容</h2>
-		<% EmployeeBean eb = (EmployeeBean)session.getAttribute("target");%>
+		<% EmployeeBean empb = (EmployeeBean)session.getAttribute("target");%>
+		
 			<br>
 			<hr>
 			<br>
