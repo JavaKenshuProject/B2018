@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"
-    import="model.entity.EmployeeBean" %>
+    pageEncoding="UTF-8"%>
     
 <!DOCTYPE html>
 	<html>
@@ -13,12 +12,12 @@
 			<div class="box">
 			<h1>従業員情報変更</h1>
 			<h2>現在の内容</h2>
-		<% EmployeeBean empb = (EmployeeBean)session.getAttribute("target");%>
-		
+			氏名：○○　　氏名（フリガナ）：○○　　性別：○○　　所属部署名：○○
 			<br>
 			<hr>
 			<br>
 			<h2>変更内容</h2>
+			<form>
 				氏：<input type="text">　　名：<input type="text"><br>
 				氏（フリガナ）：<input type="text">　　名（フリガナ）：<input type="text"><br>
 				性別：<input type="radio">男
@@ -31,9 +30,8 @@
 				<br>
 				<hr>
 				<br>
-			<form action="EmployeeChangeServlet" method="post">
-				<input type="submit" value="変更"></form>
-			<form action="employeeList.jsp">
-					<input type="submit" value="キャンセル"></form>
+				<input type="submit" value="変更">　　
+				<input type="submit" value="キャンセル">
+			</form>
 		</body>
 	</html>
