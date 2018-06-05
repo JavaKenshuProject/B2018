@@ -21,8 +21,10 @@ public class LicenseDAO {
 	/**
 	 * 資格をすべてリストに入れて従業員登録処理の際にセレクトで表示する
 	 * @return list
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
 	 */
-	public List<LicenseBean> getLicenseList(){
+	public List<LicenseBean> getLicenseList() throws ClassNotFoundException, SQLException{
 		List<LicenseBean> list =null;
 
 		try(Connection con = ConnectionManager.getConnection();
@@ -43,9 +45,11 @@ public class LicenseDAO {
 			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
+			throw e;
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw e;
 		}
 
 		return list;
