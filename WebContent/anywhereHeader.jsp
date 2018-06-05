@@ -7,9 +7,7 @@
 <link rel="Stylesheet" href="header.css" type="text/css"/>
 <meta charset="UTF-8" />
 <meta name="author" content="Namioka Saki">
-<title>Insert title here</title>
 </head>
-<body>
 
 	<ul id="menu">
 
@@ -23,5 +21,4 @@
 		<li id="menu06"><a href="logout.jsp">ログアウト</a></li>
 	</ul>
 
-</body>
 </html>
