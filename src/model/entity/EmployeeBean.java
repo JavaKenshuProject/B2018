@@ -21,7 +21,7 @@ public class EmployeeBean implements Serializable {
 	private String sectionName;
 	private String sectionCode;
 	private Date empDate;
-	List<LicenseBean> licenseList;
+	List<String> licenseList;
 
 	/**
 	 * @return empCode 従業員コード
@@ -146,13 +146,13 @@ public class EmployeeBean implements Serializable {
 	/**
 	 * @return licenseList 取得資格リスト
 	 */
-	public List<LicenseBean> getLicenseList() {
+	public List<String> getLicenseList() {
 		return licenseList;
 	}
 	/**
 	 * @param licenseList セットする licenseList
 	 */
-	public void setLicenseList(List<LicenseBean> licenseList) {
+	public void setLicenseList(List<String> licenseList) {
 		this.licenseList = licenseList;
 	}
 }
