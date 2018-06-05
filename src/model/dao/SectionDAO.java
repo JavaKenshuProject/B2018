@@ -22,7 +22,7 @@ public class SectionDAO {
 	 * @return 所属情報リスト
 	 */
 
-	public List<SectionBean> getSectionList() {
+	public List<SectionBean> getSectionList() throws SQLException, ClassNotFoundException {
 
 		List<SectionBean> sectionList = null;
 
@@ -43,6 +43,7 @@ public class SectionDAO {
 
 		}catch(SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
+			throw e;
 		}
 
 		return sectionList;
