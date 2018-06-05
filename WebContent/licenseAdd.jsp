@@ -6,13 +6,22 @@
 <head>
 <meta charset="UTF-8" />
 <title>新規資格追加画面</title>
+<script>
+    function check(){
+        var form = document.forms.submitForm;
+        var msg = "この内容で登録しますか？";
+        var result = confirm(msg);
+        return result;
+    }
+</script>
+
 </head>
 <body>
 
 <h1>新規資格の追加</h1>
-<form action="LicenseAddSerlet"method="POST">
-資格コード：<input type="text" name="license_code"><br>
-資格名：<input type="text" name="license_name"><br>
+<form  name="submitForm" action="LicenseAddSerlet"method="POST" onsubmit="return check();">
+資格コード：<input type="text" name="license_code" required><br>
+資格名：<input type="text" name="license_name" required><br>
 <br>
 <input type="submit" value="追加" name="Action">&nbsp;
 </form>
