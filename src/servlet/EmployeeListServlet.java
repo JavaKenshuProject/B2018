@@ -45,26 +45,31 @@ public class EmployeeListServlet extends HttpServlet {
 		String action = request.getParameter("ACTION");
 		EmployeeDAO dao = null;
 		List<EmployeeBean> empList = null;
+		String url = null;
 
-		if("従業員一覧".equals(action)) {
-			dao = new EmployeeDAO();
-			empList = dao.selectAll();
-		}else if("絞り込み".equals(action)){
-			String initial = request.getParameter("initial");
-			String sectionName = request.getParameter("section_name");
-			byte sex = Byte.valueOf(request.getParameter("sex"));
-			String sort = request.getParameter("sort");
-			String order = request.getParameter("order");
-			String name = request.getParameter("name");
+		try {
+			if("従業員一覧".equals(action)) {
+				dao = new EmployeeDAO();
+				empList = dao.selectAll();
+			}else if("絞り込み".equals(action)){
+				String initial = request.getParameter("initial");
+				String sectionName = request.getParameter("section_name");
+				byte sex = Byte.valueOf(request.getParameter("sex"));
+				String sort = request.getParameter("sort");
+				String order = request.getParameter("order");
+				String name = request.getParameter("name");
 
-			dao = new EmployeeDAO();
-			empList = dao.select(name, sex, sectionName, initial, sort, order);
+				dao = new EmployeeDAO();
+				empList = dao.select(name, sex, sectionName, initial, sort, order);
+			}
+			url = "employeeList.jsp";
+		}catch(Exception e) {
+			url = "employeeListError.jsp";
 		}
-
 		HttpSession session = request.getSession();
 		session.setAttribute("empList", empList);
 
-		RequestDispatcher rd = request.getRequestDispatcher("employeeList.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
 

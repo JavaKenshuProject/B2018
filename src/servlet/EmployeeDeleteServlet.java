@@ -42,12 +42,18 @@ public class EmployeeDeleteServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		String empCode = request.getParameter("empCode");
+		EmployeeDAO dao = null;
+		String url = null;
 
-		EmployeeDAO dao = new EmployeeDAO();
+		try {
+			dao = new EmployeeDAO();
 
-		dao.delete(empCode);
-
-		RequestDispatcher rd = request.getRequestDispatcher("employeeDeleteComp.jsp");
+			dao.delete(empCode);
+			url = "employeeDeleteComp.jsp";
+		}catch(Exception e) {
+			url = "employeeDeleteError.jsp";
+		}
+		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
 

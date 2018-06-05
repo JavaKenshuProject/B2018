@@ -44,13 +44,21 @@ public class ChangeLogServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-		ChangeLogDAO dao = new ChangeLogDAO();
-		List<ChangeLogBean> changeLogList = dao.selectAll();
+		ChangeLogDAO dao = null;
+		List<ChangeLogBean> changeLogList = null;
+		String url = null;
 
+		try {
+			dao = new ChangeLogDAO();
+			changeLogList = dao.selectAll();
+			url = "changeLog.jsp";
+		}catch(Exception e) {
+			url = "changeLogError.jsp";
+		}
 		HttpSession session = request.getSession();
 		session.setAttribute("changeLogList", changeLogList);
 
-		RequestDispatcher rd = request.getRequestDispatcher("changeLog.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
 
