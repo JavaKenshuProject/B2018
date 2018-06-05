@@ -15,6 +15,8 @@ import model.entity.UserBean;
 
 /**
  * Servlet implementation class LoginServlet
+ * 
+ * @author akiya
  */
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {

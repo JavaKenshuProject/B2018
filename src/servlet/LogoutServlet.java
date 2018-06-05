@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LogoutServlet
+ * 
+ * @author akiya
  */
 @WebServlet("/LogoutServlet")
 public class LogoutServlet extends HttpServlet {
@@ -41,7 +43,7 @@ public class LogoutServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		session.invalidate();
-		response.sendRedirect("login.jsp");
+		response.sendRedirect("logout.jsp");
 		}
 		
 	}

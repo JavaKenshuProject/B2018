@@ -1,6 +1,13 @@
 package model.entity;
 
-public class UserBean {
+import java.io.Serializable;
+/**
+ * ユーザーBean
+ * 
+ * @author akiya
+ *
+ */
+public class UserBean implements Serializable {
 
 	private String userId;
 	private String password;
