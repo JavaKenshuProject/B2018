@@ -20,7 +20,7 @@
 				<input type="submit" value="保有資格追加"><br><br></form>
 			<form action="LicenseAddServlet" method="post">
 				<input type="submit" value="新規資格追加"><br><br></form>
-			<form action="ChangeLogSevlet" method="post">
+			<form action="ChangeLogServlet" method="post">
 				<input type="submit" value="情報の変更ログを表示"><br><br></form>
 			<form action="UserRegistarServlet" method="post">
 				<input type="submit" value="システム利用者追加"><br><br></form>
