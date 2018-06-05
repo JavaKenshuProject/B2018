@@ -29,7 +29,7 @@ public class UserDAO {
 
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(
-						"SELECT * FROM m_user Where userId = ? and password = ?")){
+						"SELECT * FROM m_user Where user_id = ? and password = ?")){
 
 
 			pstmt.setString(1, userId);

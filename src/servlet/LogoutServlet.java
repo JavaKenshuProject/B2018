@@ -40,9 +40,8 @@ public class LogoutServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		
 		session.invalidate();
-		response.sendRedirect("LoginServlet");
+		response.sendRedirect("login.jsp");
 		}
 		
 	}
