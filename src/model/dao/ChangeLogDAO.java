@@ -27,9 +27,9 @@ public class ChangeLogDAO {
 	 */
 	public List<ChangeLogBean> selectAll() throws SQLException, ClassNotFoundException{
 		List<ChangeLogBean> changeLogList = null;
-		String sql = "select etcl.update_date,etcl.user_id,etcl.operation,ems.section_name,etcl.emp_code"
-				+ "from (emp_sys_db.t_change_log etcl JOIN emp_sys_db.m_user emu ON etcl.user_id = emu.user_id)"
-				+ "JOIN emp_sys_db.m_section ems ON emu.section_code = ems.section_code";
+		String sql = "SELECT tcl.update_date,tcl.user_id,tcl.operation,ms.section_name,tcl.emp_code"
+				+ " FROM (t_change_log tcl JOIN m_user mu ON tcl.user_id = mu.user_id)"
+				+ " JOIN m_section ms ON mu.section_code = ms.section_code ORDER BY tcl.update_date DESC";
 
 		try(Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();
