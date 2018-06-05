@@ -25,7 +25,7 @@ public class UserDAO {
 	 */
 
 	public UserBean login(String userId, String password) throws Exception{
-		UserBean ub = null;
+		UserBean user = null;
 
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(
@@ -38,18 +38,19 @@ public class UserDAO {
 			ResultSet res = pstmt.executeQuery();
 
 			while(res.next()) {
-				if(ub == null) {
-					ub = new UserBean();
+				if(user == null) {
+					user = new UserBean();
 				}
-				ub.setUserId(res.getString("user_id"));
-				ub.setPassword(res.getString("password"));
-				ub.setSectionCode(res.getString("section_code"));
+				user.setUserId(res.getString("user_id"));
+				user.setPassword(res.getString("password"));
+				user.setSectionCode(res.getString("section_code"));
 
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
+			throw e;
 		}
-		return ub;
+		return user;
 	}
 	/**
 	 * 引数で指定した情報をユーザマスタに登録（挿入）する
