@@ -28,13 +28,13 @@ public class EmployeeDAO {
 		List<EmployeeBean> empList = null;
 		//SQL文作成
 		String sql = "SELECT me.emp_code,me.l_name,me.f_name,me.l_kana_name,me.f_kana_name,me.sex,me.birth_day,me.emp_date,ms.section_name"
-				+ "FROM m_employee me JOIN m_section ms ON me.section_code = ms.section_code"
-				+ "WHERE (l_name LIKE ? OR f_name LIKE ? OR l_kana_name LIKE ? OR f_kana_name LIKE ?)"
-				+ "AND l_kana_name LIKE ? AND section LIKE ?";
+				+ " FROM m_employee me JOIN m_section ms ON me.section_code = ms.section_code"
+				+ " WHERE (l_name LIKE ? OR f_name LIKE ? OR l_kana_name LIKE ? OR f_kana_name LIKE ?)"
+				+ " AND l_kana_name LIKE ? AND section LIKE ?";
 		if(sex != 0) {
 			sql += " AND sex = ?";
 		}
-		sql += "ORDER BY "+ sortColumn;
+		sql += "ORDER BY me."+ sortColumn;
 		sql += " " + order;
 
 		try(Connection con = ConnectionManager.getConnection();
@@ -95,7 +95,7 @@ public class EmployeeDAO {
 		List<EmployeeBean> empList = null;
 
 		String sql = "SELECT me.emp_code,me.l_name,me.f_name,me.l_kana_name,me.f_kana_name,me.sex,me.birth_day,me.emp_date,ms.section_name"
-				+ "FROM m_employee me JOIN m_section ms ON me.section_code = ms.section_code";
+				+ " FROM m_employee me JOIN m_section ms ON me.section_code = ms.section_code";
 
 		try(Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();

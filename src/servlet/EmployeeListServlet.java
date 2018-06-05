@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.EmployeeDAO;
+import model.dao.SectionDAO;
 import model.entity.EmployeeBean;
+import model.entity.SectionBean;
 
 /**
  * Servlet implementation class EmployeeListServlet
@@ -43,14 +45,20 @@ public class EmployeeListServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		String action = request.getParameter("ACTION");
-		EmployeeDAO dao = null;
+		EmployeeDAO eDao = null;
 		List<EmployeeBean> empList = null;
 		String url = null;
+		HttpSession session = request.getSession();
 
 		try {
+			//部署一覧を取得
+			SectionDAO sDao = new SectionDAO();
+			List<SectionBean> sectionList = sDao.getSectionList();
+			session.setAttribute("sectionList", sectionList);
+
 			if("従業員一覧".equals(action)) {
-				dao = new EmployeeDAO();
-				empList = dao.selectAll();
+				eDao = new EmployeeDAO();
+				empList = eDao.selectAll();
 			}else if("絞り込み".equals(action)){
 				String initial = request.getParameter("initial");
 				String sectionName = request.getParameter("section_name");
@@ -59,14 +67,14 @@ public class EmployeeListServlet extends HttpServlet {
 				String order = request.getParameter("order");
 				String name = request.getParameter("name");
 
-				dao = new EmployeeDAO();
-				empList = dao.select(name, sex, sectionName, initial, sort, order);
+				eDao = new EmployeeDAO();
+				empList = eDao.select(name, sex, sectionName, initial, sort, order);
 			}
 			url = "employeeList.jsp";
 		}catch(Exception e) {
+			e.printStackTrace();
 			url = "employeeListError.jsp";
 		}
-		HttpSession session = request.getSession();
 		session.setAttribute("empList", empList);
 
 		RequestDispatcher rd = request.getRequestDispatcher(url);
