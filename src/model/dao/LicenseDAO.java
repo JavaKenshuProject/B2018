@@ -110,7 +110,7 @@ public class LicenseDAO {
 	 * @param licenseCode
 	 * @param licenseName
 	 */
-	public void LicenseAddServlet(String licenseCode,String licenseName) {
+	public void licenseAdd(String licenseCode,String licenseName) {
 
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt=con.prepareStatement(
