@@ -4,7 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" />
+<link rel="Stylesheet" href="licenceAddError.css" type="text/css"  />
+<meta name="author" content="Namioka Saki">
+<meta charset="UTF-8">
 <title>新規資格登録エラー</title>
 </head>
 <body>

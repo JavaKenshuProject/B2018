@@ -4,7 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" />
+<link rel="Stylesheet" href=".css" type="text/css" media="all" />
+<meta name="author" content="Namioka Saki">
+<meta charset="UTF-8">
 <title>保有資格登録画面</title>
 <script>
     function check(){
