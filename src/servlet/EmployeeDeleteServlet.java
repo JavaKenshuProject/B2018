@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,24 +8,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import model.dao.ChangeLogDAO;
-import model.entity.ChangeLogBean;
+import model.dao.EmployeeDAO;
 
 /**
- * Servlet implementation class ChangeLogServlet
+ * Servlet implementation class EmployeeDeleteServlet
  *
  * @author okawa
  */
-@WebServlet("/ChangeLogServlet")
-public class ChangeLogServlet extends HttpServlet {
+@WebServlet("/EmployeeDeleteServlet")
+public class EmployeeDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
+    /**
      * @see HttpServlet#HttpServlet()
      */
-    public ChangeLogServlet() {
+    public EmployeeDeleteServlet() {
         super();
     }
 
@@ -44,13 +41,13 @@ public class ChangeLogServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-		ChangeLogDAO dao = new ChangeLogDAO();
-		List<ChangeLogBean> changeLogList = dao.selectAll();
+		String empCode = request.getParameter("empCode");
 
-		HttpSession session = request.getSession();
-		session.setAttribute("changeLogList", changeLogList);
+		EmployeeDAO dao = new EmployeeDAO();
 
-		RequestDispatcher rd = request.getRequestDispatcher("changeLog.jsp");
+		dao.delete(empCode);
+
+		RequestDispatcher rd = request.getRequestDispatcher("employeeDeleteComp.jsp");
 		rd.forward(request, response);
 	}
 
