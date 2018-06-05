@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
+<meta name="author" content="Namioka Saki">
 <title>新規資格追加画面</title>
 <script>
     function check(){
