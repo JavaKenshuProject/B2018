@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -57,13 +58,19 @@ public class LicenseAddServlet extends HttpServlet {
 
 		response.setContentType("text/html; charset=UTF-8");
 
-
-		LicenseDAO dao = new LicenseDAO();
-		dao.licenseAdd(licenseCode, licenseName);
-
 		String url =null;
 
-		url = "licenseAddComp.jsp";
+		try {
+			LicenseDAO dao = new LicenseDAO();
+			dao.licenseAdd(licenseCode, licenseName);
+
+			url = "licenseAddComp.jsp";
+
+		} catch (ClassNotFoundException | SQLException e) {
+			url = "licenceAddError.jsp";
+
+		}
+
 
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);

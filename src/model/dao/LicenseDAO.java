@@ -58,8 +58,10 @@ public class LicenseDAO {
 	 * @param empCode
 	 * @param licenseCode
 	 * @param licenseDate
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
 	 */
-	public void licenseRegistration(String empCode,String licenseCode,Date licenseDate) {
+	public void licenseRegistration(String empCode,String licenseCode,Date licenseDate) throws SQLException, ClassNotFoundException {
 
 		try(Connection con =ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(
@@ -73,9 +75,11 @@ public class LicenseDAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw e;
 
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
+			throw e1;
 		}
 
 	}
@@ -84,8 +88,10 @@ public class LicenseDAO {
 	 * licenseDateが入力されなかった場合の処理メソッド
 	 * @param empCode
 	 * @param licenseCode
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
 	 */
-	public void licenseRegistration(String empCode,String licenseCode) {
+	public void licenseRegistration(String empCode,String licenseCode) throws SQLException, ClassNotFoundException {
 
 		try(Connection con =ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(
@@ -98,9 +104,11 @@ public class LicenseDAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw e;
 
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
+			throw e1;
 		}
 
 	}
@@ -109,8 +117,10 @@ public class LicenseDAO {
 	 * クライアントが入力した資格を新たに追加する
 	 * @param licenseCode
 	 * @param licenseName
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
 	 */
-	public void licenseAdd(String licenseCode,String licenseName) {
+	public void licenseAdd(String licenseCode,String licenseName) throws ClassNotFoundException, SQLException {
 
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt=con.prepareStatement(
@@ -123,9 +133,11 @@ public class LicenseDAO {
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
+			throw e;
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw e;
 		}
 	}
 

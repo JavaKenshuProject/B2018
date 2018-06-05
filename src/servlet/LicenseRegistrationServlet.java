@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,12 +22,12 @@ import model.entity.LicenseBean;
 public class LicenseRegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LicenseRegistrationServlet() {
-        super();
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public LicenseRegistrationServlet() {
+		super();
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -56,18 +57,28 @@ public class LicenseRegistrationServlet extends HttpServlet {
 
 		response.setContentType("text/html; charset=UTF-8");
 
-		LicenseDAO dao =new LicenseDAO();
-
-		if(licenseDate==null) {
-			dao.licenseRegistration(empCode, licenseName);
-		}else {
-			dao.licenseRegistration(empCode, licenseName, licenseDate);
-		}
-
-
 		String url =null;
 
-		url = "licenceRegistrationComp.jsp";
+
+		try {
+
+			LicenseDAO dao =new LicenseDAO();
+
+			if(licenseDate==null) {
+				dao.licenseRegistration(empCode, licenseName);
+
+				url = "licenceRegistrationComp.jsp";
+			}else {
+				dao.licenseRegistration(empCode, licenseName, licenseDate);
+
+				url = "licenceRegistrationComp.jsp";
+			}
+
+
+		} catch (ClassNotFoundException | SQLException e) {
+			url = "licenceRegistrationError.jsp";
+
+		}
 
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
