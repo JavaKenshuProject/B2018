@@ -46,8 +46,8 @@ public class EmployeeDAO {
 	public List<EmployeeBean> selectAll(){
 		List<EmployeeBean> empList = null;
 
-		String sql = "SELECT eme.emp_code,eme.l_name,eme.f_name,eme.l_kana_name,eme.f_kana_name,eme.sex,eme.birth_day,eme.emp_date,ems.section_name"
-				+ "FROM emp_sys_db.m_employee eme JOIN emp_sys_db.m_section ems ON eme.section_code = ems.section_code";
+		String sql = "SELECT me.emp_code,me.l_name,me.f_name,me.l_kana_name,me.f_kana_name,me.sex,me.birth_day,me.emp_date,ms.section_name"
+				+ "FROM m_employee me JOIN m_section ms ON me.section_code = ms.section_code";
 
 		try(Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();
@@ -61,12 +61,14 @@ public class EmployeeDAO {
 				emp.setEmpCode(res.getString("emp_code"));
 				emp.setlName(res.getString("l_name"));
 				emp.setfName(res.getString("f_name"));
-				emp.setlKataName(res.getString("l_kana_name"));
-				emp.setfKataName(res.getString("f_kana_name"));
+				emp.setlKanaName(res.getString("l_kana_name"));
+				emp.setfKanaName(res.getString("f_kana_name"));
 				emp.setSex(res.getByte("sex"));
 				emp.setBirthDay(res.getDate("birth_day"));
 				emp.setSectionName(res.getString("section_name"));
 				emp.setEmpDate(res.getDate("emp_date"));
+
+				empList.add(emp);
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -102,9 +104,51 @@ public class EmployeeDAO {
 	 */
 	public void update(EmployeeBean emp) {
 		//SQL文生成
+		String sql = "UPDATE m_employee SET";
+		if(emp.getlName() != null) {
+			sql += " l_name = ?";
+		}
+		if(emp.getfName() != null) {
+			sql += " f_name = ?";
+		}
+		if(emp.getlKanaName() != null) {
+			sql += " l_kana_name = ?";
+		}
+		if(emp.getfKanaName() != null) {
+			sql += " f_kana_name = ?";
+		}
+		if(emp.getSex() != -1) {
+			sql += " sex = ?";
+		}
+		if(emp.getSectionCode() != null) {
+			sql += " section_code = ?";
+		}
+		sql += " WHERE emp_code = ?";
 		try(Connection con = ConnectionManager.getConnection();
-				PreparedStatement pstmt = con.prepareStatement("")){
+				PreparedStatement pstmt = con.prepareStatement(sql)){
 
+			int index = 1;
+
+			if(emp.getlName() != null) {
+				pstmt.setString(index, emp.getlName());
+				index++;
+			}
+			if(emp.getfName() != null) {
+				sql += " f_name = ?";
+			}
+			if(emp.getlKanaName() != null) {
+				sql += " l_kana_name = ?";
+			}
+			if(emp.getfKanaName() != null) {
+				sql += " f_kana_name = ?";
+			}
+			if(emp.getSex() != -1) {
+				sql += " sex = ?";
+			}
+			if(emp.getSectionCode() != null) {
+				sql += " section_code = ?";
+			}
+			pstmt.setString(index, emp.getEmpCode());
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}catch(ClassNotFoundException e) {

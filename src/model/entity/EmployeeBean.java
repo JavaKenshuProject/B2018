@@ -14,11 +14,12 @@ public class EmployeeBean implements Serializable {
 	private String empCode;
 	private String lName;
 	private String fName;
-	private String lKataName;
-	private String fKataName;
-	private byte sex;
+	private String lKanaName;
+	private String fKanaName;
+	private byte sex = -1;
 	private Date birthDay;
 	private String sectionName;
+	private String sectionCode;
 	private Date empDate;
 	List<LicenseBean> licenseList;
 
@@ -59,28 +60,28 @@ public class EmployeeBean implements Serializable {
 		this.fName = fName;
 	}
 	/**
-	 * @return lKataName 苗字(フリガナ)
+	 * @return lKanaName 苗字(フリガナ)
 	 */
-	public String getlKataName() {
-		return lKataName;
+	public String getlKanaName() {
+		return lKanaName;
 	}
 	/**
-	 * @param lKataName セットする lKataName
+	 * @param lKanaName セットする lKanaName
 	 */
-	public void setlKataName(String lKataName) {
-		this.lKataName = lKataName;
+	public void setlKanaName(String lKataName) {
+		this.lKanaName = lKataName;
 	}
 	/**
-	 * @return fKataName 名前(フリガナ)
+	 * @return fKanaName 名前(フリガナ)
 	 */
-	public String getfKataName() {
-		return fKataName;
+	public String getfKanaName() {
+		return fKanaName;
 	}
 	/**
-	 * @param fKataName セットする fKataName
+	 * @param fKanaName セットする fKanaName
 	 */
-	public void setfKataName(String fKataName) {
-		this.fKataName = fKataName;
+	public void setfKanaName(String fKataName) {
+		this.fKanaName = fKataName;
 	}
 	/**
 	 * @return sex 性別
@@ -117,6 +118,18 @@ public class EmployeeBean implements Serializable {
 	 */
 	public void setSectionName(String sectionName) {
 		this.sectionName = sectionName;
+	}
+	/**
+	 * @return sectionCode 部署コード
+	 */
+	public String getSectionCode() {
+		return sectionCode;
+	}
+	/**
+	 * @param sectionCode セットする sectionCode
+	 */
+	public void setSectionCode(String sectionCode) {
+		this.sectionCode = sectionCode;
 	}
 	/**
 	 * @return empDate 入社日
