@@ -30,7 +30,7 @@
 取得日：<input type="text" placeholder="例：1994年3月4日→19940304"><br>
 <br>
 <br>
-<input type="button" value="追加">&nbsp;
+<input type="button" value="追加" name=Action>&nbsp;
 </form>
 <form action="menu.jsp" method="POST">
 <input type="button" value="キャンセル">
