@@ -17,16 +17,20 @@ import model.entity.LicenseBean;
 /**
  * Servlet implementation class LicenseAddServlet
  */
+/**
+ * @author user Namioka
+ *
+ */
 @WebServlet("/LicenseAddServlet")
 public class LicenseAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LicenseAddServlet() {
-        super();
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public LicenseAddServlet() {
+		super();
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -51,15 +55,14 @@ public class LicenseAddServlet extends HttpServlet {
 		bean.setLicenseName(licenseName);
 
 
-		//値をsessionに入れて渡す
+		//beanに入った値をsessionに入れて渡す
 		HttpSession session =request.getSession();
 		session.setAttribute("licenseaddbean",bean );
 
-
 		response.setContentType("text/html; charset=UTF-8");
-
 		String url =null;
 
+		//try内でエラーが出たらエラー画面へ遷移する
 		try {
 			LicenseDAO dao = new LicenseDAO();
 			dao.licenseAdd(licenseCode, licenseName);

@@ -18,17 +18,21 @@ import model.entity.EmployeeBean;
 /**
  * Servlet implementation class EmployeeChangeServlet
  */
+/**
+ * @author user Namioka
+ *
+ */
 @WebServlet("/EmployeeChangeServlet")
 public class EmployeeChangeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public EmployeeChangeServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public EmployeeChangeServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -42,46 +46,61 @@ public class EmployeeChangeServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//変更画面でクライアントが入力した情報を取ってくる
 		request.setCharacterEncoding("UTF-8");
-
-		String LName=request.getParameter("l_name");
-		String FName=request.getParameter("f_name");
-		String LKanaName=request.getParameter("l_kana_name");
-		String FKanaName=request.getParameter("f_kana_name");
-		byte Sex =Byte.parseByte(request.getParameter("sex"));
-		String SectionCode =request.getParameter("section_code");
-
-		//sectionDAOをインスタンス化してsectioncodeを持ってくる
-		SectionDAO scdao = new SectionDAO();
-		scdao.getSectionList();
-
-		//EmployeeBeanをインスタンス化して値を渡す
-		EmployeeBean bean = new EmployeeBean();
-		bean.setlName(LName);
-		bean.setfName(FName);
-		bean.setlKanaName(LKanaName);
-		bean.setfKanaName(FKanaName);
-		bean.setSex(Sex);
-		bean.setSectionCode(SectionCode);
-
-		//Sessionを生成し値が入ったbeanを格納する
 		HttpSession session = request.getSession();
-		session.setAttribute("bean", bean);
-
 		String url = null;
 
-		response.setContentType("text/html; charset=UTF-8");
+		String action =request.getParameter("Action");
 
-		try {
-			EmployeeDAO empdao = new EmployeeDAO();
-			empdao.update(bean);
-			url ="employeeChangeComp.jsp";
+		if(action.equals("従業員情報変更")) {
+			//sectionDAOをインスタンス化してsectioncodeを持ってくる
+			try{
+				SectionDAO scdao = new SectionDAO();
+				session.setAttribute("scList",scdao.getSectionList());
+				url = "employeeChange.jsp";
 
-		} catch (ClassNotFoundException | SQLException e) {
+			}catch(Exception e){
+				url = "employeeListError.jsp";
+			}
 
-			url = "employeeChangeError.jsp";
+		}else if(action.equals("変更")) {
 
+
+			//変更画面でクライアントが入力した情報を取ってくる
+
+			String LName=request.getParameter("l_name");
+			String FName=request.getParameter("f_name");
+			String LKanaName=request.getParameter("l_kana_name");
+			String FKanaName=request.getParameter("f_kana_name");
+			byte Sex =Byte.parseByte(request.getParameter("sex"));
+			String SectionCode =request.getParameter("section_code");
+
+
+			//EmployeeBeanをインスタンス化して値を渡す
+			EmployeeBean bean = new EmployeeBean();
+			bean.setlName(LName);
+			bean.setfName(FName);
+			bean.setlKanaName(LKanaName);
+			bean.setfKanaName(FKanaName);
+			bean.setSex(Sex);
+			bean.setSectionCode(SectionCode);
+
+			//Sessionを生成し値が入ったbeanを格納する
+			session.setAttribute("bean", bean);
+
+			response.setContentType("text/html; charset=UTF-8");
+
+			//tryの中でエラーが出たらエラー表示画面へ遷移するようにする
+			try {
+				EmployeeDAO empdao = new EmployeeDAO();
+				empdao.update(bean);
+				url ="employeeChangeComp.jsp";
+
+			} catch (ClassNotFoundException | SQLException e) {
+
+				url = "employeeChangeError.jsp";
+
+			}
 		}
 
 

@@ -18,6 +18,10 @@ import model.entity.LicenseBean;
 /**
  * Servlet implementation class LicenseRegistrationServlet
  */
+/**
+ * @author user Namioka
+ *
+ */
 @WebServlet("/LicenseRegistrationServlet")
 public class LicenseRegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -41,17 +45,20 @@ public class LicenseRegistrationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		//入力された内容を取り出す
 		request.setCharacterEncoding("UTF-8");
 
 		String empCode=request.getParameter("emp_code");
 		String licenseName=request.getParameter("license_name");
 		Date licenseDate=Date.valueOf(request.getParameter("get_license_date"));
 
+		//LicenseBeanを生成し、値を受け渡す
 		LicenseBean bean = new LicenseBean();
 		bean.setEmpCode(empCode);
 		bean.setLicenseName(licenseName);
 		bean.setGetLicenseDate(licenseDate);
 
+		//Sessionを生成し、値が入ったbeanを格納する
 		HttpSession session = request.getSession();
 		session.setAttribute("licensebean", bean);
 
@@ -60,17 +67,16 @@ public class LicenseRegistrationServlet extends HttpServlet {
 		String url =null;
 
 
+		//もし取得日が入力されなかったらif文内の処理、入力されたらelse内の処理をする
 		try {
-
 			LicenseDAO dao =new LicenseDAO();
 
 			if(licenseDate==null) {
 				dao.licenseRegistration(empCode, licenseName);
-
 				url = "licenceRegistrationComp.jsp";
+
 			}else {
 				dao.licenseRegistration(empCode, licenseName, licenseDate);
-
 				url = "licenceRegistrationComp.jsp";
 			}
 
