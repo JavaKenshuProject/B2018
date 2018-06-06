@@ -38,8 +38,8 @@
 			<br>
 			<h2>変更内容</h2>
 			<form action="EmployeeChangeServlet" method="post">
-				氏：<input type="text" name = "l_name">　　名：<input type="text" name = "f_name"><br>
-				氏（フリガナ）：<input type="text" name="l_kana_name">　　名（フリガナ）：<input type="text" name = "f_kana_name"><br>
+				氏　名　：<input type="text" name = "l_name" placeholder="氏"><input type="text" name = "f_name" placeholder="名"><br>
+				フリガナ：<input type="text" name="l_kana_name" placeholder="氏">><input type="text" name = "f_kana_name" placeholder="名"><br>
 				性別：<input type="radio" value="0" name="sex">男
 					  <input type="radio"value="1" name="sex">女<br>
 				所属部署名：<select name="section_code">

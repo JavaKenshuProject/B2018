@@ -19,9 +19,10 @@
 </head>
 <body>
 
+
 	<%@include file="anywhereHeader.jsp" %>
-<h1>変更ログ一覧画面</h1>
-<a href="menu.jsp"><input type="button" value="戻る"></a>
+<h1 style="padding-top:40px;">変更ログ一覧画面</h1>
+<p style="text-align:center;"><a href="menu.jsp"><input style="width:80px;height:40px; font-size:14px;" type="button" value="戻 る"></a></p>
 <hr>
 <div style="height:300px; overflow-y:scroll;">
 <%	List<ChangeLogBean> clList = (List<ChangeLogBean>)session.getAttribute("changeLogList");
