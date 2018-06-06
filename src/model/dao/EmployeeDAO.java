@@ -6,7 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import model.entity.EmployeeBean;
 
@@ -26,11 +28,23 @@ public class EmployeeDAO {
 	 */
 	public List<EmployeeBean> select(String name, Byte sex, String section, String initial, String sortColumn, String order) throws SQLException, ClassNotFoundException{
 		List<EmployeeBean> empList = null;
+		//五十音表
+		Map<String, String> kanaMap = new HashMap<>();
+		kanaMap.put("ア", "^(ア|イ|ウ|エ|オ)+");
+		kanaMap.put("カ", "^(カ|キ|ク|ケ|コ|ガ|ギ|グ|ゲ|ゴ)+");
+		kanaMap.put("サ", "^(サ|シ|ス|セ|ソ|ザ|ジ|ズ|ゼ|ゾ)+");
+		kanaMap.put("タ", "^(タ|チ|ツ|テ|ト|ダ|ヂ|ヅ|デ|ド)+");
+		kanaMap.put("ナ", "^(ナ|ニ|ヌ|ネ|ノ)+");
+		kanaMap.put("ハ", "^(ハ|ヒ|フ|ヘ|ホ|バ|ビ|ブ|ベ|ボ|パ|ピ|プ|ペ|ポ)+");
+		kanaMap.put("マ", "^(マ|ミ|ム|メ|モ)+");
+		kanaMap.put("ヤ", "^(ヤ|ユ|ヨ)+");
+		kanaMap.put("ラ", "^(ラ|リ|ル|レ|ロ)+");
+		kanaMap.put("ワ", "^(ワ|ヲ|ン)+");
 		//SQL文作成
 		String sql = "SELECT me.emp_code,me.l_name,me.f_name,me.l_kana_name,me.f_kana_name,me.sex,me.birth_day,me.emp_date,ms.section_name"
 				+ " FROM m_employee me JOIN m_section ms ON me.section_code = ms.section_code"
 				+ " WHERE (me.l_name LIKE ? OR me.f_name LIKE ? OR me.l_kana_name LIKE ? OR me.f_kana_name LIKE ?)"
-				+ " AND me.l_kana_name LIKE ? AND ms.section_name LIKE ?";
+				+ " AND me.l_kana_name REGEXP ? AND ms.section_name LIKE ?";
 		if(sex >= 0) {
 			sql += " AND sex = ?";
 		}
@@ -44,7 +58,7 @@ public class EmployeeDAO {
 			pstmt.setString(2, "%"+name+"%");	//名前に含むか
 			pstmt.setString(3, "%"+name+"%");	//苗字フリガナに含むか
 			pstmt.setString(4, "%"+name+"%");	//名前フリガナに含むか
-			pstmt.setString(5, initial+"%");	//頭文字
+			pstmt.setString(5, kanaMap.get(initial));	//頭文字
 			pstmt.setString(6, "%"+section+"%");	//部署
 			if(sex >= 0) {
 				pstmt.setByte(7, sex);
@@ -207,23 +221,24 @@ public class EmployeeDAO {
 		//SQL文生成
 		String sql = "UPDATE m_employee SET";
 		if(emp.getlName() != null) {
-			sql += " l_name = ?";
+			sql += " l_name = ? ,";
 		}
 		if(emp.getfName() != null) {
-			sql += " f_name = ?";
+			sql += " f_name = ? ,";
 		}
 		if(emp.getlKanaName() != null) {
-			sql += " l_kana_name = ?";
+			sql += " l_kana_name = ? ,";
 		}
 		if(emp.getfKanaName() != null) {
-			sql += " f_kana_name = ?";
+			sql += " f_kana_name = ? ,";
 		}
 		if(emp.getSex() != -1) {
-			sql += " sex = ?";
+			sql += " sex = ? ,";
 		}
 		if(emp.getSectionCode() != null) {
-			sql += " section_code = ?";
+			sql += " section_code = ? ,";
 		}
+		sql = sql.substring(0, sql.length()-2);
 		sql += " WHERE emp_code = ?";
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
