@@ -59,6 +59,12 @@ public class EmployeeListServlet extends HttpServlet {
 			if("従業員一覧".equals(action)) {
 				eDao = new EmployeeDAO();
 				empList = eDao.selectAll();
+				session.removeAttribute("initial");
+				session.removeAttribute("section_name");
+				session.removeAttribute("sex");
+				session.removeAttribute("sort");
+				session.removeAttribute("order");
+				session.removeAttribute("name");
 			}else if("絞り込み".equals(action)){
 				String initial = request.getParameter("initial");
 				String sectionName = request.getParameter("section_name");
