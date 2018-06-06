@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"
-    import="model.entity.EmployeeBean"
-    import="model.entity.SectionBean"
-    import="java.util.List"%>
+         pageEncoding="UTF-8" errorPage="employeeChangeError.jsp"%>
+<%@page import="model.entity.EmployeeBean"
+        import="model.entity.SectionBean"
+        import="java.util.List"%>
 
 <!DOCTYPE html>
 	<html>
