@@ -59,7 +59,7 @@ public class EmployeeRegistrationServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 
-		String action = request.getParameter("action");
+		String action = request.getParameter("ACTION");
 		String url = null;
 
 
@@ -131,8 +131,6 @@ public class EmployeeRegistrationServlet extends HttpServlet {
 			}
 
 
-		}else if("キャンセル".equals(action)) {
-			url = "menu.jsp";
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher(url);

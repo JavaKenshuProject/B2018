@@ -9,6 +9,14 @@
 <meta charset="UTF-8">
 <title>システム利用者追加画面</title>
 <link rel="Stylesheet" href="userRegistration.css" type="text/css" media="all" />
+<script>
+    function check(){
+        var form = document.forms.submitForm;
+        var msg = "この内容で登録しますか？";
+        var result = confirm(msg);
+        return result;
+    }
+</script>
 </head>
 
 <body>
@@ -16,9 +24,10 @@
 <div>
 		<p class ="title">システム利用者追加</p>
 		<p>追加したい従業員情報を入力してください</p>
-		<form action="UserRegistrationServlet" method="POST">
-		<p>&nbsp;&nbsp;&nbsp;ユーザID：<input id="userID" type="text" name="user_id"></p>
-		<p>パスワード：<input id="pass" type="password" name="password"></p>
+
+		<form name="submitForm" action="UserRegistrationServlet" method="POST" onsubmit="return check();">
+		<p>&nbsp;&nbsp;&nbsp;ユーザID：<input id="userID" type="text" name="user_id" required></p>
+		<p>パスワード：<input id="pass" type="password" name="password" required></p>
 		所属部署：
 		<select name="section_code">
 		<option value="null">選択してください</option>
@@ -37,10 +46,11 @@
            %>
 		</select>
 			<p class="submit">
-			<input type="submit" name="action" value="登録">　　
-			<input type="submit" name="action" value="キャンセル">
+			<input type="submit" name="ACTION" value="登録">　　</form>
+			<form action="menu.jsp" method="POST" >
+			<input type="submit" value="キャンセル">
+			</form>
 			</p>
-	</form>
 </div>
 
 </body>

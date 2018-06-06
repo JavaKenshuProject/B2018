@@ -40,7 +40,7 @@
 取得日：<input type="date" required><br>
 <br>
 <br>
-<input type="submit" value="追加" name="Action">&nbsp;
+<input type="submit" value="追加" name="ACTION">&nbsp;
 </form>
 <form action="menu.jsp" method="POST">
 <input type="submit" value="キャンセル">
