@@ -3,6 +3,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="model.entity.EmployeeBean" %>
 <%@ page import="model.entity.SectionBean" %>
+<%@ page import="model.entity.UserBean" %>
 
 <!DOCTYPE html>
 <html>
@@ -25,7 +26,9 @@
 	</script>
 </head>
 <body>
+<% UserBean user = (UserBean)session.getAttribute("user");  %>
 <h1>従業員一覧画面</h1>
+<% if(user.getSectionCode().equals("S1")){ %>
 <h3>従業員情報の変更や削除は、従業員を選択してからボタンを押してください。</h3>
 <form action="EmployeeChangeServlet" method="POST">
 <input type="button" value="変更">
@@ -34,6 +37,7 @@
 <input type="button" value="削除">
 </form>
 <hr>
+<% } %>
 <form action="EmployeeListServlet" method="POST">
 <table>
 <tr>
@@ -59,15 +63,15 @@
 <option value="">指定なし</option>
 <% 	List<SectionBean> secList = (List<SectionBean>)session.getAttribute("sectionList");
 	for(SectionBean section: secList){%>
-		<option value=<%=section.getSectionCode() %>><%=section.getSectionName() %></option>
+		<option value=<%=section.getSectionName() %>><%=section.getSectionName() %></option>
 <% 	} %>
 </select>
 &nbsp;
 性別
 <select name="sex">
-<option value="0">指定なし</option>
-<option value="1">男</option>
-<option value="2">女</option>
+<option value="-1">指定なし</option>
+<option value="0">男</option>
+<option value="1">女</option>
 </select>
 <br>
 <strong>並び替え：</strong>
@@ -77,7 +81,7 @@
 <option value="birth_day">生年月日</option>
 </select>
 <input type="radio" name="order" value="ASC" checked="checked">昇順
-<input type="radio" name="order" value="DESC">降順
+<input type="radio" name="order" value="DESC" checked=>降順
 </td>
 <td>
 <strong>検索したい名前：</strong>
@@ -92,7 +96,7 @@
 <hr>
 <a href="menu.jsp"><input type="button" value="戻る"></a>
 <hr>
-<% 	List<EmployeeBean> empList = (List<EmployeeBean>)session.getAttribute("empList");%>
+<% 	List<EmployeeBean> empList = (List<EmployeeBean>)session.getAttribute("empList"); %>
 <% if(empList != null){ %>
 <div style="height:300px; overflow-y:scroll;">
 <table>
@@ -101,7 +105,9 @@
 	for(EmployeeBean emp: empList){
 	%>
 <tr>
-	<td><input type="radio" name="target"></td>
+	<% if(user.getSectionCode().equals("S1")){ %>
+	<td><input type="radio" name="target" value="<%=emp.getEmpCode() %>"></td>
+	<% } %>
 	<td><%=emp.getEmpCode() %></td>
 	<td><%=emp.getlName() %><%=emp.getfName() %></td>
 	<td><%=emp.getlKanaName() %><%=emp.getfKanaName() %></td>
