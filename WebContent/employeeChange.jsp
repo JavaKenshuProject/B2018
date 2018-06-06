@@ -17,7 +17,6 @@
 			<hr>
 			<br>
 			<h2>変更内容</h2>
-			<form>
 				氏：<input type="text">　　名：<input type="text"><br>
 				氏（フリガナ）：<input type="text">　　名（フリガナ）：<input type="text"><br>
 				性別：<input type="radio">男
@@ -34,7 +33,6 @@
 				<input type="submit" value="変更"></form>>
 				<form action="employeeList.jsp">
 				<input type="submit" value="キャンセル"></form>
-			</form>
 			</div>
 		</body>
 	</html>
