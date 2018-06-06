@@ -99,7 +99,7 @@ public class LicenseDAO {
 
 		try(Connection con =ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(
-						"INSERT INTO t_get_license(emp_code,license_code,get_license_date) VALUES (?,?,?)")){
+						"INSERT INTO t_get_license(emp_code,license_code) VALUES (?,?)")){
 
 			pstmt.setString(1, empCode);
 			pstmt.setString(2, licenseCode);

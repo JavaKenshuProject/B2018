@@ -66,7 +66,7 @@ public class LicenseAddServlet extends HttpServlet {
 
 			//beanに入った値をsessionに入れて渡す
 			HttpSession session =request.getSession();
-			session.setAttribute("licenseaddbean",bean );
+			session.setAttribute("licensebean",bean );
 
 			response.setContentType("text/html; charset=UTF-8");
 

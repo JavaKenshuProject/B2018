@@ -20,7 +20,7 @@
 <body>
 	<%@include file="anywhereHeader.jsp" %>
 <h1>新規資格の追加</h1>
-<form  name="submitForm" action="LicenseAddSerlet"method="POST" onsubmit="return check();">
+<form  name="submitForm" action="LicenseAddServlet"method="POST" onsubmit="return check();">
 資格コード：<input type="text" name="license_code" required><br>
 資格名：<input type="text" name="license_name" required><br>
 <br>

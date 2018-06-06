@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="model.entity.LicenseBean"
+    import="java.util.List"%>
 
 <!DOCTYPE html>
 <html>
@@ -19,25 +20,25 @@
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp" %>
+
 <h1>従業員の保有資格の登録</h1>
 <form name="submitForm" action="LicenseRegistrationServlet" method="POST" onsubmit="return check();">
-従業員コード：<input type="text" required><br>
+従業員コード：<input type="text" name="emp_code"required><br>
 資格名：
-<select>
-<option>ITパスポート</option>
-<option>基本情報技術者試験</option>
-<option>応用情報技術者試験</option>
-<option>Oracle Master Bronze</option>
-<option>Oracle Master Silver</option>
-<option>Oracle Master Gold</option>
-<option>OJC-P</option>
-<option>OJC-WS</option>
-<option>OCUP-F</option>
-<option>OCUP-I</option>
-<option>OCUP-A</option>
+<select name="license_name">
+	<% List<LicenseBean> lclist = (List<LicenseBean>)session.getAttribute("lclist");
+
+	if(lclist!=null){
+	for(int i=0; i < lclist.size(); i++){
+	LicenseBean license =lclist.get(i);%>
+
+	 <option value="<%= license.getLicenseCode() %>"><%= license.getLicenseName() %></option>
+
+	 <%}} %>
+
 </select>
 <br>
-取得日：<input type="date" required><br>
+取得日：<input type="date" name="get_license_date" required><br>
 <br>
 <br>
 <input type="submit" value="追加" name="ACTION">&nbsp;

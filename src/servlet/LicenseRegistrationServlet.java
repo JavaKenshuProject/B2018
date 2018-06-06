@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -50,14 +51,27 @@ public class LicenseRegistrationServlet extends HttpServlet {
 		String action = request.getParameter("ACTION");
 		//入力された内容を取り出す
 
+
 		if("保有資格追加".equals(action)) {
-			url = "licenseRegistration.jsp";
+
+			HttpSession session = request.getSession();
+
+			LicenseDAO lcDAO = new LicenseDAO();
+			try {
+				List<LicenseBean> lclist = lcDAO.getLicenseList();
+				session.setAttribute("lclist", lclist);
+
+				url = "licenseRegistration.jsp";
+			} catch (ClassNotFoundException | SQLException e) {
+				url="employeeListError.jsp";
+			}
 
 		}else if("追加".equals(action)){
 
 			String empCode=request.getParameter("emp_code");
 			String licenseName=request.getParameter("license_name");
 			Date licenseDate=Date.valueOf(request.getParameter("get_license_date"));
+
 
 			//LicenseBeanを生成し、値を受け渡す
 			LicenseBean bean = new LicenseBean();
