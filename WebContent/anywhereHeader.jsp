@@ -4,13 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="Stylesheet" href="header.css" type="text/css"/>
+<link rel="Stylesheet" href="anywhereHeader.css" type="text/css"/>
 <meta charset="UTF-8" />
 <meta name="author" content="Namioka Saki">
 </head>
 
 	<%UserBean user = (UserBean)session.getAttribute("user");%>
 
+<div>
 	<ul id="menu">
 
 		<li id="menu00">従業員管理システム</li>
@@ -57,5 +58,6 @@
 		    <a href="javascript:form7.submit()">ログアウト</a>
 		</form></li>
 	</ul>
+	</div>
 
 </html>

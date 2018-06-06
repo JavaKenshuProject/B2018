@@ -1,13 +1,20 @@
 @charset "UTF-8";
 
 ul#menu {
-	height:42px; background-color:#eeeeee; font-weight:bold;
+	height:60px; background-color:#87cefa; font-weight:bold;
+}
+
+div{
+	top: 0;
+	bottom: 0;
+
 }
 li#menu00,li#menu01,li#menu02,li#menu03,li#menu04,li#menu05,li#menu06,li#menu07 {
 	float:left;			/*リスト項目を横に並べる*/
 	display:inline;			/*リスト項目をインライン表示にする*/
 	list-style-type:none;		/*リストマーカー無しにする*/
 	background-repeat:no-repeat; 	/*背景画像を繰り返さない*/
+
 }
 
 
@@ -19,11 +26,11 @@ li#menu00{
 }
 
 li#menu01,li#menu02,li#menu03,li#menu04,li#menu05,li#menu07 {
-	width:135px; height:42px;	/*背景画像に合わせたサイズ指定*/
+	width:130px; height:42px;	/*背景画像に合わせたサイズ指定*/
 
 }
 li#menu06{
-	width:140px; height:42px;
+	width:160px; height:42px;
 }
 
 ul#menu  a {
