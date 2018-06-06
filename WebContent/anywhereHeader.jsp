@@ -21,7 +21,7 @@
 		</form></li>
 
 		<%if(user.getSectionCode().equals("S1") || user.getSectionCode().equals("S2")){ %>
-		<li id="menu02"><form method="post" name="form2" action="EmployeeRegistarServlet">
+		<li id="menu02"><form method="post" name="form2" action="EmployeeRegistrationServlet">
 		    <input type="hidden" name="ACTION" value="従業員情報登録">
 		    <a href="javascript:form2.submit()">従業員情報登録</a>
 		</form></li>
@@ -46,7 +46,7 @@
 
 		<%} %>
 		<%if(user.getSectionCode().equals("S1")){ %>
-		<li id="menu06"><form method="post" name="form6" action="UserRegistarServlet">
+		<li id="menu06"><form method="post" name="form6" action="UserRegistrationServlet">
 		    <input type="hidden" name="ACTION" value="システム利用者追加">
 		    <a href="javascript:form6.submit()">システム利用者追加</a>
 		</form></li>

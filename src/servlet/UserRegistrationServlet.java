@@ -49,7 +49,6 @@ public class UserRegistrationServlet extends HttpServlet {
 		String action = request.getParameter("ACTION");
 		String url = null;
 
-
 		if("システム利用者追加".equals(action)) {
 			HttpSession session = request.getSession();
 

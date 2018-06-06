@@ -10,6 +10,14 @@
 <meta charset="UTF-8">
 <title>従業員情報登録画面</title>
 <link rel="stylesheet" href="empRegist_style.css" type="text/css">
+<script>
+    function check(){
+        var form = document.forms.submitForm;
+        var msg = "この内容で登録しますか？";
+        var result = confirm(msg);
+        return result;
+    }
+</script>
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp" %>
@@ -18,14 +26,14 @@
 	  <h2>登録する従業員情報を入力してください</h2>
 	  <br>
 	  <hr><br>
-		<form action="EmployeeRegistrationServlet" method="POST">
-		  従業員コード：<input type="text" name="emp_code"><br>
-		  氏名（漢字）：<input type="text" name="l_name" placeholder="氏">
-		  				<input type="text" name="f_name" placeholder="名"><br>
-		  氏名（フリガナ）：<input type="text" name="l_kana_name" placeholder="氏">
-		  					<input type="text" name="f_kana_name" placeholder="名"><br>
+		<form  name="submitForm" action="EmployeeRegistrationServlet" method="POST" onsubmit="return check();">
+		  従業員コード：<input type="text" name="emp_code" required><br>
+		  氏名（漢字）：<input type="text" name="l_name" placeholder="氏" required>
+		  				<input type="text" name="f_name" placeholder="名" required><br>
+		  氏名（フリガナ）：<input type="text" name="l_kana_name" placeholder="氏" required>
+		  					<input type="text" name="f_kana_name" placeholder="名" required><br>
 		  性別：<input type="radio" name="sex">男 <input type="radio" name="sex">女<br>
-		  生年月日：<input type="text" name="birth_day"><br>
+		  生年月日：<input type="date" name="birth_day" required><br>
 		  所属部署名：<select name="section_code">
 
 		    <option>選択してください</option>
@@ -46,8 +54,8 @@
 
 
 		  </select><br>
-		  入社日：<input type="text" name="emp_date"><br>
-		  保有資格：<select name="license_code">
+		  入社日：<input type="date" name="emp_date" required><br>
+		  保有資格：<select name="license_code" required>
 			<option>選択してください</option>
 
 		 	<%
@@ -67,9 +75,11 @@
 
 		  </select> <br>
 		  <hr><br>
-			<input type="submit" name="action" value="登録">
-			<input type="submit" name="action" value="キャンセル">
-		</form>
+			<input type="submit" name="ACTION" value="登録">
+			</form>
+			<form action="menu.jsp" method="POST" >
+			<input type="submit" value="キャンセル">
+			</form>
 	</div>
 </body>
 </html>
