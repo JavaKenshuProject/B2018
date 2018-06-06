@@ -48,6 +48,7 @@ public class UserRegistrationServlet extends HttpServlet {
 
 		String action = request.getParameter("ACTION");
 		String url = null;
+		System.out.println(action);
 
 		if("システム利用者追加".equals(action)) {
 			HttpSession session = request.getSession();
@@ -65,7 +66,7 @@ public class UserRegistrationServlet extends HttpServlet {
 			}
 
 
-		}else if ("追加".equals(action)) {
+		}else if ("登録".equals(action)) {
 
 			String userId = request.getParameter("user_id");
 			String password = request.getParameter("password");

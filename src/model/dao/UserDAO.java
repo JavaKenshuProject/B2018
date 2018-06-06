@@ -10,7 +10,7 @@ import model.entity.UserBean;
 /**
  * ログイン、ログアウトと、システムを利用できるユーザの登録
  * @author akiya
- * 
+ *
  */
 public class UserDAO {
 
@@ -64,7 +64,7 @@ public class UserDAO {
 
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(
-						"INSERT INTO m_user VALUES(?,?,?)")){
+						"INSERT INTO m_user(user_id,password,section_code) VALUES(?,?,?)")){
 
 			pstmt.setString(1, userId);
 			pstmt.setString(2, password);
