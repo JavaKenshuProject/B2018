@@ -27,6 +27,9 @@ form {
 	display: inline;
 }
 </style>
+<script>
+
+</script>
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp"%>
@@ -38,21 +41,7 @@ form {
 		String order = (String)session.getAttribute("order");
 		String name = (String)session.getAttribute("name");
 	%>
-	<%
-		user = (UserBean)session.getAttribute("user");
-		if (user.getSectionCode().equals("S1")) {
-	%>
-	<h3>従業員情報の変更や削除は、従業員を選択してからボタンを押してください。</h3>
-	<form action="EmployeeChangeServlet" method="POST">
-		<input type="submit" value="従業員情報変更" name="ACTION">
-	</form>
-	<form action="EmployeeDeleteServlet" method="POST">
-		<input type="submit" value="従業員情報削除" name="ACTION">
-	</form>
-	<hr>
-	<%
-		}
-	%>
+
 	<form action="EmployeeListServlet" method="POST">
 		<table>
 			<tr>
@@ -102,15 +91,25 @@ form {
 		</table>
 	</form>
 	<hr>
-	<a href="menu.jsp"><input type="button" value="戻る"></a>
+	<a href="menu.jsp"><input type="button" value="メニューに戻る"></a>
+	<%
+		user = (UserBean)session.getAttribute("user");
+		if (user.getSectionCode().equals("S1")) {
+	%>
+	<h3>従業員情報の変更や削除は、従業員を選択してからボタンを押してください。</h3>
+	<form method="POST">
 	<hr>
+	<%
+		}
+	%>
+
 	<%
 		List<EmployeeBean> empList = (List<EmployeeBean>) session.getAttribute("empList");
 	%>
 	<%
 		if (empList != null) {
 	%>
-	<div style="height: 340px; overflow-y: scroll;">
+	<div style="height: 320px; overflow-y: scroll;">
 		<table>
 			<tr>
 				<th>選択</th>
@@ -156,6 +155,9 @@ form {
 			%>
 		</table>
 	</div>
+
+	<button type="submit" value="従業員情報変更" name="ACTION" onClick="form.action='EmployeeChangeServlet';return true">従業員情報変更</button> &nbsp;
+	<button type="submit" value="従業員情報削除" name="ACTION" onClick="form.action='EmployeeDeleteServlet';return true">従業員情報削除</button>
 	<%
 		} else {
 	%>
@@ -163,6 +165,7 @@ form {
 	<%
 		}
 	%>
+	</form>
 
 </body>
 </html>
