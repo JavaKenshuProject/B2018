@@ -50,13 +50,19 @@ public class EmployeeChangeServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String url = null;
 
-		String action =request.getParameter("Action");
+		String action =request.getParameter("ACTION");
+		String empCode = request.getParameter("target");
 
 		if(action.equals("従業員情報変更")) {
 			//sectionDAOをインスタンス化してsectioncodeを持ってくる
+			//選択した従業員の情報も持ってくる
 			try{
-				SectionDAO scdao = new SectionDAO();
-				session.setAttribute("scList",scdao.getSectionList());
+				SectionDAO scDao = new SectionDAO();
+				session.setAttribute("scList",scDao.getSectionList());
+
+				EmployeeDAO empDao = new EmployeeDAO();
+				session.setAttribute("employee", empDao.select(empCode));
+
 				url = "employeeChange.jsp";
 
 			}catch(Exception e){
