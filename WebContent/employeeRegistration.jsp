@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="empRegist_style.css" type="text/css">
 </head>
 <body>
+	<%@include file="anywhereHeader.jsp" %>
 	<div class="box">
 	  <h1>従業員情報登録画面</h1>
 	  <h2>登録する従業員情報を入力してください</h2>

@@ -13,6 +13,7 @@ form{
 </style>
 </head>
 <body>
+	<%@include file="anywhereHeader.jsp" %>
 <h2><%=session.getAttribute("empCode") %>の従業員情報を削除しました</h2>
 <br>
 <a href="menu.jsp"><input type="button" value="メニューに戻る"></a>

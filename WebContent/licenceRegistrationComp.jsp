@@ -9,7 +9,7 @@
 <meta name="author" content="Namioka Saki"><title>保有資格登録の完了</title>
 </head>
 <body>
-
+	<%@include file="anywhereHeader.jsp" %>
 <div>
 <h2>保有資格の登録が完了しました。</h2>
 <form action="licenseRegistration.jsp" method="POST">

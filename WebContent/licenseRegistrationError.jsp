@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 </head>
 <body>
-
+	<%@include file="anywhereHeader.jsp" %>
 <div>
 <p class ="title">保有資格を登録できませんでした</p>
 		<p>各項目を正しく入力してください</p>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
 <!DOCTYPE html>
 	<html>
 		<head>
@@ -9,6 +9,7 @@
 			<link rel="stylesheet" href="employeeChange_style.css" type="text/css">
 		</head>
 		<body>
+			<%@include file="anywhereHeader.jsp" %>
 			<div class="box">
 			<h1>従業員情報変更</h1>
 			<h2>現在の内容</h2>
@@ -31,7 +32,7 @@
 				<br>
 				<form action="EmployeeChangeServlet" method="post">
 				<input type="submit" value="変更"></form>
-				
+
 				<form action="employeeList.jsp">
 				<input type="submit" value="キャンセル"></form>
 			</div>

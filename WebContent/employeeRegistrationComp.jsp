@@ -9,7 +9,7 @@
 <link rel = "stylesheet" href ="finished.css" type="text/css">
 </head>
 <body>
-
+	<%@include file="anywhereHeader.jsp" %>
 <div class="box">
 <h2>従業員情報の登録が完了しました。</h2>
 <form>

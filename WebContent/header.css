@@ -3,7 +3,7 @@
 ul#menu {
 	height:42px; background-color:#eeeeee; font-weight:bold;
 }
-li#menu00,li#menu01,li#menu02,li#menu03,li#menu04,li#menu05,li#menu06 {
+li#menu00,li#menu01,li#menu02,li#menu03,li#menu04,li#menu05,li#menu06,li#menu07 {
 	float:left;			/*リスト項目を横に並べる*/
 	display:inline;			/*リスト項目をインライン表示にする*/
 	list-style-type:none;		/*リストマーカー無しにする*/
@@ -18,12 +18,12 @@ li#menu00{
 	font-size:30px;
 }
 
-li#menu01,li#menu02,li#menu03,li#menu04,li#menu06 {
+li#menu01,li#menu02,li#menu03,li#menu04,li#menu05,li#menu07 {
 	width:135px; height:42px;	/*背景画像に合わせたサイズ指定*/
 
 }
-li#menu05{
-	width:180px; height:42px;
+li#menu06{
+	width:140px; height:42px;
 }
 
 ul#menu  a {

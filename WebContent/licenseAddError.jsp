@@ -10,7 +10,7 @@
 <title>新規資格登録エラー</title>
 </head>
 <body>
-
+	<%@include file="anywhereHeader.jsp" %>
 <div>
 <p class ="title">新規資格を登録できませんでした</p>
 		<p>正しく入力してください</p>

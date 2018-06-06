@@ -12,6 +12,7 @@
 </head>
 
 <body>
+	<%@include file="anywhereHeader.jsp" %>
 <div>
 		<p class ="title">システム利用者追加</p>
 		<p>追加したい従業員情報を入力してください</p>

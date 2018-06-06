@@ -18,6 +18,8 @@
 	</style>
 </head>
 <body>
+
+	<%@include file="anywhereHeader.jsp" %>
 <h1>変更ログ一覧画面</h1>
 <a href="menu.jsp"><input type="button" value="戻る"></a>
 <hr>

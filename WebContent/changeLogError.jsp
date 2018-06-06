@@ -8,6 +8,7 @@
 <title>エラー</title>
 </head>
 <body>
+	<%@include file="anywhereHeader.jsp" %>
 <h2>正しく表示できませんでした</h2>
 <br>
 <%=exception.getMessage() %>

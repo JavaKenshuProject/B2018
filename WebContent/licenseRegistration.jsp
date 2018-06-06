@@ -18,7 +18,7 @@
 </script>
 </head>
 <body>
-
+	<%@include file="anywhereHeader.jsp" %>
 <h1>従業員の保有資格の登録</h1>
 <form name="submitForm" action="LicenseRegistrationServlet" method="POST" onsubmit="return check();">
 従業員コード：<input type="text" required><br>

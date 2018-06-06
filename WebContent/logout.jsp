@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
 <!DOCTYPE html>
 	<html>
 		<head>
@@ -9,8 +9,9 @@
 			<link rel="stylesheet" href="logout_style.css" type="text/css">
 		</head>
 		<body>
+	<%@include file="login_menuHeader.jsp" %>
 		<form action="login.jsp" method ="post">
-		
+
 			<div class="box">
 			<h1>お疲れさまでした</h1>
 				<input type="submit" value="ログイン画面に戻る">

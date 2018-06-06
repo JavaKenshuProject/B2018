@@ -10,6 +10,7 @@
 </head>
 
 <body>
+	<%@include file="anywhereHeader.jsp" %>
 <div>
 <p class ="title">従業員情報を登録できませんでした</p>
 		<p>各項目を正しく入力してください</p>

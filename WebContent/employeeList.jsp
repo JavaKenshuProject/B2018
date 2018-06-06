@@ -26,7 +26,7 @@
 	</script>
 </head>
 <body>
-<% UserBean user = (UserBean)session.getAttribute("user");  %>
+	<%@include file="anywhereHeader.jsp" %>
 <h1>従業員一覧画面</h1>
 <% if(user.getSectionCode().equals("S1")){ %>
 <h3>従業員情報の変更や削除は、従業員を選択してからボタンを押してください。</h3>

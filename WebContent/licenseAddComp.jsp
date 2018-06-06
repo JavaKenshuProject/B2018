@@ -10,7 +10,7 @@
 <title>新規資格登録の完了</title>
 </head>
 <body>
-
+	<%@include file="anywhereHeader.jsp" %>
 <div>
 <h2>新規資格の登録が完了しました。</h2>
 <form action="licenseAdd.jsp" method="POST">

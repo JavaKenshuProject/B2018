@@ -8,6 +8,7 @@
 <title>従業員削除エラー画面</title>
 </head>
 <body>
+	<%@include file="anywhereHeader.jsp" %>
 <h2><%=session.getAttribute("empCode") %>の従業員情報が削除できませんでした</h2>
 <br>
 <h3>時間をおいて再度削除処理をおこなってください</h3>

@@ -3,12 +3,17 @@ body{
 margin-top:60px;
 
 }
+
+body{
+	background-color:#c5c5c5;
+}
 #form{
 width:500px;
 height:500px;
 margin:0 auto;
 padding:20px;
 border:1px solid #555;
+background-color:#ffffff;
 
 }
 
@@ -34,11 +39,11 @@ input[type="submit"]{
 width:250px;
 height:50px;
 font-size:20px;
-  background-color: #00947a;
+  background-color: #006a6c;
   color: #fff;
 }
 
-.submit{
+.Psubmit{
 text-align:center;
 
 
@@ -49,7 +54,7 @@ text-align:center;
 padding-bottom:30px;
 }
 
-.submit_button {
+.submit {
   display: inline-block;
   width: 200px;
   height: 54px;
@@ -61,16 +66,16 @@ padding-bottom:30px;
   line-height: 54px;
   outline: none;
 }
-.submit_button::before,
+.submit::before,
 .button::after {
   position: absolute;
   z-index: -1;
   display: block;
   content: '';
 }
-.submit_button,
-.submit_button::before,
-.submit_button::after {
+.submit,
+.submit::before,
+.submit::after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -78,10 +83,10 @@ padding-bottom:30px;
   transition: all .3s;
 }
 
-.submit_button {
+.submit {
   background-color: #333;
   color: #fff;
 }
-.submit_button:hover {
+.submit:hover {
   letter-spacing: 5px;
 }
