@@ -13,7 +13,7 @@
 <br>
 <h3>時間をおいて再度削除処理をおこなってください</h3>
 <form action="EmployeeListServlet" method="POST">
-<input type="submit" value="戻る">
+<input type="submit" value="従業員一覧に戻る">
 </form>
 </body>
 </html>

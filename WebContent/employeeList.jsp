@@ -28,7 +28,12 @@ form {
 }
 </style>
 <script>
-
+	function check(){
+		var form = document.forms.submitForm;
+		var msg = "よろしいですか？";
+		var result = confirm(msg);
+		return result;
+	}
 </script>
 </head>
 <body>
@@ -97,7 +102,7 @@ form {
 		if (user.getSectionCode().equals("S1")) {
 	%>
 	<h3>従業員情報の変更や削除は、従業員を選択してからボタンを押してください。</h3>
-	<form method="POST">
+	<form method="POST" name="submitForm">
 	<hr>
 	<%
 		}
@@ -157,7 +162,7 @@ form {
 	</div>
 
 	<button type="submit" value="従業員情報変更" name="ACTION" onClick="form.action='EmployeeChangeServlet';return true">従業員情報変更</button> &nbsp;
-	<button type="submit" value="従業員情報削除" name="ACTION" onClick="form.action='EmployeeDeleteServlet';return true">従業員情報削除</button>
+	<button type="submit" value="従業員情報削除" name="ACTION" onClick="form.action='EmployeeDeleteServlet';return check()">従業員情報削除</button>
 	<%
 		} else {
 	%>

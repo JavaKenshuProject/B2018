@@ -81,6 +81,15 @@ public class EmployeeListServlet extends HttpServlet {
 				session.setAttribute("name",name);
 				eDao = new EmployeeDAO();
 				empList = eDao.select(name, sex, sectionName, initial, sort, order);
+			}else {
+				eDao = new EmployeeDAO();
+				empList = eDao.selectAll();
+				session.removeAttribute("initial");
+				session.removeAttribute("section_name");
+				session.removeAttribute("sex");
+				session.removeAttribute("sort");
+				session.removeAttribute("order");
+				session.removeAttribute("name");
 			}
 			url = "employeeList.jsp";
 		}catch(Exception e) {
