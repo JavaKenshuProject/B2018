@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="model.entity.EmployeeBean"%>
+    import="model.entity.EmployeeBean"
+    import="model.entity.SectionBean"
+    import="java.util.List"%>
 
 <!DOCTYPE html>
 	<html>
@@ -35,20 +37,22 @@
 			<hr>
 			<br>
 			<h2>変更内容</h2>
-				氏：<input type="text">　　名：<input type="text"><br>
-				氏（フリガナ）：<input type="text">　　名（フリガナ）：<input type="text"><br>
-				性別：<input type="radio">男
-					  <input type="radio">女<br>
-				所属部署名：<select>
+			<form action="EmployeeChangeServlet" method="post">
+				氏：<input type="text" name = "l_name">　　名：<input type="text" name = "f_name"><br>
+				氏（フリガナ）：<input type="text" name="l_kana_name">　　名（フリガナ）：<input type="text" name = "f_kana_name"><br>
+				性別：<input type="radio" value="0" name="sex">男
+					  <input type="radio"value="1" name="sex">女<br>
+				所属部署名：<select name="section_code">
 					<option>選択してください</option>
-					<option value="総務部">総務部</option>
-					<option value="人事部">人事部</option>
+					<%List<SectionBean> sectionList = (List<SectionBean>)session.getAttribute("scList") ; %>
+					<%for(SectionBean section: sectionList){%>
+					<option value="<%=section.getSectionCode()%>"><%=section.getSectionName() %></option>
+				<%} %>
 				</select>
 				<br>
 				<hr>
 				<br>
-				<form action="EmployeeChangeServlet" method="post">
-				<input type="submit" value="変更"></form>
+				<input type="submit" value="変更" name="ACTION"></form>
 
 				<form action="employeeList.jsp">
 				<input type="submit" value="キャンセル"></form>

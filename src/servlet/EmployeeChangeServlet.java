@@ -90,6 +90,9 @@ public class EmployeeChangeServlet extends HttpServlet {
 			bean.setfKanaName(FKanaName);
 			bean.setSex(Sex);
 			bean.setSectionCode(SectionCode);
+			EmployeeBean emp = (EmployeeBean)session.getAttribute("employee");
+			bean.setEmpCode(emp.getEmpCode());
+			
 
 			//Sessionを生成し値が入ったbeanを格納する
 			session.setAttribute("bean", bean);

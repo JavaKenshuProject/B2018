@@ -240,6 +240,9 @@ public class EmployeeDAO {
 		}
 		sql = sql.substring(0, sql.length()-2);
 		sql += " WHERE emp_code = ?";
+		
+		System.out.println(sql);
+		
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 
@@ -270,7 +273,7 @@ public class EmployeeDAO {
 				index++;
 			}
 			pstmt.setString(index, emp.getEmpCode());
-
+			
 			pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
