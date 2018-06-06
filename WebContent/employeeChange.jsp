@@ -30,8 +30,11 @@
 				<br>
 				<hr>
 				<br>
-				<input type="submit" value="変更">　　
-				<input type="submit" value="キャンセル">
+				<form action="EmployeeChangeServlet" method="post">
+				<input type="submit" value="変更"></form>>
+				<form action="employeeList.jsp">
+				<input type="submit" value="キャンセル"></form>
 			</form>
+			</div>
 		</body>
 	</html>
