@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>従業員情報登録画面</title>
-<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
+<link rel="stylesheet" href="employeeRegistration.css" type="text/css">
 <script>
     function check(){
         var form = document.forms.submitForm;

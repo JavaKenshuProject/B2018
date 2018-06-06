@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import model.entity.UserBean;
 
 /**
- * ログイン、ログアウトと、システムを利用できるユーザの登録
+ * ユーザーのDAO
  * @author akiya
  *
  */
@@ -20,7 +20,7 @@ public class UserDAO {
 	 * 対応するBeanオブジェクトを返す
 	 * @param userId
 	 * @param password
-	 * @return 認証曳航したユーザのBeanオブジェクト
+	 * @return 認証成功したユーザのBeanオブジェクト
 	 * @throws Exception
 	 */
 
