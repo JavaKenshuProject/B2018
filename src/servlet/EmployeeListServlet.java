@@ -62,11 +62,17 @@ public class EmployeeListServlet extends HttpServlet {
 			}else if("絞り込み".equals(action)){
 				String initial = request.getParameter("initial");
 				String sectionName = request.getParameter("section_name");
-				byte sex = Byte.valueOf(request.getParameter("sex"));
+				byte sex = Byte.parseByte(request.getParameter("sex"));
 				String sort = request.getParameter("sort");
 				String order = request.getParameter("order");
 				String name = request.getParameter("name");
 
+				session.setAttribute("initial",initial);
+				session.setAttribute("section_name",sectionName);
+				session.setAttribute("sex",String.valueOf(sex));
+				session.setAttribute("sort",sort);
+				session.setAttribute("order",order);
+				session.setAttribute("name",name);
 				eDao = new EmployeeDAO();
 				empList = eDao.select(name, sex, sectionName, initial, sort, order);
 			}
