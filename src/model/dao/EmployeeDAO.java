@@ -41,8 +41,8 @@ public class EmployeeDAO {
 		kanaMap.put("ラ", "^(ラ|リ|ル|レ|ロ)+");
 		kanaMap.put("ワ", "^(ワ|ヲ|ン)+");
 		//SQL文作成
-		String sql = "SELECT me.emp_code,me.l_name,me.f_name,me.l_kana_name,me.f_kana_name,me.sex,me.birth_day,me.emp_date,ms.section_name"
-				+ " FROM m_employee me JOIN m_section ms ON me.section_code = ms.section_code"
+		String sql = "SELECT me.emp_code,me.l_name,me.f_name,me.l_kana_name,me.f_kana_name,me.sex,me.birth_day,me.emp_date,ms.section_name,tgl.license_code"
+				+ " FROM (m_employee me JOIN m_section ms ON me.section_code = ms.section_code) LEFT OUTER JOIN t_get_license tgl ON me.emp_code = tgl.emp_code"
 				+ " WHERE (me.l_name LIKE ? OR me.f_name LIKE ? OR me.l_kana_name LIKE ? OR me.f_kana_name LIKE ?)"
 				+ " AND me.l_kana_name REGEXP ? AND ms.section_name LIKE ?";
 		if(sex >= 0) {
@@ -65,6 +65,7 @@ public class EmployeeDAO {
 			}
 
 			try(ResultSet res = pstmt.executeQuery()){
+				//boolean next = res.next();
 				while(res.next()) {
 					if(empList == null) {
 						empList = new ArrayList<>();
@@ -79,7 +80,19 @@ public class EmployeeDAO {
 					emp.setBirthDay(res.getDate("birth_day"));
 					emp.setSectionName(res.getString("section_name"));
 					emp.setEmpDate(res.getDate("emp_date"));
-
+					/*
+					List<String> licenseCodeList = new ArrayList<>();
+					while(true) {
+						next = res.next();
+						//従業員コードが同じ かつ まだ次がある
+						if(!res.getString("emp_code").equals(emp.getEmpCode()) || next) {
+							licenseCodeList.add(res.getString("license_code"));
+						}else {
+							break;
+						}
+					}
+					emp.setLicenseList(licenseCodeList);
+					*/
 					empList.add(emp);
 				}
 			}catch(Exception e) {
@@ -153,14 +166,15 @@ public class EmployeeDAO {
 	public List<EmployeeBean> selectAll() throws SQLException, ClassNotFoundException{
 		List<EmployeeBean> empList = null;
 
-		String sql = "SELECT me.emp_code,me.l_name,me.f_name,me.l_kana_name,me.f_kana_name,me.sex,me.birth_day,me.emp_date,ms.section_name"
-				+ " FROM m_employee me JOIN m_section ms ON me.section_code = ms.section_code";
+		String sql = "SELECT me.emp_code,me.l_name,me.f_name,me.l_kana_name,me.f_kana_name,me.sex,me.birth_day,me.emp_date,ms.section_name,tgl.license_code"
+				+ " FROM (m_employee me JOIN m_section ms ON me.section_code = ms.section_code) LEFT OUTER JOIN t_get_license tgl ON me.emp_code = tgl.emp_code"
+				+ " ORDER BY me.emp_code ASC";
 
 		try(Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();
 				ResultSet res = stmt.executeQuery(sql)){
-
-			while(res.next()) {
+			boolean next = res.next();
+			while(next) {
 				if(empList == null) {
 					empList = new ArrayList<>();
 				}
@@ -175,6 +189,18 @@ public class EmployeeDAO {
 				emp.setSectionName(res.getString("section_name"));
 				emp.setEmpDate(res.getDate("emp_date"));
 
+				List<String> licenseCodeList = new ArrayList<>();
+				while(true) {
+					System.out.println(res.getString("license_code"));
+					next = res.next();
+					//従業員コードが同じ かつ まだ次がある
+					if(res.getString("emp_code").equals(emp.getEmpCode()) && next) {
+						licenseCodeList.add(res.getString("license_code"));
+					}else {
+						break;
+					}
+				}
+				emp.setLicenseList(licenseCodeList);
 				empList.add(emp);
 			}
 		}catch(SQLException e) {
@@ -240,9 +266,9 @@ public class EmployeeDAO {
 		}
 		sql = sql.substring(0, sql.length()-2);
 		sql += " WHERE emp_code = ?";
-		
+
 		System.out.println(sql);
-		
+
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 
@@ -273,7 +299,7 @@ public class EmployeeDAO {
 				index++;
 			}
 			pstmt.setString(index, emp.getEmpCode());
-			
+
 			pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
