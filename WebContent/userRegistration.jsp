@@ -37,10 +37,11 @@
            %>
 		</select>
 			<p class="submit">
-			<input type="submit" name="action" value="登録">　　
-			<input type="submit" name="action" value="キャンセル">
+			<input type="submit" name="ACTION" value="登録">　　</form>
+			<form action="menu.jsp" method="POST">
+			<input type="submit" value="キャンセル">
+			</form>
 			</p>
-	</form>
 </div>
 
 </body>

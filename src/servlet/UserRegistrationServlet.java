@@ -46,7 +46,7 @@ public class UserRegistrationServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 
-		String action = request.getParameter("action");
+		String action = request.getParameter("ACTION");
 		String url = null;
 
 
@@ -59,7 +59,7 @@ public class UserRegistrationServlet extends HttpServlet {
 
 				session.setAttribute("sectionlist", sectionlist);
 
-				url = "employeeRegistration.jsp";
+				url = "userRegistration.jsp";
 
 			}catch(Exception e) {
 				url = "employeeListError.jsp";
@@ -88,8 +88,6 @@ public class UserRegistrationServlet extends HttpServlet {
 			}
 
 
-		}else if("キャンセル".equals(action)) {
-			url = "menu.jsp";
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher(url);

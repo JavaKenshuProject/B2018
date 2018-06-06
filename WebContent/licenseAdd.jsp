@@ -24,7 +24,7 @@
 資格コード：<input type="text" name="license_code" required><br>
 資格名：<input type="text" name="license_name" required><br>
 <br>
-<input type="submit" value="追加" name="Action">&nbsp;
+<input type="submit" value="追加" name="ACTION">&nbsp;
 </form>
 <form action="menu.jsp" method="POST">
 <input type="submit" value="キャンセル">

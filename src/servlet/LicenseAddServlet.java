@@ -44,34 +44,43 @@ public class LicenseAddServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//入力された値を取ってくる
 		request.setCharacterEncoding("UTF-8");
-		String licenseCode = request.getParameter("license_code");
-		String licenseName = request.getParameter("license_name");
-
-		//LicenseBeanをインスタンス化して値をセットして取り出す
-		LicenseBean bean = new LicenseBean();
-		bean.setLicenseCode(licenseCode);
-		bean.setLicenseName(licenseName);
-
-
-		//beanに入った値をsessionに入れて渡す
-		HttpSession session =request.getSession();
-		session.setAttribute("licenseaddbean",bean );
-
-		response.setContentType("text/html; charset=UTF-8");
 		String url =null;
+		String action = request.getParameter("ACTION");
 
-		//try内でエラーが出たらエラー画面へ遷移する
-		try {
-			LicenseDAO dao = new LicenseDAO();
-			dao.licenseAdd(licenseCode, licenseName);
+		if("新規資格追加".equals(action)) {
 
-			url = "licenseAddComp.jsp";
+			url="licenseAdd.jsp";
 
-		} catch (ClassNotFoundException | SQLException e) {
-			url = "licenceAddError.jsp";
+		}else if("追加".equals(action)){
 
+			//入力された値を取ってくる
+			String licenseCode = request.getParameter("license_code");
+			String licenseName = request.getParameter("license_name");
+
+			//LicenseBeanをインスタンス化して値をセットして取り出す
+			LicenseBean bean = new LicenseBean();
+			bean.setLicenseCode(licenseCode);
+			bean.setLicenseName(licenseName);
+
+
+			//beanに入った値をsessionに入れて渡す
+			HttpSession session =request.getSession();
+			session.setAttribute("licenseaddbean",bean );
+
+			response.setContentType("text/html; charset=UTF-8");
+
+			//try内でエラーが出たらエラー画面へ遷移する
+			try {
+				LicenseDAO dao = new LicenseDAO();
+				dao.licenseAdd(licenseCode, licenseName);
+
+				url = "licenseAddComp.jsp";
+
+			} catch (ClassNotFoundException | SQLException e) {
+				url = "licenceAddError.jsp";
+
+			}
 		}
 
 

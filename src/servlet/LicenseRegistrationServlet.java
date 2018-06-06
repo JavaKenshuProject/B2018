@@ -45,45 +45,51 @@ public class LicenseRegistrationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//入力された内容を取り出す
 		request.setCharacterEncoding("UTF-8");
-
-		String empCode=request.getParameter("emp_code");
-		String licenseName=request.getParameter("license_name");
-		Date licenseDate=Date.valueOf(request.getParameter("get_license_date"));
-
-		//LicenseBeanを生成し、値を受け渡す
-		LicenseBean bean = new LicenseBean();
-		bean.setEmpCode(empCode);
-		bean.setLicenseName(licenseName);
-		bean.setGetLicenseDate(licenseDate);
-
-		//Sessionを生成し、値が入ったbeanを格納する
-		HttpSession session = request.getSession();
-		session.setAttribute("licensebean", bean);
-
-		response.setContentType("text/html; charset=UTF-8");
-
 		String url =null;
+		String action = request.getParameter("ACTION");
+		//入力された内容を取り出す
+
+		if("保有資格追加".equals(action)) {
+			url = "licenseRegistration.jsp";
+
+		}else if("追加".equals(action)){
+
+			String empCode=request.getParameter("emp_code");
+			String licenseName=request.getParameter("license_name");
+			Date licenseDate=Date.valueOf(request.getParameter("get_license_date"));
+
+			//LicenseBeanを生成し、値を受け渡す
+			LicenseBean bean = new LicenseBean();
+			bean.setEmpCode(empCode);
+			bean.setLicenseName(licenseName);
+			bean.setGetLicenseDate(licenseDate);
+
+			//Sessionを生成し、値が入ったbeanを格納する
+			HttpSession session = request.getSession();
+			session.setAttribute("licensebean", bean);
+
+			response.setContentType("text/html; charset=UTF-8");
 
 
-		//もし取得日が入力されなかったらif文内の処理、入力されたらelse内の処理をする
-		try {
-			LicenseDAO dao =new LicenseDAO();
+			//もし取得日が入力されなかったらif文内の処理、入力されたらelse内の処理をする
+			try {
+				LicenseDAO dao =new LicenseDAO();
 
-			if(licenseDate==null) {
-				dao.licenseRegistration(empCode, licenseName);
-				url = "licenceRegistrationComp.jsp";
+				if(licenseDate==null) {
+					dao.licenseRegistration(empCode, licenseName);
+					url = "licenceRegistrationComp.jsp";
 
-			}else {
-				dao.licenseRegistration(empCode, licenseName, licenseDate);
-				url = "licenceRegistrationComp.jsp";
+				}else {
+					dao.licenseRegistration(empCode, licenseName, licenseDate);
+					url = "licenceRegistrationComp.jsp";
+				}
+
+
+			} catch (ClassNotFoundException | SQLException e) {
+				url = "licenceRegistrationError.jsp";
+
 			}
-
-
-		} catch (ClassNotFoundException | SQLException e) {
-			url = "licenceRegistrationError.jsp";
-
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher(url);
