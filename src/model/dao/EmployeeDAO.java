@@ -29,12 +29,12 @@ public class EmployeeDAO {
 		//SQL文作成
 		String sql = "SELECT me.emp_code,me.l_name,me.f_name,me.l_kana_name,me.f_kana_name,me.sex,me.birth_day,me.emp_date,ms.section_name"
 				+ " FROM m_employee me JOIN m_section ms ON me.section_code = ms.section_code"
-				+ " WHERE (l_name LIKE ? OR f_name LIKE ? OR l_kana_name LIKE ? OR f_kana_name LIKE ?)"
-				+ " AND l_kana_name LIKE ? AND section LIKE ?";
-		if(sex != 0) {
+				+ " WHERE (me.l_name LIKE ? OR me.f_name LIKE ? OR me.l_kana_name LIKE ? OR me.f_kana_name LIKE ?)"
+				+ " AND me.l_kana_name LIKE ? AND ms.section_name LIKE ?";
+		if(sex >= 0) {
 			sql += " AND sex = ?";
 		}
-		sql += "ORDER BY me."+ sortColumn;
+		sql += " ORDER BY me."+ sortColumn;
 		sql += " " + order;
 
 		try(Connection con = ConnectionManager.getConnection();
@@ -46,7 +46,7 @@ public class EmployeeDAO {
 			pstmt.setString(4, "%"+name+"%");	//名前フリガナに含むか
 			pstmt.setString(5, initial+"%");	//頭文字
 			pstmt.setString(6, "%"+section+"%");	//部署
-			if(sex != 0) {
+			if(sex >= 0) {
 				pstmt.setByte(7, sex);
 			}
 
@@ -82,6 +82,51 @@ public class EmployeeDAO {
 		}
 
 		return empList;
+	}
+
+	/**
+	 * ある従業員コードの従業員情報取得
+	 *
+	 * @param empCode 従業員コード
+	 * @return 従業員情報
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
+	public EmployeeBean select(String empCode) throws SQLException, ClassNotFoundException{
+		EmployeeBean employee = null;
+
+		String sql = "SELECT me.emp_code,me.l_name,me.f_name,me.l_kana_name,me.f_kana_name,me.sex,me.birth_day,me.emp_date,ms.section_name"
+				+ " FROM m_employee me JOIN m_section ms ON me.section_code = ms.section_code WHERE me.emp_code = ?";
+
+		try(Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)){
+
+			pstmt.setString(1, empCode);
+
+			try(ResultSet res = pstmt.executeQuery()){
+				if(res.next()) {
+					employee = new EmployeeBean();
+					employee.setEmpCode(res.getString("emp_code"));
+					employee.setlName(res.getString("l_name"));
+					employee.setfName(res.getString("f_name"));
+					employee.setlKanaName(res.getString("l_kana_name"));
+					employee.setfKanaName(res.getString("f_kana_name"));
+					employee.setSex(res.getByte("sex"));
+					employee.setBirthDay(res.getDate("birth_day"));
+					employee.setSectionName(res.getString("section_name"));
+					employee.setEmpDate(res.getDate("emp_date"));
+				}
+			}catch(Exception e) {
+				throw e;
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+			throw e;
+		}catch(ClassNotFoundException e) {
+			e.printStackTrace();
+			throw e;
+		}
+		return employee;
 	}
 
 	/**
