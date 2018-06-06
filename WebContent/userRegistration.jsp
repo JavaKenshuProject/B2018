@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>システム利用者追加画面</title>
-<link rel="Stylesheet" href="userRegistration.css" type="text/css" media="all" />
+<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
 <script>
     function check(){
         var form = document.forms.submitForm;
@@ -22,7 +22,7 @@
 <body>
 	<%@include file="anywhereHeader.jsp" %>
 <div>
-		<p class ="title">システム利用者追加</p>
+		<p class="all-title">システム利用者追加</p>
 		<p>追加したい従業員情報を入力してください</p>
 
 		<form name="submitForm" action="UserRegistrationServlet" method="POST" onsubmit="return check();">

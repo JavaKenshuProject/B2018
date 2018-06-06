@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="Stylesheet" href=".css" type="text/css" media="all" />
+<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
 <meta name="author" content="Namioka Saki">
 <meta charset="UTF-8">
 <title>保有資格登録画面</title>
@@ -20,8 +20,8 @@
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp" %>
-
-<h1>従業員の保有資格の登録</h1>
+<div>
+<p class="all-title">従業員の保有資格の登録</p>
 <form name="submitForm" action="LicenseRegistrationServlet" method="POST" onsubmit="return check();">
 従業員コード：<input type="text" name="emp_code"required><br>
 資格名：
@@ -46,6 +46,6 @@
 <form action="menu.jsp" method="POST">
 <input type="submit" value="キャンセル">
 </form>
-
+</div>
 </body>
 </html>
