@@ -10,6 +10,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>従業員一覧画面</title>
+<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
 <style>
 div table {
 	border: 1px solid black;

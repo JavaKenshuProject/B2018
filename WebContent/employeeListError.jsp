@@ -6,11 +6,14 @@
 <head>
 <meta charset="UTF-8" />
 <title>エラー</title>
+<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp" %>
-<h2>正しく表示できませんでした</h2>
+<div>
+<p class="all-title">正しく表示できませんでした</p>
 <h3>時間をおいて再度アクセスしてください</h3>
 <a href="menu.jsp"><input type="button" value="メニューに戻る"></a>
+</div>
 </body>
 </html>

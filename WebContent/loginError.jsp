@@ -7,14 +7,14 @@
 <head>
 <meta charset="UTF-8">
 <title>ログインエラー</title>
-<link rel="Stylesheet" href="loginError.css" type="text/css" media="all" />
+<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
 <meta name="author" content="Namioka Saki">
 </head>
 
 <body>
 	<%@include file="login_menuHeader.jsp"%>
 	<div>
-		<p class="title">SORRY</p>
+		<p class="error-title">SORRY</p>
 		<p>
 			ログインできませんでした<br> ユーザIDとパスワードを正しく入力してください
 		</p>

@@ -7,6 +7,7 @@
 <meta charset="UTF-8" />
 <meta name="author" content="Namioka Saki">
 <title>新規資格追加画面</title>
+<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
 <script>
     function check(){
         var form = document.forms.submitForm;
@@ -19,7 +20,8 @@
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp" %>
-<h1>新規資格の追加</h1>
+<div>
+<p class="all-title">新規資格の追加</p>
 <form  name="submitForm" action="LicenseAddServlet"method="POST" onsubmit="return check();">
 資格コード：<input type="text" name="license_code" required><br>
 資格名：<input type="text" name="license_name" required><br>
@@ -29,6 +31,6 @@
 <form action="menu.jsp" method="POST">
 <input type="submit" value="キャンセル">
 </form>
-
+</div>
 </body>
 </html>

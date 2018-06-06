@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>従業員情報登録画面</title>
-<link rel="stylesheet" href="empRegist_style.css" type="text/css">
+<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
 <script>
     function check(){
         var form = document.forms.submitForm;
@@ -21,8 +21,8 @@
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp" %>
-	<div class="box">
-	  <h1>従業員情報登録画面</h1>
+	<div>
+	  <p class="all-title">従業員情報登録画面</p>
 	  <h2>登録する従業員情報を入力してください</h2>
 	  <br>
 	  <hr><br>

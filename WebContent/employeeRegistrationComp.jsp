@@ -6,12 +6,12 @@
 <head>
 <meta charset ="UTF-8">
 <title>従業員情報登録完了</title>
-<link rel = "stylesheet" href ="finished.css" type="text/css">
+<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp" %>
-<div class="box">
-<h2>従業員情報の登録が完了しました。</h2>
+<div>
+<p class="all-title">従業員情報の登録が完了しました。</p>
 <form>
 <a href="employeeRegistration.jsp"><input type="button" value="続けて登録する"></a>　　
 <a href="menu.jsp"><input type="button" value="メニュー画面へ"></a>

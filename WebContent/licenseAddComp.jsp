@@ -6,13 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="author" content="Namioka Saki">
-<link rel = "stylesheet" href =".css" type="text/css">
+<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
 <title>新規資格登録の完了</title>
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp" %>
 <div>
-<h2>新規資格の登録が完了しました。</h2>
+<p class="all-title">新規資格の登録が完了しました。</p>
 <form action="licenseAdd.jsp" method="POST">
 <input type="submit" value="続けて登録する"><span>&nbsp;&nbsp;</span>
 </form>

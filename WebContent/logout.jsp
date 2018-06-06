@@ -6,14 +6,15 @@
 		<head>
 			<meta charset="UTF-8">
 			<title>ログアウト画面</title>
-			<link rel="stylesheet" href="logout_style.css" type="text/css">
+			<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
 		</head>
 		<body>
 	<%@include file="login_menuHeader.jsp" %>
 		<form action="login.jsp" method ="post">
 
-			<div class="box">
-			<h1>お疲れさまでした</h1>
+			<div>
+			<p class="form-title">ログアウト完了</p>
+			<p>お疲れさまでした</p>
 				<input type="submit" value="ログイン画面に戻る">
 			</div>
 			</form>

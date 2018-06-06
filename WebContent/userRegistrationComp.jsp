@@ -6,12 +6,12 @@
 <head>
 <meta charset ="UTF-8">
 <title>システム利用者追加完了</title>
-<link rel = "stylesheet" href ="finished.css" type="text/css">
+<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp" %>
-<div class="box">
-<h2>システム利用者の追加登録が完了しました。</h2>
+<div>
+<p class="all-title">システム利用者の追加登録が完了しました。</p>
 <form>
 <a href="menu.jsp"><input type="button" value="メニュー画面へ"></a>
 </form>

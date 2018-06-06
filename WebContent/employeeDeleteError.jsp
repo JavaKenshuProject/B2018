@@ -6,14 +6,17 @@
 <head>
 <meta charset="UTF-8" />
 <title>従業員削除エラー画面</title>
+<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp" %>
-<h2><%=session.getAttribute("empCode") %>の従業員情報が削除できませんでした</h2>
+<div>
+<p class="all-title"><%=session.getAttribute("empCode") %>の従業員情報が削除できませんでした</p>
 <br>
 <h3>時間をおいて再度削除処理をおこなってください</h3>
 <form action="EmployeeListServlet" method="POST">
 <input type="submit" value="従業員一覧に戻る">
 </form>
+</div>
 </body>
 </html>

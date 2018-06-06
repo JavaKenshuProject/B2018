@@ -6,20 +6,18 @@
 <head>
 <meta charset="UTF-8" />
 <title>従業員削除完了画面</title>
-<style>
-form{
-	display: inline;
-}
-</style>
+<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp" %>
-<h2><%=session.getAttribute("empCode") %>の従業員情報を削除しました</h2>
+<div>
+<p class="all-title"><%=session.getAttribute("empCode") %>の従業員情報を削除しました</p>
 <br>
 <a href="menu.jsp"><input type="button" value="メニューに戻る"></a>
 &nbsp;
 <form action="EmployeeListServlet" method="POST">
 <input type="submit" value="従業員一覧に戻る">
 </form>
+</div>
 </body>
 </html>
