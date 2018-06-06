@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
+<link rel="stylesheet" href="error.css" type="text/css">
 <meta name="author" content="Namioka Saki">
 <meta charset="UTF-8">
 <title>新規資格登録エラー</title>

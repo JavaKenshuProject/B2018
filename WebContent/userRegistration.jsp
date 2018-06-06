@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>システム利用者追加画面</title>
-<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
+<link rel="stylesheet" href="userRegistration.css" type="text/css">
 <script>
     function check(){
         var form = document.forms.submitForm;

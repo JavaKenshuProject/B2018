@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
+<link rel="stylesheet" href="comp.css" type="text/css">
 <meta charset="UTF-8" />
 <meta name="author" content="Namioka Saki"><title>保有資格登録の完了</title>
 </head>

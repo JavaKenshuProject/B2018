@@ -5,7 +5,7 @@
 <html>
 <head>
 <title>保有資格登録エラー</title>
-<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
+<link rel="stylesheet" href="error.css" type="text/css">
 <meta name="author" content="Namioka Saki">
 <meta charset="UTF-8">
 </head>

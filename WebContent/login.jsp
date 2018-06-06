@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン画面</title>
-<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
+<link rel="stylesheet" href="login.css" type="text/css">
 <meta name="author" content="Namioka Saki">
 </head>
 <body>

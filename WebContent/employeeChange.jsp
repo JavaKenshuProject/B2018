@@ -9,7 +9,7 @@
 		<head>
 			<meta charset="UTF-8">
 			<title>従業員情報変更画面</title>
-			<link rel="stylesheet" href="employeeChange_style.css" type="text/css">
+			<link rel="stylesheet" href="employeeChange.css" type="text/css">
 		</head>
 		<body>
 			<%@include file="anywhereHeader.jsp" %>
@@ -32,7 +32,7 @@
 			<%}%>　
 			所属部署:
 			<%=emp.getSectionName()%>
-			
+
 			<br>
 			<hr>
 			<br>

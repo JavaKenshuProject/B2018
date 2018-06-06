@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ログインエラー</title>
-<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
+<link rel="stylesheet" href="error.css" type="text/css">
 <meta name="author" content="Namioka Saki">
 </head>
 

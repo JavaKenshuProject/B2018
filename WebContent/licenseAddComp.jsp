@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="author" content="Namioka Saki">
-<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
+<link rel="stylesheet" href="comp.css" type="text/css">
 <title>新規資格登録の完了</title>
 </head>
 <body>

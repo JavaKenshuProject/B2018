@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>登録エラー</title>
-<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
+<link rel="stylesheet" href="error.css" type="text/css">
 </head>
 
 <body>

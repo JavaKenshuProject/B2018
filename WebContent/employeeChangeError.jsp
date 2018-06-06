@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>エラー</title>
-<link rel="Stylesheet" href="employeeChangeError.css" type="text/css" media="all" />
+<link rel="Stylesheet" href="error.css" type="text/css" media="all" />
 <meta name="author" content="Namioka Saki">
 </head>
 

@@ -6,7 +6,7 @@
 		<head>
 			<meta charset="UTF-8">
 			<title>ログアウト画面</title>
-			<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
+			<link rel="stylesheet" href="logout.css" type="text/css">
 		</head>
 		<body>
 	<%@include file="login_menuHeader.jsp" %>
