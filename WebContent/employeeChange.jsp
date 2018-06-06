@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="model.entity.EmployeeBean"%>
 
 <!DOCTYPE html>
 	<html>
@@ -13,7 +14,23 @@
 			<div class="box">
 			<h1>従業員情報変更</h1>
 			<h2>現在の内容</h2>
-			氏名：○○　　氏名（フリガナ）：○○　　性別：○○　　所属部署名：○○
+			<%EmployeeBean emp = (EmployeeBean)session.getAttribute("employee"); %>
+			氏名:
+			<%=emp.getlName()%>
+			<%=emp.getfName()%>　
+			氏名(フリガナ)
+			<%=emp.getlKanaName()%>
+			<%=emp.getfKanaName()%>　
+			性別:
+			<%byte sex = emp.getSex(); %>
+			<%if(sex == 0){ %>
+			男
+			<%}else if(sex == 1){%>
+			女
+			<%}%>　
+			所属部署:
+			<%=emp.getSectionName()%>
+			
 			<br>
 			<hr>
 			<br>
