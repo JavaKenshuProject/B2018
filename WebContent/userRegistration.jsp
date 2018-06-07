@@ -37,7 +37,7 @@
 		    }
            %>
 		</select></p>
-			<input class="submit" type="submit" name="ACTION" value="登録"></form>
+			<input class="submit" type="submit" name="ACTION" value=" 登録 "></form>
 			<form class="yoko" action="menu.jsp" method="POST" >
 			<input class="submit" type="submit" value="キャンセル">
 			</form>
