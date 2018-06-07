@@ -16,7 +16,7 @@
 <br>
 <%=exception.getMessage() %>
 時間をおいて再度アクセスしてください
-<input class="submit" type="button" value="戻る">
+<input class="submit" type="button" value="　戻る　">
 </div>
 </body>
 </html>

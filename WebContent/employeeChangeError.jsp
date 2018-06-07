@@ -16,7 +16,7 @@
 <p class ="error-title">SORRY</p>
 		各項目を正しく入力してください
 		<form action="employeeChange.jsp"method="post">
-		<input class="submit" id="back_button" type="submit" value="戻る">
+		<input class="submit" id="back_button" type="submit" value="　戻る　">
 	</form>
 </div>
 

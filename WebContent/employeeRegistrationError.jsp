@@ -16,7 +16,7 @@
 		従業員情報を登録できませんでした<br>
 		各項目を正しく入力してください
 		<form>
-		<a href="employeeRegistration.jsp"><input class="submit" id="back_button" type="button"  value="戻る"></a>
+		<a href="employeeRegistration.jsp"><input class="submit" id="back_button" type="button"  value="　戻る　"></a>
 	</form>
 </div>
 
