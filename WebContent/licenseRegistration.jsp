@@ -9,14 +9,6 @@
 <meta name="author" content="Namioka Saki">
 <meta charset="UTF-8">
 <title>保有資格登録画面</title>
-<script>
-    function check(){
-        var form = document.forms.submitForm;
-        var msg = "この内容で保有資格を登録しますか？";
-        var result = confirm(msg);
-        return result;
-    }
-</script>
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp" %>
@@ -38,7 +30,7 @@
 
 </select>
 <br>
-取得日(任意)：<input type="date" name="get_license_date"  min="0000-01-01" max="9999-12-31"><br>
+取得日(任意)：<input type="date" id="date" name="get_license_date" min="0000-01-01"><br>
 <br>
 <br>
 <input class="submit" type="submit" value="追加" name="ACTION">&nbsp;
@@ -47,5 +39,24 @@
 <input class="submit" type="submit" value="キャンセル">
 </form>
 </div>
+
+<script>
+    function check(){
+        var form = document.forms.submitForm;
+        var msg = "この内容で保有資格を登録しますか？";
+        var result = confirm(msg);
+        return result;
+    }
+
+    window.onload = function(){
+    	var date = new Date();
+
+        var yyyy = date.getFullYear();
+        var mm = ("0"+(date.getMonth()+1)).slice(-2);
+        var dd = ("0"+date.getDate()).slice(-2);
+
+    	document.getElementById("date").max=yyyy+'-'+mm+'-'+dd;
+    }
+</script>
 </body>
 </html>

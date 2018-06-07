@@ -10,14 +10,6 @@
 <meta charset="UTF-8">
 <title>従業員情報登録画面</title>
 <link rel="stylesheet" href="employeeRegistration.css" type="text/css">
-<script>
-    function check(){
-        var form = document.forms.submitForm;
-        var msg = "この内容で従業員情報を登録しますか？";
-        var result = confirm(msg);
-        return result;
-    }
-</script>
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp" %>
@@ -33,7 +25,7 @@
 		  氏名（フリガナ）（全角カタカナ）：<input type="text" name="l_kana_name" placeholder="氏(フリガナ)" maxlength="24" pattern="^[ア-ン゛゜ァ-ォャ-ョー「」、]+$" required>
 		  					<input type="text" name="f_kana_name" placeholder="名(フリガナ)" maxlength="24" pattern="^[ア-ン゛゜ァ-ォャ-ョー「」、]+$" required><br>
 		  性別：<input type="radio" name="sex" value="0" checked="checked">男 <input type="radio" name="sex" value="1">女<br>
-		  生年月日：<input type="date" name="birth_day" min="0000-01-01" max="9999-12-31" required><br>
+		  生年月日：<input type="date" id="date" name="birth_day" min="0000-01-01" required><br>
 		  所属部署名：<select name="section_code">
 		    <%
 
@@ -52,7 +44,7 @@
 
 
 		  </select><br>
-		  入社日：<input type="date" name="emp_date" min="0000-01-01" max="9999-12-31" required><br>
+		  入社日：<input type="date" id="date2" name="emp_date" min="0000-01-01" required><br>
 		  保有資格：<select name="license_code">
 		  	<option value="">未選択</option>
 		 	<%
@@ -78,5 +70,26 @@
 			<input class="submit" type="submit" value="キャンセル">
 			</form>
 	</div>
+
+
+<script>
+    function check(){
+        var form = document.forms.submitForm;
+        var msg = "この内容で従業員情報を登録しますか？";
+        var result = confirm(msg);
+        return result;
+    }
+
+    window.onload = function(){
+    	var date = new Date();
+
+        var yyyy = date.getFullYear();
+        var mm = ("0"+(date.getMonth()+1)).slice(-2);
+        var dd = ("0"+date.getDate()).slice(-2);
+
+    	document.getElementById("date").max=yyyy+'-'+mm+'-'+dd;
+    	document.getElementById("date2").max=yyyy+'-'+mm+'-'+dd;
+    }
+</script>
 </body>
 </html>

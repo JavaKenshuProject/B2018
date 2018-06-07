@@ -12,42 +12,28 @@
 <head>
 <meta charset="UTF-8" />
 <title>従業員一覧画面</title>
-<link rel="stylesheet" href="employeeList.css" type="text/css">
-<script>
-	function check(){
-		var form = document.forms.submitForm;
-		//チェックされているかの判定
-		var flag = false;
-		for(var i=0;i<form.target.length-1;i++){
-			if(form.target[i].checked){
-				flag = true;
-			}
-		}
-		if(!flag){
-			alert("従業員を選択してください");
-			return false;
-		}
-		//確認
-		var msg = "選択した従業員を削除してもよろしいですか？";
-		var result = confirm(msg);
-		return result;
-	}
-	function checkOnly(){
-		var form = document.forms.submitForm;
-		//チェックされているかの判定
-		var flag = false;
-		for(var i=0;i<form.target.length-1;i++){
-			if(form.target[i].checked){
-				flag = true;
-			}
-		}
-		if(!flag){
-			alert("従業員を選択してください");
-			return false;
-		}
-		return true;
-	}
-</script>
+<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
+<style>
+div table {
+	border: 1px solid black;
+}
+
+th {
+	border: 1px solid black;
+}
+
+div td {
+	border: 1px solid black;
+}
+
+form {
+	display: inline;
+}
+.baloonoya{
+	position: relative;
+	cursor: pointer;
+}
+</style>
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp"%>
@@ -194,6 +180,40 @@
 		}
 	%>
 	</form>
-
+<script>
+	function check(){
+		var form = document.forms.submitForm;
+		//チェックされているかの判定
+		var flag = false;
+		for(var i=0;i<form.target.length-1;i++){
+			if(form.target[i].checked){
+				flag = true;
+			}
+		}
+		if(!flag){
+			alert("従業員を選択してください");
+			return false;
+		}
+		//確認
+		var msg = "選択した従業員を削除してもよろしいですか？";
+		var result = confirm(msg);
+		return result;
+	}
+	function checkOnly(){
+		var form = document.forms.submitForm;
+		//チェックされているかの判定
+		var flag = false;
+		for(var i=0;i<form.target.length-1;i++){
+			if(form.target[i].checked){
+				flag = true;
+			}
+		}
+		if(!flag){
+			alert("従業員を選択してください");
+			return false;
+		}
+		return true;
+	}
+</script>
 </body>
 </html>
