@@ -23,7 +23,7 @@
 <div>
 <p class="all-title">従業員の保有資格の登録</p>
 <form name="submitForm" action="LicenseRegistrationServlet" method="POST" onsubmit="return check();">
-従業員コード：<input type="text" name="emp_code"required><br>
+従業員コード：<input type="text" name="emp_code" pattern="^E[0-9]{3}$" maxlength="4" required><br>
 資格名：
 <select name="license_name">
 	<% List<LicenseBean> lclist = (List<LicenseBean>)session.getAttribute("lclist");
