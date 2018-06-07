@@ -35,8 +35,6 @@
 		  性別：<input type="radio" name="sex" value="0">男 <input type="radio" name="sex" value="1">女<br>
 		  生年月日：<input type="date" name="birth_day" required><br>
 		  所属部署名：<select name="section_code">
-
-		    <option>選択してください</option>
 		    <%
 
 		    List<SectionBean> sectionlist = (List<SectionBean>)session.getAttribute("sectionlist");
