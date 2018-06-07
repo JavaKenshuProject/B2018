@@ -92,16 +92,16 @@ public class LicenseRegistrationServlet extends HttpServlet {
 
 				if(licenseDate==null) {
 					dao.registerLicense(empCode, licenseName);
-					url = "licenceRegistrationComp.jsp";
+					url = "licenseRegistrationComp.jsp";
 
 				}else {
 					dao.registerLicense(empCode, licenseName, licenseDate);
-					url = "licenceRegistrationComp.jsp";
+					url = "licenseRegistrationComp.jsp";
 				}
 
 
 			} catch (ClassNotFoundException | SQLException e) {
-				url = "licenceRegistrationError.jsp";
+				url = "licenseRegistrationError.jsp";
 
 			}
 		}
