@@ -11,9 +11,12 @@
 <body>
 	<%@include file="anywhereHeader.jsp" %>
 <div>
-<p class="all-title">システム利用者の追加登録が完了しました。</p>
+<p class="comp-title">追加登録処理の完了</p>
+
+<br>
+システム利用者の追加を完了しました。
 <form>
-<a href="menu.jsp"><input type="button" value="メニュー画面へ"></a>
+<a href="menu.jsp"><input class="button" type="button" value="メニュー画面へ"></a>
 </form>
 </div>
 </body>

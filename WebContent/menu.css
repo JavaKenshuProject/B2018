@@ -1,5 +1,34 @@
-.box{
-    margin:20px auto;
-   	padding: 50px;
+.menu{
+	display:inline;
+	margin: 0;
+padding: 0;
+
+}
+
+.a{
+	height:150px;
+	width:200px;
+}
+
+div{
+
+	    margin:20px auto;
+   	padding-top: 150px;
    	text-align:center;
+}
+
+
+.a{
+	background-image:url('profile.png');
+border-left: 8px solid #C97556;
+background-color: #474655;
+padding: 3px 10px;
+text-decoration: none;
+color: #E1E2CF;
+margin: 1px 0px;
+font-size: 20px;
+}
+.a:hover{
+border-left: 8px solid #990033;
+background-color: #474655;
 }

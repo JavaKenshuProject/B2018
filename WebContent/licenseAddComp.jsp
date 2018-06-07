@@ -12,12 +12,14 @@
 <body>
 	<%@include file="anywhereHeader.jsp" %>
 <div>
-<p class="all-title">新規資格の登録が完了しました。</p>
+<p class="comp-title">登録処理の完了</p>
+<br>
+新規資格登録を完了しました。
 <form action="licenseAdd.jsp" method="POST">
-<input type="submit" value="続けて登録する"><span>&nbsp;&nbsp;</span>
+<input class="button" type="submit" value="続けて登録する"><span>&nbsp;&nbsp;</span>
 </form>
 <form action="menu.jsp" method="POST">
-<input type="submit" value="メニュー画面へ">
+<input class="button" type="submit" value="メニュー画面へ">
 </form>
 </div>
 

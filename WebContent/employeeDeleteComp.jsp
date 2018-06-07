@@ -11,12 +11,13 @@
 <body>
 	<%@include file="anywhereHeader.jsp" %>
 <div>
-<p class="all-title"><%=session.getAttribute("empCode") %>の従業員情報を削除しました</p>
+<p class="comp-title">従業員情報の削除完了</p>
 <br>
-<a href="menu.jsp"><input type="button" value="メニューに戻る"></a>
+<%=session.getAttribute("empCode") %>の従業員情報を削除しました<br>
+<a href="menu.jsp"><input class="button" type="button" value="メニューに戻る"></a>
 &nbsp;
 <form action="EmployeeListServlet" method="POST">
-<input type="submit" value="従業員一覧に戻る">
+<input class="button" type="submit" value="従業員一覧に戻る">
 </form>
 </div>
 </body>

@@ -11,10 +11,12 @@
 <body>
 	<%@include file="anywhereHeader.jsp" %>
 <div>
-<p class="all-title">従業員情報の登録が完了しました。</p>
+<p class="comp-title">登録処理の完了</p>
+<br>
+従業員の登録を完了しました。
 <form>
-<a href="employeeRegistration.jsp"><input type="button" value="続けて登録する"></a>　　
-<a href="menu.jsp"><input type="button" value="メニュー画面へ"></a>
+<a href="employeeRegistration.jsp"><input class="button" type="button" value="続けて登録する"></a>　　
+<a href="menu.jsp"><input class="button" type="button" value="メニュー画面へ"></a>
 </form>
 </div>
 </body>

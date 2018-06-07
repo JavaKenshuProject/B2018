@@ -13,12 +13,13 @@
 	<%@include file="anywhereHeader.jsp" %>
 <div>
 <%EmployeeBean emp = (EmployeeBean)session.getAttribute("employee"); %>
-<p class="all-title"><%=emp.getEmpCode() %>の従業員の情報を変更しました</p>
+<p class="comp-title">変更処理の完了</p>
+<br><%=emp.getEmpCode() %>の従業員の情報を変更しました。
 <br>
-<a href="menu.jsp"><input type="button" value="メニューに戻る"></a>
+<a href="menu.jsp"><input class="button" type="button" value="メニューに戻る"></a>
 &nbsp;
 <form action="EmployeeListServlet" method="POST">
-<input type="submit" value="従業員一覧に戻る">
+<input class="button" type="submit" value="従業員一覧に戻る">
 </form>
 </div>
 </body>
