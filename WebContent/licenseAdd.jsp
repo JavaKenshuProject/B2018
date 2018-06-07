@@ -23,8 +23,8 @@
 <div>
 <p class="all-title">新規資格の追加</p>
 <form  name="submitForm" action="LicenseAddServlet"method="POST" onsubmit="return check();">
-資格コード：<input type="text" name="license_code" required><br>
-資格名：<input type="text" name="license_name" required><br>
+資格コード：<input type="text" name="license_code" pattern="^L[0-9]{4}$" maxlength="5" required><br>
+資格名：<input type="text" name="license_name" maxlength="100" required><br>
 <br>
 <input type="submit" value="追加" name="ACTION">&nbsp;
 </form>
