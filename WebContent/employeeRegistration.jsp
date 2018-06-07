@@ -53,9 +53,8 @@
 
 		  </select><br>
 		  入社日：<input type="date" name="emp_date" required><br>
-		  保有資格：<select name="license_code" required>
-			<option>選択してください</option>
-
+		  保有資格：<select name="license_code">
+		  	<option value="">未選択</option>
 		 	<%
 
 		 	List<LicenseBean> licenselist = (List<LicenseBean>)session.getAttribute("licenselist");
