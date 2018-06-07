@@ -10,7 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.dao.ChangeLogDAO;
 import model.dao.EmployeeDAO;
+import model.dao.LicenseDAO;
+import model.entity.ChangeLogBean;
+import model.entity.UserBean;
 
 /**
  * Servlet implementation class EmployeeDeleteServlet
@@ -43,19 +47,33 @@ public class EmployeeDeleteServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		String empCode = request.getParameter("target");
-		EmployeeDAO dao = null;
+		EmployeeDAO delDao = null;
 		String url = null;
 
-		try {
-			dao = new EmployeeDAO();
+		HttpSession session = request.getSession();
 
-			dao.delete(empCode);
+		try {
+			LicenseDAO lDao = new LicenseDAO();
+			lDao.getLicenseDelete(empCode);
+
+			delDao = new EmployeeDAO();
+
+			delDao.delete(empCode);
+
+			ChangeLogDAO chlDAO = new ChangeLogDAO();
+			ChangeLogBean changeLog = new ChangeLogBean();
+			UserBean user = (UserBean)session.getAttribute("user");
+
+			changeLog.setUserId(user.getUserId());
+			changeLog.setOperation("削除");
+			changeLog.setEmpCode(empCode);
+
+			chlDAO.insert(changeLog);
 			url = "employeeDeleteComp.jsp";
 		}catch(Exception e) {
 			url = "employeeDeleteError.jsp";
 		}
 
-		HttpSession session = request.getSession();
 		session.setAttribute("empCode", empCode);
 
 		RequestDispatcher rd = request.getRequestDispatcher(url);

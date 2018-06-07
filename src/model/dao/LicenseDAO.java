@@ -145,4 +145,30 @@ public class LicenseDAO {
 		}
 	}
 
+	/**
+	 * 従業員コードが持つ資格を削除する
+	 *
+	 * @param empCode 従業員コード
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
+	public void getLicenseDelete(String empCode) throws SQLException, ClassNotFoundException {
+		try(Connection con =ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(
+						"DELETE FROM t_get_license WHERE emp_code = ?")){
+
+			pstmt.setString(1, empCode);
+
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;
+
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+			throw e1;
+		}
+	}
+
 }

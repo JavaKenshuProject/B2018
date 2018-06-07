@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" errorPage="employeeListError.jsp"%>
 <%@ page import="java.util.List"%>
+<%@ page import="java.util.Map"%>
 <%@ page import="model.entity.EmployeeBean"%>
 <%@ page import="model.entity.SectionBean"%>
 <%@ page import="model.entity.UserBean"%>
+<%@ page import="model.entity.LicenseBean"%>
 
 <!DOCTYPE html>
 <html>
@@ -46,6 +48,8 @@ form {
 		String sort = (String)session.getAttribute("sort");
 		String order = (String)session.getAttribute("order");
 		String name = (String)session.getAttribute("name");
+		List<EmployeeBean> empList = (List<EmployeeBean>) session.getAttribute("empList");
+		Map<String, String> licenseMap = (Map<String, String>)session.getAttribute("licenseMap");
 	%>
 
 	<form action="EmployeeListServlet" method="POST">
@@ -110,9 +114,6 @@ form {
 	%>
 
 	<%
-		List<EmployeeBean> empList = (List<EmployeeBean>) session.getAttribute("empList");
-	%>
-	<%
 		if (empList != null) {
 	%>
 	<div style="height: 320px; overflow-y: scroll;">
@@ -154,7 +155,9 @@ form {
 				<td><%=emp.getBirthDay()%></td>
 				<td><%=emp.getSectionName()%></td>
 				<td><%=emp.getEmpDate()%></td>
-				<td>一旦なし</td>
+
+				<td><%=emp.getLicenseList().size() %></td>
+
 			</tr>
 			<%
 				}

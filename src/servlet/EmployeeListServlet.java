@@ -1,7 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,8 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.EmployeeDAO;
+import model.dao.LicenseDAO;
 import model.dao.SectionDAO;
 import model.entity.EmployeeBean;
+import model.entity.LicenseBean;
 import model.entity.SectionBean;
 
 /**
@@ -51,10 +55,24 @@ public class EmployeeListServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		try {
-			//部署一覧を取得
-			SectionDAO sDao = new SectionDAO();
-			List<SectionBean> sectionList = sDao.getSectionList();
-			session.setAttribute("sectionList", sectionList);
+			if(session.getAttribute("secionList") == null) {
+				//部署一覧を取得
+				SectionDAO sDao = new SectionDAO();
+				List<SectionBean> sectionList = sDao.getSectionList();
+				session.setAttribute("sectionList", sectionList);
+			}
+			if(session.getAttribute("licenseList") == null) {
+				//資格一覧を取得
+				LicenseDAO lDao = new LicenseDAO();
+				List<LicenseBean> licenseList = lDao.getLicenseList();
+				//マップで保存
+				Map<String,String> licenseMap = new HashMap<>();
+				for(LicenseBean license: licenseList) {
+					licenseMap.put(license.getLicenseCode(), license.getLicenseName());
+				}
+				session.setAttribute("licenseMap", licenseMap);
+			}
+
 
 			if("従業員一覧".equals(action)) {
 				eDao = new EmployeeDAO();
