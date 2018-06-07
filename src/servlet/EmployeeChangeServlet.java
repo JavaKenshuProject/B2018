@@ -61,7 +61,7 @@ public class EmployeeChangeServlet extends HttpServlet {
 				session.setAttribute("scList",scDao.getSectionList());
 
 				EmployeeDAO empDao = new EmployeeDAO();
-				session.setAttribute("employee", empDao.select(empCode));
+				session.setAttribute("employee", empDao.selectEmployee(empCode));
 
 				url = "employeeChange.jsp";
 
@@ -102,7 +102,7 @@ public class EmployeeChangeServlet extends HttpServlet {
 			//tryの中でエラーが出たらエラー表示画面へ遷移するようにする
 			try {
 				EmployeeDAO empdao = new EmployeeDAO();
-				empdao.update(bean);
+				empdao.updateEmployee(bean);
 				url ="employeeChangeComp.jsp";
 
 			} catch (ClassNotFoundException | SQLException e) {

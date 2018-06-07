@@ -76,7 +76,7 @@ public class EmployeeListServlet extends HttpServlet {
 
 			if("従業員一覧".equals(action)) {
 				eDao = new EmployeeDAO();
-				empList = eDao.selectAll();
+				empList = eDao.selectAllEmployee();
 				session.removeAttribute("initial");
 				session.removeAttribute("section_name");
 				session.removeAttribute("sex");
@@ -98,10 +98,10 @@ public class EmployeeListServlet extends HttpServlet {
 				session.setAttribute("order",order);
 				session.setAttribute("name",name);
 				eDao = new EmployeeDAO();
-				empList = eDao.select(name, sex, sectionName, initial, sort, order);
+				empList = eDao.selectEmployee(name, sex, sectionName, initial, sort, order);
 			}else {
 				eDao = new EmployeeDAO();
-				empList = eDao.selectAll();
+				empList = eDao.selectAllEmployee();
 				session.removeAttribute("initial");
 				session.removeAttribute("section_name");
 				session.removeAttribute("sex");

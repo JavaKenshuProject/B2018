@@ -58,7 +58,7 @@ public class EmployeeDeleteServlet extends HttpServlet {
 
 			delDao = new EmployeeDAO();
 
-			delDao.delete(empCode);
+			delDao.deleteEmployee(empCode);
 
 			ChangeLogDAO chlDAO = new ChangeLogDAO();
 			ChangeLogBean changeLog = new ChangeLogBean();

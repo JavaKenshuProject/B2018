@@ -26,7 +26,7 @@ public class EmployeeDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public List<EmployeeBean> select(String name, Byte sex, String section, String initial, String sortColumn, String order) throws SQLException, ClassNotFoundException{
+	public List<EmployeeBean> selectEmployee(String name, Byte sex, String section, String initial, String sortColumn, String order) throws SQLException, ClassNotFoundException{
 		List<EmployeeBean> empList = null;
 		//五十音表
 		Map<String, String> kanaMap = new HashMap<>();
@@ -122,7 +122,7 @@ public class EmployeeDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public EmployeeBean select(String empCode) throws SQLException, ClassNotFoundException{
+	public EmployeeBean selectEmployee(String empCode) throws SQLException, ClassNotFoundException{
 		EmployeeBean employee = null;
 
 		String sql = "SELECT me.emp_code,me.l_name,me.f_name,me.l_kana_name,me.f_kana_name,me.sex,me.birth_day,me.emp_date,ms.section_name"
@@ -166,7 +166,7 @@ public class EmployeeDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public List<EmployeeBean> selectAll() throws SQLException, ClassNotFoundException{
+	public List<EmployeeBean> selectAllEmployee() throws SQLException, ClassNotFoundException{
 		List<EmployeeBean> empList = null;
 
 		String sql = "SELECT me.emp_code,me.l_name,me.f_name,me.l_kana_name,me.f_kana_name,me.sex,me.birth_day,me.emp_date,ms.section_name,tgl.license_code"
@@ -225,7 +225,7 @@ public class EmployeeDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public void delete(String empCode) throws SQLException, ClassNotFoundException {
+	public void deleteEmployee(String empCode) throws SQLException, ClassNotFoundException {
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement("DELETE FROM m_employee WHERE emp_code = ?")){
 
@@ -248,7 +248,7 @@ public class EmployeeDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public void update(EmployeeBean emp) throws SQLException, ClassNotFoundException {
+	public void updateEmployee(EmployeeBean emp) throws SQLException, ClassNotFoundException {
 		//SQL文生成
 		String sql = "UPDATE m_employee SET";
 		if(emp.getlName() != null) {
@@ -271,8 +271,6 @@ public class EmployeeDAO {
 		}
 		sql = sql.substring(0, sql.length()-2);
 		sql += " WHERE emp_code = ?";
-
-		System.out.println(sql);
 
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
@@ -322,7 +320,7 @@ public class EmployeeDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public void register(EmployeeBean emp) throws SQLException, ClassNotFoundException {
+	public void registerEmployee(EmployeeBean emp) throws SQLException, ClassNotFoundException {
 		//SQL文生成
 		String sql = "INSERT INTO m_employee (emp_code, l_name, f_name, l_kana_name, f_kana_name, sex, birth_day, section_code, emp_date) "
 				+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
