@@ -10,11 +10,28 @@ div{
    	text-align:center;
 }
 
+
 .submit {
-	margin-top:20px;
- 	width:80px;
- 	height:40px;
- 	font-size:14px;
+  margin-top: 20px;
+  font-size:15px;
+  position: relative;
+  background-color: #1abc9c;
+  border-radius: 4px;
+  color: #fff;
+  line-height: 30px;
+  width: 90px;
+  -webkit-transition: none;
+  transition: none;
+  box-shadow: 0 3px 0 #0e8c73;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}
+.submit:hover {
+  background-color: #31c8aa;
+  box-shadow: 0 3px 0 #23a188;
+}
+.submit:active {
+  top: 3px;
+  box-shadow: none;
 }
 
 .yoko{
