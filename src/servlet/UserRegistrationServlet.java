@@ -80,7 +80,7 @@ public class UserRegistrationServlet extends HttpServlet {
 
 			try{
 				UserDAO usDAO = new UserDAO();
-				usDAO.userRegistration(userId, password, sectionCode);
+				usDAO.registerUser(userId, password, sectionCode);
 
 				url = "userRegistrationComp.jsp";
 			}catch(Exception e) {

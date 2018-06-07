@@ -16,20 +16,19 @@ public class UserDAO {
 
 	/**
 	 * ログイン
-	 * 引数をもとにユーザマスタから該当するレコードを抽出し
-	 * 対応するBeanオブジェクトを返す
-	 * @param userId
-	 * @param password
+	 * 引数をもとにユーザマスタから該当するレコードを抽出し、対応するBeanオブジェクトを返す
+	 * @param userId　ユーザID
+	 * @param password　パスワード
 	 * @return 認証成功したユーザのBeanオブジェクト
-	 * @throws Exception
+	 * @throws SQLException 
 	 */
 
-	public UserBean login(String userId, String password) throws Exception{
+	public UserBean login(String userId, String password) throws SQLException, ClassNotFoundException{
 		UserBean user = null;
-
+		
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(
-						"SELECT * FROM m_user Where user_id = ? and password = ?")){
+						"SELECT * FROM m_user WHERE user_id = ? AND password = ?")){
 
 
 			pstmt.setString(1, userId);
@@ -54,13 +53,13 @@ public class UserDAO {
 	}
 	/**
 	 * 引数で指定した情報をユーザマスタに登録（挿入）する
-	 * @param userId
-	 * @param password
+	 * @param userId　ユーザID
+	 * @param password　パスワード
 	 * @param sectionCode
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
 	 */
-	public void userRegistration(String userId,String password,String sectionCode)throws SQLException, ClassNotFoundException{
+	public void registerUser(String userId,String password,String sectionCode)throws SQLException, ClassNotFoundException{
 
 
 		try(Connection con = ConnectionManager.getConnection();
