@@ -32,7 +32,7 @@
 		  				<input type="text" name="f_name" placeholder="名" required><br>
 		  氏名（フリガナ）：<input type="text" name="l_kana_name" placeholder="氏" required>
 		  					<input type="text" name="f_kana_name" placeholder="名" required><br>
-		  性別：<input type="radio" name="sex" value="0">男 <input type="radio" name="sex" value="1">女<br>
+		  性別：<input type="radio" name="sex" value="0" checked="checked">男 <input type="radio" name="sex" value="1">女<br>
 		  生年月日：<input type="date" name="birth_day" required><br>
 		  所属部署名：<select name="section_code">
 		    <%
