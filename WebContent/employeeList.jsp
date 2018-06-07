@@ -37,9 +37,36 @@ form {
 <script>
 	function check(){
 		var form = document.forms.submitForm;
-		var msg = "よろしいですか？";
+		//チェックされているかの判定
+		var flag = false;
+		for(var i=0;i<form.target.length-1;i++){
+			if(form.target[i].checked){
+				flag = true;
+			}
+		}
+		if(!flag){
+			alert("従業員を選択してください");
+			return false;
+		}
+		//確認
+		var msg = "選択した従業員を削除してもよろしいですか？";
 		var result = confirm(msg);
 		return result;
+	}
+	function checkOnly(){
+		var form = document.forms.submitForm;
+		//チェックされているかの判定
+		var flag = false;
+		for(var i=0;i<form.target.length-1;i++){
+			if(form.target[i].checked){
+				flag = true;
+			}
+		}
+		if(!flag){
+			alert("従業員を選択してください");
+			return false;
+		}
+		return true;
 	}
 </script>
 </head>
@@ -146,7 +173,7 @@ form {
 				<%
 					if (user.getSectionCode().equals("S1")) {
 				%>
-				<td><input type="radio" name="target" value="<%=emp.getEmpCode()%>"></td>
+				<td><input type="radio" name="target" value="<%=emp.getEmpCode()%>" required></td>
 				<%
 					}
 				%>

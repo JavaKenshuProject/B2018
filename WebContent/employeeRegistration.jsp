@@ -13,7 +13,7 @@
 <script>
     function check(){
         var form = document.forms.submitForm;
-        var msg = "この内容で登録しますか？";
+        var msg = "この内容で従業員情報を登録しますか？";
         var result = confirm(msg);
         return result;
     }

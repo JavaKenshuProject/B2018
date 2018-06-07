@@ -11,7 +11,7 @@
 <script>
     function check(){
         var form = document.forms.submitForm;
-        var msg = "この内容で登録しますか？";
+        var msg = "この内容で資格を追加しますか？";
         var result = confirm(msg);
         return result;
     }

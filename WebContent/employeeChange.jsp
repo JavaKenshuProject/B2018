@@ -10,6 +10,14 @@
 			<meta charset="UTF-8">
 			<title>従業員情報変更画面</title>
 			<link rel="stylesheet" href="employeeChange.css" type="text/css">
+			<script>
+			    function check(){
+			        var form = document.forms.submitForm;
+			        var msg = "この内容で従業員情報を変更しますか？";
+			        var result = confirm(msg);
+			        return result;
+			    }
+		    </script>
 		</head>
 		<body>
 			<%@include file="anywhereHeader.jsp" %>
@@ -20,7 +28,7 @@
 			<br>
 			<h2>変更内容</h2>
 			<h3>変更したい箇所を編集してください</h3>
-			<form action="EmployeeChangeServlet" method="post">
+			<form action="EmployeeChangeServlet" method="post" onsubmit="return check();">
 				氏　名&nbsp;&nbsp;&nbsp;：
 				<input type="text" name = "l_name" placeholder="氏" maxlength="16" value="<%=emp.getlName() %>" required>
 				<input type="text" name = "f_name" placeholder="名" maxlength="16" value="<%=emp.getfName() %>" required><br>

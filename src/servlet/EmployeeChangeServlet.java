@@ -68,10 +68,7 @@ public class EmployeeChangeServlet extends HttpServlet {
 			}catch(Exception e){
 				url = "employeeListError.jsp";
 			}
-
 		}else if(action.equals("変更")) {
-
-
 			//変更画面でクライアントが入力した情報を取ってくる
 
 			String LName=request.getParameter("l_name");
@@ -92,7 +89,7 @@ public class EmployeeChangeServlet extends HttpServlet {
 			bean.setSectionCode(SectionCode);
 			EmployeeBean emp = (EmployeeBean)session.getAttribute("employee");
 			bean.setEmpCode(emp.getEmpCode());
-			
+
 
 			//Sessionを生成し値が入ったbeanを格納する
 			session.setAttribute("bean", bean);
@@ -109,6 +106,19 @@ public class EmployeeChangeServlet extends HttpServlet {
 
 				url = "employeeChangeError.jsp";
 
+			}
+		}else {
+			try{
+				SectionDAO scDao = new SectionDAO();
+				session.setAttribute("scList",scDao.getSectionList());
+
+				EmployeeDAO empDao = new EmployeeDAO();
+				session.setAttribute("employee", empDao.selectEmployee(empCode));
+
+				url = "employeeChange.jsp";
+
+			}catch(Exception e){
+				url = "employeeListError.jsp";
 			}
 		}
 
