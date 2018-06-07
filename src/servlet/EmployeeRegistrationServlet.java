@@ -119,12 +119,12 @@ public class EmployeeRegistrationServlet extends HttpServlet {
 			try{
 
 				EmployeeDAO empDAO = new EmployeeDAO();
-				empDAO.register(eb);
+				empDAO.registerEmployee(eb);
 
 				LicenseDAO licDAO = new LicenseDAO();
 
 				for(String code:licenseList) {
-					licDAO.licenseRegistration(empCode, code);
+					licDAO.registerLicense(empCode, code);
 				}
 
 				ChangeLogDAO chlDAO = new ChangeLogDAO();

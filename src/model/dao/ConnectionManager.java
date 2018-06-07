@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
+ * DBとの接続を管理するクラス
+ *
  * @author okawa
  *
  */

@@ -54,11 +54,11 @@ public class EmployeeDeleteServlet extends HttpServlet {
 
 		try {
 			LicenseDAO lDao = new LicenseDAO();
-			lDao.getLicenseDelete(empCode);
+			lDao.deleteGetLicense(empCode);
 
 			delDao = new EmployeeDAO();
 
-			delDao.delete(empCode);
+			delDao.deleteEmployee(empCode);
 
 			ChangeLogDAO chlDAO = new ChangeLogDAO();
 			ChangeLogBean changeLog = new ChangeLogBean();
