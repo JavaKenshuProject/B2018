@@ -10,14 +10,6 @@
 			<meta charset="UTF-8">
 			<title>従業員情報変更画面</title>
 			<link rel="stylesheet" href="employeeChange.css" type="text/css">
-			<script>
-			    function check(){
-			        var form = document.forms.submitForm;
-			        var msg = "この内容で従業員情報を変更しますか？";
-			        var result = confirm(msg);
-			        return result;
-			    }
-		    </script>
 		</head>
 		<body>
 			<%@include file="anywhereHeader.jsp" %>
@@ -55,4 +47,12 @@
 			</form>
 			</div>
 		</body>
+			<script>
+			    function check(){
+			        var form = document.forms.submitForm;
+			        var msg = "この内容で従業員情報を変更しますか？";
+			        var result = confirm(msg);
+			        return result;
+			    }
+		    </script>
 	</html>

@@ -8,14 +8,6 @@
 <meta name="author" content="Namioka Saki">
 <title>新規資格追加画面</title>
 <link rel="stylesheet" href="licenseAdd.css" type="text/css">
-<script>
-    function check(){
-        var form = document.forms.submitForm;
-        var msg = "この内容で資格を追加しますか？";
-        var result = confirm(msg);
-        return result;
-    }
-</script>
 
 </head>
 <body>
@@ -32,5 +24,13 @@
 <input class="submit" type="submit" value="キャンセル">
 </form>
 </div>
+<script>
+    function check(){
+        var form = document.forms.submitForm;
+        var msg = "この内容で資格を追加しますか？";
+        var result = confirm(msg);
+        return result;
+    }
+</script>
 </body>
 </html>

@@ -34,41 +34,7 @@ form {
 	cursor: pointer;
 }
 </style>
-<script>
-	function check(){
-		var form = document.forms.submitForm;
-		//チェックされているかの判定
-		var flag = false;
-		for(var i=0;i<form.target.length-1;i++){
-			if(form.target[i].checked){
-				flag = true;
-			}
-		}
-		if(!flag){
-			alert("従業員を選択してください");
-			return false;
-		}
-		//確認
-		var msg = "選択した従業員を削除してもよろしいですか？";
-		var result = confirm(msg);
-		return result;
-	}
-	function checkOnly(){
-		var form = document.forms.submitForm;
-		//チェックされているかの判定
-		var flag = false;
-		for(var i=0;i<form.target.length-1;i++){
-			if(form.target[i].checked){
-				flag = true;
-			}
-		}
-		if(!flag){
-			alert("従業員を選択してください");
-			return false;
-		}
-		return true;
-	}
-</script>
+
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp"%>
@@ -215,6 +181,40 @@ form {
 		}
 	%>
 	</form>
-
+<script>
+	function check(){
+		var form = document.forms.submitForm;
+		//チェックされているかの判定
+		var flag = false;
+		for(var i=0;i<form.target.length-1;i++){
+			if(form.target[i].checked){
+				flag = true;
+			}
+		}
+		if(!flag){
+			alert("従業員を選択してください");
+			return false;
+		}
+		//確認
+		var msg = "選択した従業員を削除してもよろしいですか？";
+		var result = confirm(msg);
+		return result;
+	}
+	function checkOnly(){
+		var form = document.forms.submitForm;
+		//チェックされているかの判定
+		var flag = false;
+		for(var i=0;i<form.target.length-1;i++){
+			if(form.target[i].checked){
+				flag = true;
+			}
+		}
+		if(!flag){
+			alert("従業員を選択してください");
+			return false;
+		}
+		return true;
+	}
+</script>
 </body>
 </html>

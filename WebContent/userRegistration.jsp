@@ -9,14 +9,6 @@
 <meta charset="UTF-8">
 <title>システム利用者追加画面</title>
 <link rel="stylesheet" href="userRegistration.css" type="text/css">
-<script>
-    function check(){
-        var form = document.forms.submitForm;
-        var msg = "この内容でシステム利用者を登録しますか？";
-        var result = confirm(msg);
-        return result;
-    }
-</script>
 </head>
 
 <body>
@@ -51,5 +43,13 @@
 			</form>
 </div>
 
+<script>
+    function check(){
+        var form = document.forms.submitForm;
+        var msg = "この内容でシステム利用者を登録しますか？";
+        var result = confirm(msg);
+        return result;
+    }
+</script>
 </body>
 </html>
