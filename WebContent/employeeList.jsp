@@ -155,7 +155,7 @@ form {
 				<td><%=emp.getBirthDay()%></td>
 				<td><%=emp.getSectionName()%></td>
 				<td><%=emp.getEmpDate()%></td>
-				<td><%=emp.getLicenseList().size() %>></td>
+				<td><%=emp.getLicenseList().size() %></td>
 			</tr>
 			<%
 				}

@@ -30,6 +30,7 @@ public class EmployeeDAO {
 		List<EmployeeBean> empList = null;
 		//五十音表
 		Map<String, String> kanaMap = new HashMap<>();
+		kanaMap.put("", ".*");
 		kanaMap.put("ア", "^(ア|イ|ウ|エ|オ)+");
 		kanaMap.put("カ", "^(カ|キ|ク|ケ|コ|ガ|ギ|グ|ゲ|ゴ)+");
 		kanaMap.put("サ", "^(サ|シ|ス|セ|ソ|ザ|ジ|ズ|ゼ|ゾ)+");
@@ -50,6 +51,7 @@ public class EmployeeDAO {
 		}
 		sql += " ORDER BY me."+ sortColumn;
 		sql += " " + order;
+		sql += " ,me.emp_code,tgl.license_code ASC";
 
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
@@ -63,10 +65,9 @@ public class EmployeeDAO {
 			if(sex >= 0) {
 				pstmt.setByte(7, sex);
 			}
-
 			try(ResultSet res = pstmt.executeQuery()){
-				//boolean next = res.next();
-				while(res.next()) {
+				boolean next = res.next();
+				while(next) {
 					if(empList == null) {
 						empList = new ArrayList<>();
 					}
@@ -80,19 +81,21 @@ public class EmployeeDAO {
 					emp.setBirthDay(res.getDate("birth_day"));
 					emp.setSectionName(res.getString("section_name"));
 					emp.setEmpDate(res.getDate("emp_date"));
-					/*
+
 					List<String> licenseCodeList = new ArrayList<>();
 					while(true) {
+						if(res.getString("license_code") != null) {
+							licenseCodeList.add(res.getString("license_code"));
+						}
 						next = res.next();
 						//従業員コードが同じ かつ まだ次がある
-						if(!res.getString("emp_code").equals(emp.getEmpCode()) || next) {
-							licenseCodeList.add(res.getString("license_code"));
+						if(next && res.getString("emp_code").equals(emp.getEmpCode())) {
+
 						}else {
 							break;
 						}
 					}
 					emp.setLicenseList(licenseCodeList);
-					*/
 					empList.add(emp);
 				}
 			}catch(Exception e) {
@@ -168,7 +171,7 @@ public class EmployeeDAO {
 
 		String sql = "SELECT me.emp_code,me.l_name,me.f_name,me.l_kana_name,me.f_kana_name,me.sex,me.birth_day,me.emp_date,ms.section_name,tgl.license_code"
 				+ " FROM (m_employee me JOIN m_section ms ON me.section_code = ms.section_code) LEFT OUTER JOIN t_get_license tgl ON me.emp_code = tgl.emp_code"
-				+ " ORDER BY me.emp_code ASC";
+				+ " ORDER BY me.emp_code ASC, tgl.license_code ASC";
 
 		try(Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();
@@ -191,11 +194,13 @@ public class EmployeeDAO {
 
 				List<String> licenseCodeList = new ArrayList<>();
 				while(true) {
-					System.out.println(res.getString("license_code"));
+					if(res.getString("license_code") != null) {
+						licenseCodeList.add(res.getString("license_code"));
+					}
 					next = res.next();
 					//従業員コードが同じ かつ まだ次がある
-					if(res.getString("emp_code").equals(emp.getEmpCode()) && next) {
-						licenseCodeList.add(res.getString("license_code"));
+					if(next && res.getString("emp_code").equals(emp.getEmpCode())) {
+
 					}else {
 						break;
 					}
