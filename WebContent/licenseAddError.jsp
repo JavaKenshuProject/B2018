@@ -12,10 +12,11 @@
 <body>
 	<%@include file="anywhereHeader.jsp" %>
 <div>
-<p class="all-title">新規資格を登録できませんでした</p>
-		<p>正しく入力してください</p>
+<p class="error-title">SORRY</p>
+		新規資格を登録できませんでした<br>
+		正しく入力してください
 		<form action="licenseAdd.jsp" method="POST">
-		<p class="submit"><input id="back_button" type="submit" value="戻る"></p>
+		<input class="submit" id="back_button" type="submit" value="　戻る　">
 	</form>
 </div>
 

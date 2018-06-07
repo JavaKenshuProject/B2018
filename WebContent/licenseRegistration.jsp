@@ -23,12 +23,12 @@
 <div>
 <p class="all-title">従業員の保有資格の登録</p>
 <form name="submitForm" action="LicenseRegistrationServlet" method="POST" onsubmit="return check();">
-従業員コード：<input type="text" name="emp_code"required><br>
+従業員コード：<input type="text" name="emp_code" pattern="^E[0-9]{3}$" maxlength="4" required><br>
 資格名：
 <select name="license_name">
 	<% List<LicenseBean> lclist = (List<LicenseBean>)session.getAttribute("lclist");
 
-	if(lclist!=null){
+	if(lclist != null){
 	for(int i=0; i < lclist.size(); i++){
 	LicenseBean license =lclist.get(i);%>
 
@@ -38,7 +38,7 @@
 
 </select>
 <br>
-取得日：<input type="date" name="get_license_date" required><br>
+取得日(任意)：<input type="date" name="get_license_date"  min="0000-01-01" max="9999-12-31"><br>
 <br>
 <br>
 <input type="submit" value="追加" name="ACTION">&nbsp;

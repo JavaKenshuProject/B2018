@@ -26,11 +26,10 @@
 		<p>追加したい従業員情報を入力してください</p>
 
 		<form name="submitForm" action="UserRegistrationServlet" method="POST" onsubmit="return check();">
-		<p>&nbsp;&nbsp;&nbsp;ユーザID：<input id="userID" type="text" name="user_id" required></p>
-		<p>パスワード：<input id="pass" type="password" name="password" required></p>
+		<p>&nbsp;&nbsp;&nbsp;ユーザID(半角英数字24文字以内)：<input id="userID" type="text" name="user_id" pattern="^[a-zA-Z0-9]{0,24}$" required></p>
+		<p>パスワード(半角英数字32文字以内)：<input id="pass" type="text" name="password" pattern="^[a-zA-Z0-9]{0,32}$" required></p>
 		所属部署：
 		<select name="section_code">
-		<option value="null">選択してください</option>
 		   <%
 			List<SectionBean> sectionlist = (List<SectionBean>)session.getAttribute("sectionlist");
 

@@ -7,7 +7,7 @@
 <meta charset="UTF-8" />
 <meta name="author" content="Namioka Saki">
 <title>新規資格追加画面</title>
-<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
+<link rel="stylesheet" href="licenseAdd.css" type="text/css">
 <script>
     function check(){
         var form = document.forms.submitForm;
@@ -23,13 +23,13 @@
 <div>
 <p class="all-title">新規資格の追加</p>
 <form  name="submitForm" action="LicenseAddServlet"method="POST" onsubmit="return check();">
-資格コード：<input type="text" name="license_code" required><br>
-資格名：<input type="text" name="license_name" required><br>
+資格コード：<input type="text" name="license_code" pattern="^L[0-9]{4}$" maxlength="5" required><br>
+資格名：<input type="text" name="license_name" maxlength="100" required><br>
 <br>
-<input type="submit" value="追加" name="ACTION">&nbsp;
+<input class="submit" type="submit" value="追加" name="ACTION">&nbsp;
 </form>
 <form action="menu.jsp" method="POST">
-<input type="submit" value="キャンセル">
+<input class="submit" type="submit" value="キャンセル">
 </form>
 </div>
 </body>

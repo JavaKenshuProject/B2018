@@ -19,9 +19,9 @@
 <p class ="form-title">Login</p>
 	<form action="LoginServlet" method="post" >
 		<p>ユーザーID</p>
-		<p class="id"><input type="text" placeholder="IDを入力してください"  name="user_id"></p>
+		<p class="id"><input type="text" placeholder="IDを入力してください"  name="user_id" required></p>
 		<p>パスワード</p>
-		<p class="pass"><input type="password" placeholder="パスワードを入力してください" name="password"></p>
+		<p class="pass"><input type="password" placeholder="パスワードを入力してください" name="password" required></p>
 		<p class="Psubmit"><input class="submit" type="submit" name="ACTION" value="ログイン"></p>
 	</form>
 </div>

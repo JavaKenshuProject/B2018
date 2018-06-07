@@ -13,10 +13,10 @@
 <body>
 	<%@include file="anywhereHeader.jsp" %>
 <div>
-<p class ="title">変更できませんでした</p>
-		<p>各項目を正しく入力してください</p>
+<p class ="error-title">SORRY</p>
+		各項目を正しく入力してください
 		<form action="employeeChange.jsp"method="post">
-		<p class="submit"><input id="back_button" type="submit" value="戻る"></p>
+		<input class="submit" id="back_button" type="submit" value="　戻る　">
 	</form>
 </div>
 

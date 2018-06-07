@@ -17,6 +17,7 @@
 
 				</form>
 
+<<<<<<< HEAD
 
 				<%
 				 if (user.getSectionCode().equals("S1") || user.getSectionCode().equals("S2")) {

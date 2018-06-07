@@ -49,13 +49,12 @@ public class LicenseRegistrationServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String url =null;
 		String action = request.getParameter("ACTION");
+
+		HttpSession session = request.getSession();
 		//入力された内容を取り出す
 
 
 		if("保有資格追加".equals(action)) {
-
-			HttpSession session = request.getSession();
-
 			LicenseDAO lcDAO = new LicenseDAO();
 			try {
 				List<LicenseBean> lclist = lcDAO.getLicenseList();
@@ -70,7 +69,12 @@ public class LicenseRegistrationServlet extends HttpServlet {
 
 			String empCode=request.getParameter("emp_code");
 			String licenseName=request.getParameter("license_name");
-			Date licenseDate=Date.valueOf(request.getParameter("get_license_date"));
+			Date licenseDate;
+			if("".equals(request.getParameter("get_license_date"))) {
+				licenseDate = null;
+			}else {
+				licenseDate=Date.valueOf(request.getParameter("get_license_date"));
+			}
 
 
 			//LicenseBeanを生成し、値を受け渡す
@@ -80,7 +84,6 @@ public class LicenseRegistrationServlet extends HttpServlet {
 			bean.setGetLicenseDate(licenseDate);
 
 			//Sessionを生成し、値が入ったbeanを格納する
-			HttpSession session = request.getSession();
 			session.setAttribute("licensebean", bean);
 
 			response.setContentType("text/html; charset=UTF-8");
@@ -103,6 +106,16 @@ public class LicenseRegistrationServlet extends HttpServlet {
 			} catch (ClassNotFoundException | SQLException e) {
 				url = "licenseRegistrationError.jsp";
 
+			}
+		}else{
+			LicenseDAO lcDAO = new LicenseDAO();
+			try {
+				List<LicenseBean> lclist = lcDAO.getLicenseList();
+				session.setAttribute("lclist", lclist);
+
+				url = "licenseRegistration.jsp";
+			} catch (ClassNotFoundException | SQLException e) {
+				url="employeeListError.jsp";
 			}
 		}
 

@@ -11,9 +11,10 @@
 <body>
 	<%@include file="anywhereHeader.jsp" %>
 <div>
-<p class="all-title">正しく表示できませんでした</p>
-<h3>時間をおいて再度アクセスしてください</h3>
-<a href="menu.jsp"><input type="button" value="メニューに戻る"></a>
+<p class="error-title">SORRY</p>
+正しく表示できませんでした<br>
+時間をおいて再度アクセスしてください
+<a href="menu.jsp"><input class="submit" type="button" value="メニューに戻る"></a>
 </div>
 </body>
 </html>

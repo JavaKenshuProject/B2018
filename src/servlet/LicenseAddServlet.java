@@ -78,7 +78,7 @@ public class LicenseAddServlet extends HttpServlet {
 				url = "licenseAddComp.jsp";
 
 			} catch (ClassNotFoundException | SQLException e) {
-				url = "licenceAddError.jsp";
+				url = "licenseAddError.jsp";
 
 			}
 		}
