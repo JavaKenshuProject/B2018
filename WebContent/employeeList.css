@@ -1,0 +1,28 @@
+
+.all-title{
+	font-size: 30px;
+	text-align:center;
+}
+
+
+div table {
+	border: 1px solid black;
+	margin:0 auto;
+}
+
+th {
+	border: 1px solid black;
+}
+
+div td {
+	border: 1px solid black;
+}
+
+form {
+	display: inline;
+	margin:0 auto;
+}
+.baloonoya{
+	position: relative;
+	cursor: pointer;
+}

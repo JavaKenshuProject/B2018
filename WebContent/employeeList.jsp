@@ -34,7 +34,6 @@ form {
 	cursor: pointer;
 }
 </style>
-
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp"%>
@@ -48,7 +47,7 @@ form {
 		List<EmployeeBean> empList = (List<EmployeeBean>) session.getAttribute("empList");
 		Map<String, String> licenseMap = (Map<String, String>)session.getAttribute("licenseMap");
 	%>
-
+	<p class="all-title">従業員一覧</p>
 	<form action="EmployeeListServlet" method="POST">
 		<table>
 			<tr>
@@ -103,7 +102,7 @@ form {
 		user = (UserBean)session.getAttribute("user");
 		if (user.getSectionCode().equals("S1")) {
 	%>
-	<h3>従業員情報の変更や削除は、従業員を選択してからボタンを押してください。</h3>
+	従業員情報の変更や削除は、従業員を選択してからボタンを押してください。
 	<form method="POST" name="submitForm">
 	<hr>
 	<%
