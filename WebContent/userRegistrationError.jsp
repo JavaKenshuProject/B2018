@@ -16,7 +16,7 @@
 		登録できませんでした<br>
 		各項目を正しく入力してください
 		<form action="post">
-		<a href="userRegistration.jsp"><input class="submit" id="back_button" type="button" value="戻る"></a>
+		<a href="userRegistration.jsp"><input class="submit" id="back_button" type="button" value="　戻る　"></a>
 	</form>
 </div>
 
