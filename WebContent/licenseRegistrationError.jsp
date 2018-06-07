@@ -14,7 +14,7 @@
 <div>
 <p class="all-title">保有資格を登録できませんでした</p>
 		<p>各項目を正しく入力してください</p>
-		<form action="licenseRegistration" method="POST">
+		<form action="LicenseRegistrationServlet" method="POST">
 		<p class="submit"><input id="back_button" type="submit" value="戻る"></p>
 	</form>
 </div>

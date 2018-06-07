@@ -28,7 +28,7 @@
 <select name="license_name">
 	<% List<LicenseBean> lclist = (List<LicenseBean>)session.getAttribute("lclist");
 
-	if(lclist!=null){
+	if(lclist != null){
 	for(int i=0; i < lclist.size(); i++){
 	LicenseBean license =lclist.get(i);%>
 
