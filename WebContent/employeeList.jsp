@@ -12,28 +12,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>従業員一覧画面</title>
-<link rel="stylesheet" href="ManagementSystem.css" type="text/css">
-<style>
-div table {
-	border: 1px solid black;
-}
-
-th {
-	border: 1px solid black;
-}
-
-div td {
-	border: 1px solid black;
-}
-
-form {
-	display: inline;
-}
-.baloonoya{
-	position: relative;
-	cursor: pointer;
-}
-</style>
+<link rel="stylesheet" href="employeeList.css" type="text/css">
 <script>
 	function check(){
 		var form = document.forms.submitForm;
@@ -137,7 +116,7 @@ form {
 		user = (UserBean)session.getAttribute("user");
 		if (user.getSectionCode().equals("S1")) {
 	%>
-	<h3>従業員情報の変更や削除は、従業員を選択してからボタンを押してください。</h3>
+	従業員情報の変更や削除は、従業員を選択してからボタンを押してください。
 	<form method="POST" name="submitForm">
 	<hr>
 	<%
