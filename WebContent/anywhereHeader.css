@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 ul#menu {
-	height:60px; background-color:#87cefa; font-weight:bold;
+	height:60px; background-color:#87cefa; font-weight:bold;margin-top:0px;
 }
 
 div{

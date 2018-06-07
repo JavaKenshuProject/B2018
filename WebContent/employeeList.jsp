@@ -13,27 +13,7 @@
 <meta charset="UTF-8" />
 <title>従業員一覧画面</title>
 <link rel="stylesheet" href="employeeList.css" type="text/css">
-<style>
-div table {
-	border: 1px solid black;
-}
 
-th {
-	border: 1px solid black;
-}
-
-div td {
-	border: 1px solid black;
-}
-
-form {
-	display: inline;
-}
-.baloonoya{
-	position: relative;
-	cursor: pointer;
-}
-</style>
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp"%>
