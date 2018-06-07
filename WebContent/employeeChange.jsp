@@ -15,38 +15,25 @@
 			<%@include file="anywhereHeader.jsp" %>
 			<div class="box">
 			<h1>従業員情報変更</h1>
-			<h2>現在の内容</h2>
 			<%EmployeeBean emp = (EmployeeBean)session.getAttribute("employee"); %>
-			氏名:
-			<%=emp.getlName()%>
-			<%=emp.getfName()%>　
-			氏名(フリガナ)
-			<%=emp.getlKanaName()%>
-			<%=emp.getfKanaName()%>　
-			性別:
-			<%byte sex = emp.getSex(); %>
-			<%if(sex == 0){ %>
-			男
-			<%}else if(sex == 1){%>
-			女
-			<%}%>　
-			所属部署:
-			<%=emp.getSectionName()%>
-
-			<br>
 			<hr>
 			<br>
 			<h2>変更内容</h2>
+			<h3>変更したい箇所を編集してください</h3>
 			<form action="EmployeeChangeServlet" method="post">
-				氏　名&nbsp;&nbsp;&nbsp;：<input type="text" name = "l_name" placeholder="氏"><input type="text" name = "f_name" placeholder="名"><br>
-				フリガナ：<input type="text" name="l_kana_name" placeholder="氏"><input type="text" name = "f_kana_name" placeholder="名"><br><br>
-				性別：<input type="radio" value="0" name="sex">男
-					  <input type="radio"value="1" name="sex">女<br>
+				氏　名&nbsp;&nbsp;&nbsp;：
+				<input type="text" name = "l_name" placeholder="氏" maxlength="16" value="<%=emp.getlName() %>" required>
+				<input type="text" name = "f_name" placeholder="名" maxlength="16" value="<%=emp.getfName() %>" required><br>
+				フリガナ：
+				<input type="text" name="l_kana_name" placeholder="氏(フリガナ)" maxlength="24" pattern="^[ア-ン゛゜ァ-ォャ-ョー「」、]+$" value="<%=emp.getlKanaName() %>" required>
+				<input type="text" name = "f_kana_name" placeholder="名(フリガナ)" maxlength="24" pattern="^[ア-ン゛゜ァ-ォャ-ョー「」、]+$" value="<%=emp.getfKanaName() %>" required><br><br>
+				性別：<input type="radio" value="0" name="sex" <%if(emp.getSex() == 0){%>checked<%} %>>男
+					  <input type="radio"value="1" name="sex" <%if(emp.getSex() == 1){%>checked<%} %>>女<br>
 				所属部署名：<select name="section_code">
 					<option>選択してください</option>
 					<%List<SectionBean> sectionList = (List<SectionBean>)session.getAttribute("scList") ; %>
 					<%for(SectionBean section: sectionList){%>
-					<option value="<%=section.getSectionCode()%>"><%=section.getSectionName() %></option>
+					<option value="<%=section.getSectionCode()%>" <%if(section.getSectionName().equals(emp.getSectionName())){%>selected<%}%>><%=section.getSectionName() %></option>
 				<%} %>
 				</select>
 				<br>
