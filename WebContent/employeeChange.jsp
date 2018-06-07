@@ -28,7 +28,7 @@
 				<input type="text" name="l_kana_name" placeholder="氏(フリガナ)" maxlength="24" pattern="^[ア-ン゛゜ァ-ォャ-ョー「」、]+$" value="<%=emp.getlKanaName() %>" required>
 				<input type="text" name = "f_kana_name" placeholder="名(フリガナ)" maxlength="24" pattern="^[ア-ン゛゜ァ-ォャ-ョー「」、]+$" value="<%=emp.getfKanaName() %>" required><br><br>
 				性別：<input type="radio" value="0" name="sex" <%if(emp.getSex() == 0){%>checked<%} %>>男
-					  <input type="radio"value="1" name="sex" <%if(emp.getSex() == 1){%>checked<%} %>>女<br>
+					  <input type="radio" value="1" name="sex" <%if(emp.getSex() == 1){%>checked<%} %>>女<br>
 				所属部署名：<select name="section_code">
 					<option>選択してください</option>
 					<%List<SectionBean> sectionList = (List<SectionBean>)session.getAttribute("scList") ; %>
@@ -38,13 +38,13 @@
 				</select>
 				<br>
 				<hr>
-				<br></form>
+				<br>
+			    <input type="submit" value="変更" name="ACTION">
+			</form>
 
-				<form class="yoko" action="EmployeeChangeServlet" method="post">
-			    <input type="submit" value="変更" name="ACTION"></form>
-
-				<form class="yoko" action="employeeList.jsp">
-				<input type="submit" value="キャンセル"></form>
+			<form class="yoko" action="employeeList.jsp">
+				<input type="submit" value="キャンセル">
+			</form>
 			</div>
 		</body>
 	</html>
