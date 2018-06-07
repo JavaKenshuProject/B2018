@@ -29,6 +29,10 @@ div td {
 form {
 	display: inline;
 }
+.baloonoya{
+	position: relative;
+	cursor: pointer;
+}
 </style>
 <script>
 	function check(){
@@ -119,7 +123,13 @@ form {
 	<div style="height: 320px; overflow-y: scroll;">
 		<table>
 			<tr>
+				<%
+					if (user.getSectionCode().equals("S1")) {
+				%>
 				<th>選択</th>
+				<%
+					}
+				%>
 				<th>従業員コード</th>
 				<th>氏名</th>
 				<th>フリガナ</th>
@@ -156,7 +166,7 @@ form {
 				<td><%=emp.getSectionName()%></td>
 				<td><%=emp.getEmpDate()%></td>
 
-				<td><%=emp.getLicenseList().size() %></td>
+				<td class="baloonoya"><%=emp.getLicenseList().size() %></td>
 
 			</tr>
 			<%
@@ -164,9 +174,12 @@ form {
 			%>
 		</table>
 	</div>
-
+	<%
+		if (user.getSectionCode().equals("S1")) {
+	%>
 	<button type="submit" value="従業員情報変更" name="ACTION" onClick="form.action='EmployeeChangeServlet';return true">従業員情報変更</button> &nbsp;
 	<button type="submit" value="従業員情報削除" name="ACTION" onClick="form.action='EmployeeDeleteServlet';return check()">従業員情報削除</button>
+	<%	} %>
 	<%
 		} else {
 	%>
