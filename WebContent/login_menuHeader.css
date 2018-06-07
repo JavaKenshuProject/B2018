@@ -1,14 +1,14 @@
 @charset "UTF-8";
 
 ul#menu {
-	height:42px; background-color:#eeeeee; font-weight:bold;
+	height:60px; background-color:#87cefa; font-weight:bold;margin-top:0px;
 }
-li#menu00,li#menu01,li#menu02,li#menu03,li#menu04,li#menu05 {
+li#menu00,li#menu01 {
 	float:left;			/*リスト項目を横に並べる*/
 	display:inline;			/*リスト項目をインライン表示にする*/
 	list-style-type:none;		/*リストマーカー無しにする*/
 	background-repeat:no-repeat; 	/*背景画像を繰り返さない*/
-}
+padding-top:25px;}
 
 
 
@@ -20,6 +20,7 @@ li#menu00{
 
 li#menu01 {
 	width:164px; height:42px;	/*背景画像に合わせたサイズ指定*/
+	text-align:right;
 
 }
 

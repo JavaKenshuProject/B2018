@@ -13,7 +13,7 @@
 
 	<ul id="menu">
 
-		<li id="menu00">従業員管理システム</a></li>
+		<li id="menu00">従業員管理システム</li>
 	<%if(user!=null){ %>
 		<li id="menu01"><form method="post" name="form7" action="LogoutServlet">
 		    <input type="hidden" name="ACTION" value="ログアウト">
