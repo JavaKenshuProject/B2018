@@ -37,8 +37,6 @@
 			<form action="UserRegistrationServlet" method="post">
 				<input type="submit" value="システム利用者追加" name="ACTION"><br><br></form>
 		<%} %>
-			<form action="LogoutServlet" method="post">
-				<input type="submit" value="ログアウト" name="ACTION"><br></form>
 			</div>
 		</body>
 	</html>
