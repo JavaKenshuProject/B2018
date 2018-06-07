@@ -1,0 +1,36 @@
+
+.error-title{
+	font-size: 45px;
+	text-align:center;
+	margin-bottom:40px;
+}
+
+
+div{
+    margin:20px auto;
+	padding-top: 10px;
+   	text-align:center;
+}
+
+
+.button, .submit {
+  margin-top: 20px;
+  font-size:15px;
+  position: relative;
+  background-color: #1abc9c;
+  border-radius: 4px;
+  color: #fff;
+  line-height: 40px;
+  -webkit-transition: none;
+  transition: none;
+  box-shadow: 0 3px 0 #0e8c73;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}
+.button:hover, .submit:hover {
+  background-color: #31c8aa;
+  box-shadow: 0 3px 0 #23a188;
+}
+.button:active, .submit:active {
+  top: 3px;
+  box-shadow: none;
+}

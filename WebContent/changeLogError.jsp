@@ -11,11 +11,12 @@
 <body>
 	<%@include file="anywhereHeader.jsp" %>
 <div>
-<p class="all-title">正しく表示できませんでした</p>
+<p class="error-title">SORRY</p>
+正しく表示できませんでした
 <br>
 <%=exception.getMessage() %>
-<h3>時間をおいて再度アクセスしてください</h3>
-<input type="button" value="戻る">
+時間をおいて再度アクセスしてください
+<input class="submit" type="button" value="戻る">
 </div>
 </body>
 </html>

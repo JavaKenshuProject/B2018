@@ -15,13 +15,11 @@
 	<%@include file="login_menuHeader.jsp"%>
 	<div>
 		<p class="error-title">SORRY</p>
-		<p>
 			ログインできませんでした<br> ユーザIDとパスワードを正しく入力してください
-		</p>
+
 		<form action="login.jsp">
-			<p class="submit">
-				<input id="back_button" type="submit" value="ログイン画面に戻る">
-			</p>
+				<input class="submit "id="back_button" type="submit" value="ログイン画面に戻る">
+
 		</form>
 	</div>
 

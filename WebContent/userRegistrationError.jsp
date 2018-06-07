@@ -12,10 +12,11 @@
 <body>
 	<%@include file="anywhereHeader.jsp" %>
 <div>
-<p class="all-title">登録できませんでした</p>
-		<p>各項目を正しく入力してください</p>
+<p class="error-title">SORRY</p>
+		登録できませんでした<br>
+		各項目を正しく入力してください
 		<form action="post">
-		<p class="submit"><a href="userRegistration.jsp"><input id="back_button" type="button" value="戻る"></a></p>
+		<a href="userRegistration.jsp"><input class="submit" id="back_button" type="button" value="戻る"></a>
 	</form>
 </div>
 

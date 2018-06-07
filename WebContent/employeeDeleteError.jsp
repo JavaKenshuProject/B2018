@@ -11,11 +11,12 @@
 <body>
 	<%@include file="anywhereHeader.jsp" %>
 <div>
-<p class="all-title"><%=session.getAttribute("empCode") %>の従業員情報が削除できませんでした</p>
+<p class="error-title">SORRY</p>
+<%=session.getAttribute("empCode") %>の従業員情報が削除できませんでした
 <br>
-<h3>時間をおいて再度削除処理をおこなってください</h3>
+時間をおいて再度削除処理をおこなってください
 <form action="EmployeeListServlet" method="POST">
-<input type="submit" value="従業員一覧に戻る">
+<input class="submit" type="submit" value="従業員一覧に戻る">
 </form>
 </div>
 </body>
