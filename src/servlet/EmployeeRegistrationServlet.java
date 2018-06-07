@@ -14,12 +14,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.dao.ChangeLogDAO;
 import model.dao.EmployeeDAO;
 import model.dao.LicenseDAO;
 import model.dao.SectionDAO;
+import model.entity.ChangeLogBean;
 import model.entity.EmployeeBean;
 import model.entity.LicenseBean;
 import model.entity.SectionBean;
+import model.entity.UserBean;
 
 /**
  * 従業員情報登録サーブレット
@@ -62,10 +65,10 @@ public class EmployeeRegistrationServlet extends HttpServlet {
 		String action = request.getParameter("ACTION");
 		String url = null;
 
+		HttpSession session = request.getSession();
+
 
 		if("従業員情報登録".equals(action)) {
-
-			HttpSession session = request.getSession();
 
 			try {
 				SectionDAO secDAO = new SectionDAO();
@@ -123,6 +126,16 @@ public class EmployeeRegistrationServlet extends HttpServlet {
 				for(String code:licenseList) {
 					licDAO.licenseRegistration(empCode, code);
 				}
+
+				ChangeLogDAO chlDAO = new ChangeLogDAO();
+				ChangeLogBean changeLog = new ChangeLogBean();
+				UserBean user = (UserBean)session.getAttribute("user");
+
+				changeLog.setUserId(user.getUserId());
+				changeLog.setOperation("登録");
+				changeLog.setEmpCode(empCode);
+
+				chlDAO.insert(changeLog);
 
 				url = "employeeRegistrationComp.jsp";
 
