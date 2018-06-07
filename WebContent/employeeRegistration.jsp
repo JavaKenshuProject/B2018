@@ -27,11 +27,11 @@
 	  <br>
 	  <hr><br>
 		<form  name="submitForm" action="EmployeeRegistrationServlet" method="POST" onsubmit="return check();">
-		  従業員コード：<input type="text" name="emp_code" required><br>
+		  従業員コード（E***の形式 例：E001）：<input type="text" name="emp_code"  pattern="^E[0-9]{3}$" maxlength="4" required><br>
 		  氏名：<input type="text" name="l_name" placeholder="氏" maxlength="16" required>
 		  		<input type="text" name="f_name" placeholder="名" maxlength="16" required><br>
-		  氏名（フリガナ）（全角カタカナ）：<input type="text" name="l_kana_name" placeholder="氏(フリガナ)" maxlength="24" pattern="/^[ア-ン゛゜ァ-ォャ-ョー「」、]+$/" required>
-		  					<input type="text" name="f_kana_name" placeholder="名(フリガナ)" maxlength="24" pattern="/^[ア-ン゛゜ァ-ォャ-ョー「」、]+$/" required><br>
+		  氏名（フリガナ）（全角カタカナ）：<input type="text" name="l_kana_name" placeholder="氏(フリガナ)" maxlength="24" pattern="^[ア-ン゛゜ァ-ォャ-ョー「」、]+$" required>
+		  					<input type="text" name="f_kana_name" placeholder="名(フリガナ)" maxlength="24" pattern="^[ア-ン゛゜ァ-ォャ-ョー「」、]+$" required><br>
 		  性別：<input type="radio" name="sex" value="0" checked="checked">男 <input type="radio" name="sex" value="1">女<br>
 		  生年月日：<input type="date" name="birth_day" required><br>
 		  所属部署名：<select name="section_code">
