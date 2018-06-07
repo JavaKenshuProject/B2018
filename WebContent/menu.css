@@ -5,9 +5,10 @@ padding: 0;
 
 }
 
-.a{
-	height:150px;
+.all{
+	height:180px;
 	width:200px;
+
 }
 
 div{
@@ -17,18 +18,39 @@ div{
    	text-align:center;
 }
 
+#b1{background:url('images/profile (2).png') no-repeat top;
+background-color: #006a6c;
 
-.a{
-	background-image:url('profile.png');
-border-left: 8px solid #C97556;
-background-color: #474655;
-padding: 3px 10px;
+
+
+}
+#b2{background:url('images/user-filled-person-shape (1).png')no-repeat top;
+background-color: #20b2aa;
+}
+#b3{background:url('images/credential.png')no-repeat top;
+background-color: #4169e1;
+}
+#b4{background:url('images/pencil-striped-symbol-for-interface-edit-buttons.png')no-repeat top;
+background-color: #043c78;
+}
+#b5{background:url('images/documents-symbol.png')no-repeat top;
+background-color: #191970;
+}
+#b6{background:url('images/about-us.png')no-repeat top;
+background-color: #001e43;
+}
+
+.all{
+padding-top:150px;
+vertical-align: bottom;
+margin-top:10px;;
 text-decoration: none;
 color: #E1E2CF;
 margin: 1px 0px;
 font-size: 20px;
+
 }
-.a:hover{
+.all:hover{
 border-left: 8px solid #990033;
 background-color: #474655;
 }
