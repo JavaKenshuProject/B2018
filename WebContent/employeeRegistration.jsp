@@ -44,7 +44,7 @@
 
 
 		  </select><br>
-		  入社日：<input type="date" id="date" name="emp_date" min="0000-01-01" required><br>
+		  入社日：<input type="date" id="date2" name="emp_date" min="0000-01-01" required><br>
 		  保有資格：<select name="license_code">
 		  	<option value="">未選択</option>
 		 	<%
@@ -88,6 +88,7 @@
         var dd = ("0"+date.getDate()).slice(-2);
 
     	document.getElementById("date").max=yyyy+'-'+mm+'-'+dd;
+    	document.getElementById("date2").max=yyyy+'-'+mm+'-'+dd;
     }
 </script>
 </body>
