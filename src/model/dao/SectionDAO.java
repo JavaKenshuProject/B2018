@@ -19,7 +19,9 @@ import model.entity.SectionBean;
 public class SectionDAO {
 
 	/**
-	 * @return 所属情報リスト
+	 * 所蔵情報リストの取得
+	 *
+	 * @return sectionList 所属情報リスト
 	 */
 
 	public List<SectionBean> getSectionList() throws SQLException, ClassNotFoundException {
