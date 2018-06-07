@@ -73,7 +73,7 @@ public class LicenseAddServlet extends HttpServlet {
 			//try内でエラーが出たらエラー画面へ遷移する
 			try {
 				LicenseDAO dao = new LicenseDAO();
-				dao.licenseAdd(licenseCode, licenseName);
+				dao.addLicense(licenseCode, licenseName);
 
 				url = "licenseAddComp.jsp";
 

@@ -124,7 +124,7 @@ public class EmployeeRegistrationServlet extends HttpServlet {
 				LicenseDAO licDAO = new LicenseDAO();
 
 				for(String code:licenseList) {
-					licDAO.licenseRegistration(empCode, code);
+					licDAO.registerLicense(empCode, code);
 				}
 
 				ChangeLogDAO chlDAO = new ChangeLogDAO();

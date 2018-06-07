@@ -13,6 +13,7 @@ import model.entity.LicenseBean;
 
 
 /**
+ * 資格情報DAO
  * @author Namioka
  *
  */
@@ -29,7 +30,7 @@ public class LicenseDAO {
 
 		try(Connection con = ConnectionManager.getConnection();
 				Statement stmt= con.createStatement();
-				ResultSet res=stmt.executeQuery("select license_code,license_name from m_license");){
+				ResultSet res=stmt.executeQuery("SELECT license_code,license_name FROM m_license");){
 
 
 
@@ -59,13 +60,13 @@ public class LicenseDAO {
 
 	/**
 	 * クライアントが入力した資格をクライアントの保有資格に追加する
-	 * @param empCode
-	 * @param licenseCode
-	 * @param licenseDate
+	 * @param empCode 従業員コード
+	 * @param licenseCode 資格コード
+	 * @param licenseDate 資格取得日
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public void licenseRegistration(String empCode,String licenseCode,Date licenseDate) throws SQLException, ClassNotFoundException {
+	public void registerLicense(String empCode,String licenseCode,Date licenseDate) throws SQLException, ClassNotFoundException {
 
 		try(Connection con =ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(
@@ -90,12 +91,12 @@ public class LicenseDAO {
 
 	/**
 	 * licenseDateが入力されなかった場合の処理メソッド
-	 * @param empCode
-	 * @param licenseCode
+	 * @param empCode 従業員コード
+	 * @param licenseCode 資格コード
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public void licenseRegistration(String empCode,String licenseCode) throws SQLException, ClassNotFoundException {
+	public void registerLicense(String empCode,String licenseCode) throws SQLException, ClassNotFoundException {
 
 		try(Connection con =ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(
@@ -119,12 +120,12 @@ public class LicenseDAO {
 
 	/**
 	 * クライアントが入力した資格を新たに追加する
-	 * @param licenseCode
-	 * @param licenseName
+	 * @param licenseCode 資格コード
+	 * @param licenseName 資格名
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
 	 */
-	public void licenseAdd(String licenseCode,String licenseName) throws ClassNotFoundException, SQLException {
+	public void addLicense(String licenseCode,String licenseName) throws ClassNotFoundException, SQLException {
 
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt=con.prepareStatement(
@@ -152,7 +153,7 @@ public class LicenseDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public void getLicenseDelete(String empCode) throws SQLException, ClassNotFoundException {
+	public void deleteGetLicense(String empCode) throws SQLException, ClassNotFoundException {
 		try(Connection con =ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(
 						"DELETE FROM t_get_license WHERE emp_code = ?")){

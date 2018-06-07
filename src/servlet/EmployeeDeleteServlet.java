@@ -54,7 +54,7 @@ public class EmployeeDeleteServlet extends HttpServlet {
 
 		try {
 			LicenseDAO lDao = new LicenseDAO();
-			lDao.getLicenseDelete(empCode);
+			lDao.deleteGetLicense(empCode);
 
 			delDao = new EmployeeDAO();
 
