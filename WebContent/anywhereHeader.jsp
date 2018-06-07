@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="model.entity.UserBean"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +9,7 @@
 </head>
 
 	<%UserBean user = (UserBean)session.getAttribute("user");%>
-
+	<% 	if(user == null){response.sendRedirect("login.jsp");}else{%>
 <div>
 	<ul id="menu">
 
@@ -59,5 +58,5 @@
 		</form></li>
 	</ul>
 	</div>
-
+<%} %>
 </html>
