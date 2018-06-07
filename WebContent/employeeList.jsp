@@ -61,7 +61,7 @@
 		List<EmployeeBean> empList = (List<EmployeeBean>) session.getAttribute("empList");
 		Map<String, String> licenseMap = (Map<String, String>)session.getAttribute("licenseMap");
 	%>
-
+	<p class="all-title">従業員一覧</p>
 	<form action="EmployeeListServlet" method="POST">
 		<table>
 			<tr>
