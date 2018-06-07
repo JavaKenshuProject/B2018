@@ -33,7 +33,7 @@
 		  氏名（フリガナ）（全角カタカナ）：<input type="text" name="l_kana_name" placeholder="氏(フリガナ)" maxlength="24" pattern="^[ア-ン゛゜ァ-ォャ-ョー「」、]+$" required>
 		  					<input type="text" name="f_kana_name" placeholder="名(フリガナ)" maxlength="24" pattern="^[ア-ン゛゜ァ-ォャ-ョー「」、]+$" required><br>
 		  性別：<input type="radio" name="sex" value="0" checked="checked">男 <input type="radio" name="sex" value="1">女<br>
-		  生年月日：<input type="date" name="birth_day" required><br>
+		  生年月日：<input type="date" name="birth_day" min="0000-01-01" max="9999-12-31" required><br>
 		  所属部署名：<select name="section_code">
 		    <%
 
@@ -52,7 +52,7 @@
 
 
 		  </select><br>
-		  入社日：<input type="date" name="emp_date" required><br>
+		  入社日：<input type="date" name="emp_date" min="0000-01-01" max="9999-12-31" required><br>
 		  保有資格：<select name="license_code">
 		  	<option value="">未選択</option>
 		 	<%

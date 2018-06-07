@@ -38,7 +38,7 @@
 
 </select>
 <br>
-取得日(任意)：<input type="date" name="get_license_date"><br>
+取得日(任意)：<input type="date" name="get_license_date"  min="0000-01-01" max="9999-12-31"><br>
 <br>
 <br>
 <input type="submit" value="追加" name="ACTION">&nbsp;
