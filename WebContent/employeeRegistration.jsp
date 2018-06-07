@@ -23,10 +23,10 @@
 	<%@include file="anywhereHeader.jsp" %>
 	<div>
 	  <p class="all-title">従業員情報登録画面</p>
-	  <h2>登録する従業員情報を入力してください</h2>
+	  登録する従業員情報を入力してください
 	  <br>
 	  <hr><br>
-		<form  name="submitForm" action="EmployeeRegistrationServlet" method="POST" onsubmit="return check();">
+		<form class="yoko" name="submitForm" action="EmployeeRegistrationServlet" method="POST" onsubmit="return check();">
 		  従業員コード（E***の形式 例：E001）：<input type="text" name="emp_code"  pattern="^E[0-9]{3}$" maxlength="4" required><br>
 		  氏名：<input type="text" name="l_name" placeholder="氏" maxlength="16" required>
 		  		<input type="text" name="f_name" placeholder="名" maxlength="16" required><br>
@@ -72,10 +72,10 @@
 
 		  </select> <br>
 		  <hr><br>
-			<input type="submit" name="ACTION" value="登録">
+			<input class="submit" type="submit" name="ACTION" value="登録">
 			</form>
-			<form action="menu.jsp" method="POST" >
-			<input type="submit" value="キャンセル">
+			<form class="yoko" action="menu.jsp" method="POST" >
+			<input class="submit" type="submit" value="キャンセル">
 			</form>
 	</div>
 </body>

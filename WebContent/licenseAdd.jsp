@@ -22,13 +22,13 @@
 	<%@include file="anywhereHeader.jsp" %>
 <div>
 <p class="all-title">新規資格の追加</p>
-<form  name="submitForm" action="LicenseAddServlet"method="POST" onsubmit="return check();">
+<form class="yoko"  name="submitForm" action="LicenseAddServlet"method="POST" onsubmit="return check();">
 資格コード：<input type="text" name="license_code" pattern="^L[0-9]{4}$" maxlength="5" required><br>
 資格名：<input type="text" name="license_name" maxlength="100" required><br>
 <br>
 <input class="submit" type="submit" value="追加" name="ACTION">&nbsp;
 </form>
-<form action="menu.jsp" method="POST">
+<form class="yoko" action="menu.jsp" method="POST">
 <input class="submit" type="submit" value="キャンセル">
 </form>
 </div>
