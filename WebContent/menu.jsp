@@ -14,7 +14,7 @@
 	<% 	if(user == null){response.sendRedirect("login.jsp");}else{%>
 
 			<form class="menu" action="EmployeeListServlet" method="post">
-					<span><input class="a" type="submit" value="従業員一覧" name="ACTION"></span>
+					<span><input id="b1" class="all" type="submit" value="従業員一覧" name="ACTION"></span>
 
 				</form>
 
@@ -22,7 +22,7 @@
 				 if (user.getSectionCode().equals("S1") || user.getSectionCode().equals("S2")) {
 				%>
 				<form class="menu" action="EmployeeRegistrationServlet" method="post">
-					<span><input class="a" type="submit" value="従業員情報登録" name="ACTION"></span>
+					<span><input id="b2" class="all" type="submit" value="従業員情報登録" name="ACTION"></span>
 				</form> <%
  	}
  %>
@@ -30,11 +30,11 @@
 					if (user.getSectionCode().equals("S1")) {
 				%>
 				<form class="menu" action="LicenseRegistrationServlet" method="post">
-					<span><input class="a" type="submit" value="保有資格追加" name="ACTION"></span>
+					<span><input id="b3" class="all" type="submit" value="保有資格追加" name="ACTION"></span>
 				</form>
 
 			<form  class="menu"action="LicenseAddServlet" method="post">
-					<span><input class="a" type="submit" value="新規資格追加" name="ACTION"></span>
+					<span><input id="b4" class="all" type="submit" value="新規資格追加" name="ACTION"></span>
 				</form> <%
  	}
  %>
@@ -43,7 +43,7 @@
 					if (user.getSectionCode().equals("S1") || user.getSectionCode().equals("S2")) {
 				%>
 				<form  class="menu"action="ChangeLogServlet" method="post">
-					<span><input class="a" type="submit" value="情報の変更ログを表示" name="ACTION"></span>
+					<span><input id="b5" class="all" type="submit" value="情報の変更ログ" name="ACTION"></span>
 				</form> <%
  	}
  %>
@@ -51,7 +51,7 @@
 					if (user.getSectionCode().equals("S1")) {
 				%>
 				<form class="menu" action="UserRegistrationServlet" method="post">
-					<span><input class="a" type="submit" value="システム利用者追加" name="ACTION"></span>
+					<span><input id="b6" class="all" type="submit" value="システム利用者追加" name="ACTION"></span>
 				</form> <%} %>
 				</div>
 <%} %>

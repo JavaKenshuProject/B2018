@@ -8,20 +8,14 @@
 <head>
 	<title>変更ログ一覧画面</title>
 	<meta charset="UTF-8">
-	<style>
-	h1 {
-		text-align: center;
-	}
-	div{
-		text-align: center;
-	}
-	</style>
+	<link rel="stylesheet" href="employeeRegistration.css" type="text/css">
+
 </head>
 <body>
 
 
 	<%@include file="anywhereHeader.jsp" %>
-<h1 style="padding-top:40px;">変更ログ一覧画面</h1>
+<p class="all-title">変更ログ一覧画面</p>
 <p style="text-align:center;"><a href="menu.jsp"><input style="width:80px;height:40px; font-size:14px;" type="button" value="戻 る"></a></p>
 <hr>
 <div style="height:300px; overflow-y:scroll;">
