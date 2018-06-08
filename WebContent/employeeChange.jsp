@@ -14,10 +14,9 @@
 		<body>
 			<%@include file="anywhereHeader.jsp" %>
 			<div>
-			<h1>従業員情報変更</h1>
+			<p class="all-title">従業員情報変更</p>
 			<%EmployeeBean emp = (EmployeeBean)session.getAttribute("employee"); %>
-			<p class="mess"><span>変更内容</span>
-			<br>変更したい箇所を編集してください</p>
+			変更したい箇所を編集してください
 			<hr>
 			<form class="yoko" action="EmployeeChangeServlet" method="post" onsubmit="return check();">
 				氏　名&nbsp;&nbsp;&nbsp;：

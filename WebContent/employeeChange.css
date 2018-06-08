@@ -8,15 +8,11 @@ body{
 	margin:0;
 }
 
-.comp-title{
+.all-title{
 	margin-top:50px;
 	font-size:32px;
 	font-weight:30px;
 	margin-bottom:10px;
-}
-
-span{
-	font-size:25px;
 }
 
 hr{
