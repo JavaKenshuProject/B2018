@@ -8,6 +8,11 @@ body{
 	margin-bottom:0px;
 }
 
+.nonEmployee{
+	font: 20px bold;
+	text-align:center;
+}
+
 .back {
 	margin-right:50px;
 }
@@ -36,6 +41,7 @@ table.list th, td {
   font-size: small;
   text-align: center;
 }
+}
 .even {
   background: #F2F2F2;
 }
@@ -43,18 +49,18 @@ table.list th, td {
   background: #B2D8FF;
 }
 .fukidiv{
-	position: relative;
-	border:solid 1px;
 }
 .text {
 	position: relative;
+	border:solid 1px;
+	padding: 0px 20px;
 }
 .fukidashi {
 	display: none;
 	width: 300px;
 	position: absolute;
-	top:0px;
-	left:90px;
+	top:306px;
+	left:1035px;
 	background: #33cc99;
 	color: #fff;
 	font-weight: bold;

@@ -67,6 +67,7 @@
 				</td>
 				<td rowspan="2"><strong>検索したい名前：</strong> <input type="text" name="name" value="<%if(name!=null){ %><%=name%><%}%>"></td>
 				<td rowspan="2"><input type="submit" value="絞り込み" name="ACTION" class="button"></td>
+				<td rowspan="2"><button type="submit" value="従業員一覧" name="ACTION" class="button">リセット</button></td>
 			</tr>
 			<tr>
 				<td>
@@ -148,16 +149,20 @@
 				<td><%=emp.getSectionName()%></td>
 				<td><%=emp.getEmpDate()%></td>
 
-				<td><% if(emp.getLicenseList().size()!=0){%>
-				<div class="fukidiv">
-				<span class="text"><%=emp.getLicenseList().size() %>個</span>
-				<span class="fukidashi"><span class="fukititle"><%=emp.getlName()%><%=emp.getfName()%>さんの保有資格</span><br>
-				<ul>
-				<%for(String code:emp.getLicenseList()){ %>
-				<li><%=licenseMap.get(code) %></li>
-				<%} %>
-				</ul>
-				</span>
+				<td>
+				<% if(emp.getLicenseList().size()!=0){%>
+					<div class="fukidiv">
+						<span class="text"><%=emp.getLicenseList().size() %>個</span>
+						<span class="fukidashi">
+							<span class="fukititle"><%=emp.getlName()%><%=emp.getfName()%>さんの保有資格</span>
+							<br>
+							<ul>
+							<%for(String code:emp.getLicenseList()){ %>
+							<li><%=licenseMap.get(code) %></li>
+							<%} %>
+							</ul>
+						</span>
+					</div>
 				<%}else{ %>
 				なし
 				<%} %>
@@ -172,7 +177,7 @@
 	<%
 		} else {
 	%>
-	<h2>条件に当てはまる従業員が存在しません</h2>
+	<p class="nonEmployee">条件に当てはまる従業員が存在しません</p>
 	<%
 		}
 	%>
@@ -219,7 +224,6 @@
 	    $(this).removeClass("hover");
 	  });
 	});
-	</script>
 </script>
 </body>
 </html>
