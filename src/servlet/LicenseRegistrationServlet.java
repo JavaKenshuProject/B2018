@@ -95,11 +95,11 @@ public class LicenseRegistrationServlet extends HttpServlet {
 				LicenseDAO dao =new LicenseDAO();
 
 				if(licenseDate==null) {
-					dao.registerLicense(empCode, licenseName);
+					dao.registerGetLicense(empCode, licenseName);
 					url = "licenseRegistrationComp.jsp";
 
 				}else {
-					dao.registerLicense(empCode, licenseName, licenseDate);
+					dao.registerGetLicense(empCode, licenseName, licenseDate);
 					url = "licenseRegistrationComp.jsp";
 				}
 

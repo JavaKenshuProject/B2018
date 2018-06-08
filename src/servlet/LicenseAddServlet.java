@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -52,7 +53,17 @@ public class LicenseAddServlet extends HttpServlet {
 
 			HttpSession session = request.getSession();
 			session.removeAttribute("licensebean");
-			url="licenseAdd.jsp";
+
+			//バリデーション用資格一覧
+			LicenseDAO lDao = new LicenseDAO();
+			try {
+				List<LicenseBean> licenseList = lDao.getLicenseList();
+				session.setAttribute("licenseList", licenseList);
+				url="licenseAdd.jsp";
+			}catch(Exception e){
+				e.printStackTrace();
+				url="licenseListError.jsp";
+			}
 
 		}else if("追加".equals(action)){
 
@@ -64,6 +75,8 @@ public class LicenseAddServlet extends HttpServlet {
 			LicenseBean bean = new LicenseBean();
 			bean.setLicenseCode(licenseCode);
 			bean.setLicenseName(licenseName);
+
+			//重複チェック
 
 
 			//beanに入った値をsessionに入れて渡す

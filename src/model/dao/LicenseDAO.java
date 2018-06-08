@@ -66,7 +66,7 @@ public class LicenseDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public void registerLicense(String empCode,String licenseCode,Date licenseDate) throws SQLException, ClassNotFoundException {
+	public void registerGetLicense(String empCode,String licenseCode,Date licenseDate) throws SQLException, ClassNotFoundException {
 
 		try(Connection con =ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(
@@ -96,7 +96,7 @@ public class LicenseDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public void registerLicense(String empCode,String licenseCode) throws SQLException, ClassNotFoundException {
+	public void registerGetLicense(String empCode,String licenseCode) throws SQLException, ClassNotFoundException {
 
 		try(Connection con =ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(

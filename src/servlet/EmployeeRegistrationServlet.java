@@ -128,7 +128,7 @@ public class EmployeeRegistrationServlet extends HttpServlet {
 
 				for(String code:licenseList) {
 					//空文字じゃなければ資格登録
-					if(!code.equals(""))licDAO.registerLicense(empCode, code);
+					if(!code.equals(""))licDAO.registerGetLicense(empCode, code);
 				}
 
 				ChangeLogDAO chlDAO = new ChangeLogDAO();
