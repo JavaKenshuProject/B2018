@@ -13,7 +13,7 @@
 <meta charset="UTF-8" />
 <title>従業員一覧画面</title>
 <link rel="stylesheet" href="employeeList.css" type="text/css">
-
+<script type="text/javascript" src="jquery.min.js"></script>
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp"%>
@@ -29,7 +29,7 @@
 	%>
 	<p class="all-title">従業員一覧</p>
 	<form action="EmployeeListServlet" method="POST">
-		<table>
+		<table class="search">
 			<tr>
 				<td><strong>絞り込み：</strong>
 				頭文字
@@ -63,7 +63,14 @@
 					<option value="-1">指定なし</option>
 					<option value="0" <%if ("0".equals(sex)) {%> selected <%}%>>男</option>
 					<option value="1" <%if ("1".equals(sex)) {%> selected <%}%>>女</option>
-				</select> <br> <strong>並び替え：</strong> <select name="sort">
+				</select>
+				</td>
+				<td rowspan="2"><strong>検索したい名前：</strong> <input type="text" name="name" value="<%if(name!=null){ %><%=name%><%}%>"></td>
+				<td rowspan="2"><input type="submit" value="絞り込み" name="ACTION"></td>
+			</tr>
+			<tr>
+				<td>
+				<strong>並び替え：</strong> <select name="sort">
 					<option value="emp_code" <%if ("emp_code".equals(sort)) {%>	selected <%}%>>従業員コード</option>
 					<option value="emp_date" <%if ("emp_date".equals(sort)) {%>	selected <%}%>>入社日</option>
 					<option value="birth_day" <%if ("birth_day".equals(sort)) {%>selected <%}%>>生年月日</option>
@@ -71,19 +78,22 @@
 				<input type="radio" name="order" value="ASC" <%if ("ASC".equals(order) || order==null) {%> checked <%}%>>昇順
 				<input type="radio" name="order" value="DESC" <%if ("DESC".equals(order)) {%> checked <%}%>>降順
 				</td>
-				<td><strong>検索したい名前：</strong> <input type="text" name="name" value="<%if(name!=null){ %><%=name%><%}%>"></td>
-				<td><input type="submit" value="絞り込み" name="ACTION"></td>
 			</tr>
 		</table>
 	</form>
 	<hr>
-	<a href="menu.jsp"><input type="button" value="メニューに戻る"></a>
+	<form method="POST" name="submitForm">
+	<div class="menu">
+	<a href="menu.jsp" class="back"><input type="button" value="メニューに戻る"></a>
 	<%
 		user = (UserBean)session.getAttribute("user");
 		if (user.getSectionCode().equals("S1")) {
 	%>
+	<button type="submit" value="従業員情報変更" name="ACTION" onClick="form.action='EmployeeChangeServlet';return true">従業員情報変更</button>
+	<button type="submit" value="従業員情報削除" name="ACTION" onClick="form.action='EmployeeDeleteServlet';return check()">従業員情報削除</button>
+	<br>
 	従業員情報の変更や削除は、従業員を選択してからボタンを押してください。
-	<form method="POST" name="submitForm">
+	</div>
 	<hr>
 	<%
 		}
@@ -93,7 +103,7 @@
 		if (empList != null) {
 	%>
 	<div style="height: 320px; overflow-y: scroll;">
-		<table>
+		<table class="list">
 			<tr>
 				<%
 					if (user.getSectionCode().equals("S1")) {
@@ -138,7 +148,20 @@
 				<td><%=emp.getSectionName()%></td>
 				<td><%=emp.getEmpDate()%></td>
 
-				<td class="baloonoya"><%=emp.getLicenseList().size() %></td>
+				<td><% if(emp.getLicenseList().size()==0){%>
+				<div class="fukidiv">
+				<span class="text"><%=emp.getLicenseList().size() %>個</span>
+				<span class="fukidashi"><%=emp.getEmpCode()%>の<%=emp.getlName()%><%=emp.getfName()%>さんの保有資格<br>
+				<ul>
+				<%for(String code:emp.getLicenseList()){ %>
+				<li><%=licenseMap.get(code) %></li>
+				<%} %>
+				</ul>
+				</span>
+				<%}else{ %>
+				なし
+				<%} %>
+				</td>
 
 			</tr>
 			<%
@@ -146,12 +169,6 @@
 			%>
 		</table>
 	</div>
-	<%
-		if (user.getSectionCode().equals("S1")) {
-	%>
-	<button type="submit" value="従業員情報変更" name="ACTION" onClick="form.action='EmployeeChangeServlet';return true">従業員情報変更</button> &nbsp;
-	<button type="submit" value="従業員情報削除" name="ACTION" onClick="form.action='EmployeeDeleteServlet';return check()">従業員情報削除</button>
-	<%	} %>
 	<%
 		} else {
 	%>
@@ -194,6 +211,15 @@
 		}
 		return true;
 	}
+	$(function(){
+	  $("table.list > tr:nth-child(even)").addClass("even");
+	  $("table.list > tr:not(:first-child)").mouseover(function(){
+	    $(this).addClass("hover");
+	  }).mouseout(function(){
+	    $(this).removeClass("hover");
+	  });
+	});
+	</script>
 </script>
 </body>
 </html>

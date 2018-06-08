@@ -2,27 +2,65 @@
 .all-title{
 	font-size: 30px;
 	text-align:center;
+	margin-bottom:0px;
 }
 
-
-div table {
-	border: 1px solid black;
-	margin:0 auto;
+.back {
+	margin-right:50px;
 }
 
-th {
-	border: 1px solid black;
+table.search {
+	margin: 0px auto;
 }
 
-div td {
-	border: 1px solid black;
+table.search > td {
+	text-align: left;
+}
+
+div.menu {
+	text-align: center;
+}
+
+table.list {
+  margin: 0px auto;
+}
+table.list > th {
+  background: #222222;
+  color: white;
+}
+table.list > th, td {
+  padding: 5px;
+  font-size: small;
+  text-align: center;
+}
+.even {
+  background: #F2F2F2;
+}
+.hover {
+  background: #B2D8FF;
+}
+.fukidiv{
+	position: relative;
+	border:solid 1px;
+}
+.text {
+	position: relative;
+}
+.fukidashi {
+	display: none;
+	width: 300px;
+	position: absolute;
+	top:0px;
+	left:90px;
+	background: #33cc99;
+	color: #fff;
+	font-weight: bold;
+}
+.fukidiv:hover > .fukidashi {
+	display: block;
 }
 
 form {
 	display: inline;
 	margin:0 auto;
-}
-.baloonoya{
-	position: relative;
-	cursor: pointer;
 }
