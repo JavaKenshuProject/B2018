@@ -4,6 +4,10 @@ div{
    	text-align:center;
 }
 
+body{
+	margin:0;
+}
+
 .comp-title{
 
 	font-size:32px;
