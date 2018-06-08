@@ -1,8 +1,50 @@
-.box{
-    margin:20px auto;
-   	padding: 100px;
+
+div{
+    margin:0 auto;
    	text-align:center;
 }
+
+body{
+	margin:0;
+}
+
+.comp-title{
+	margin-top:50px;
+	font-size:32px;
+	font-weight:30px;
+	margin-bottom:10px;
+}
+
+span{
+	font-size:25px;
+}
+
+hr{
+	margin:20px auto;
+}
+
+.button {
+  margin-top:20px;
+  position: relative;
+  background-color: #1abc9c;
+  border-radius: 4px;
+  color: #fff;
+  line-height: 30px;
+  width: 120px;
+  -webkit-transition: none;
+  transition: none;
+  box-shadow: 0 3px 0 #0e8c73;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}
+.button:hover {
+  background-color: #31c8aa;
+  box-shadow: 0 3px 0 #23a188;
+}
+.button:active {
+  top: 3px;
+  box-shadow: none;
+}
+
 .yoko{
 	display:inline;
 }

@@ -13,14 +13,13 @@
 		</head>
 		<body>
 			<%@include file="anywhereHeader.jsp" %>
-			<div class="box">
+			<div>
 			<h1>従業員情報変更</h1>
 			<%EmployeeBean emp = (EmployeeBean)session.getAttribute("employee"); %>
+			<p class="mess"><span>変更内容</span>
+			<br>変更したい箇所を編集してください</p>
 			<hr>
-			<br>
-			<h2>変更内容</h2>
-			<h3>変更したい箇所を編集してください</h3>
-			<form action="EmployeeChangeServlet" method="post" onsubmit="return check();">
+			<form class="yoko" action="EmployeeChangeServlet" method="post" onsubmit="return check();">
 				氏　名&nbsp;&nbsp;&nbsp;：
 				<input type="text" name = "l_name" placeholder="氏" maxlength="16" value="<%=emp.getlName() %>" required>
 				<input type="text" name = "f_name" placeholder="名" maxlength="16" value="<%=emp.getfName() %>" required><br>
@@ -37,13 +36,11 @@
 				<%} %>
 				</select>
 				<br>
-				<hr>
-				<br>
-			    <input type="submit" value="変更" name="ACTION">
+			    <input class="button" type="submit" value="変更" name="ACTION">
 			</form>
 
 			<form class="yoko" action="employeeList.jsp">
-				<input type="submit" value="キャンセル">
+				<input class="button" type="submit" value="キャンセル">
 			</form>
 			</div>
 		</body>
