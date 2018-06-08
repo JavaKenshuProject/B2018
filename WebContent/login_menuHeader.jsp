@@ -10,16 +10,17 @@
 </head>
 
 	<%UserBean user = (UserBean)session.getAttribute("user");%>
+<div id="back">
 
-	<ul id="menu">
+<span class="one"><strong id="black">従業員管理システム</strong></span>
 
-		<li id="menu00">従業員管理システム</li>
+		<ul id="menu">
 	<%if(user!=null){ %>
-		<li id="menu01"><form method="post" name="form7" action="LogoutServlet">
+		<li class="active" id="menu01"><form method="post" name="form7" action="LogoutServlet">
 		    <input type="hidden" name="ACTION" value="ログアウト">
-		    <a href="javascript:form7.submit()">ログアウト</a>
+		    <a href="javascript:form7.submit()"><strong>ログアウト</strong><span>company</span></a>
 		</form></li>
 		<%} %>
 
-	</ul>
+	</ul></div>
 </html>
