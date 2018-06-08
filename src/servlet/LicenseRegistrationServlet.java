@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.dao.EmployeeDAO;
 import model.dao.LicenseDAO;
+import model.entity.EmployeeBean;
 import model.entity.LicenseBean;
 
 /**
@@ -56,9 +58,14 @@ public class LicenseRegistrationServlet extends HttpServlet {
 
 		if("保有資格追加".equals(action)) {
 			LicenseDAO lcDAO = new LicenseDAO();
+			EmployeeDAO empDAO = new EmployeeDAO();
+
 			try {
 				List<LicenseBean> lclist = lcDAO.getLicenseList();
 				session.setAttribute("lclist", lclist);
+
+				List<EmployeeBean> emplist = empDAO.selectAllEmployee();
+				session.setAttribute("emplist", emplist);
 
 				url = "licenseRegistration.jsp";
 			} catch (ClassNotFoundException | SQLException e) {

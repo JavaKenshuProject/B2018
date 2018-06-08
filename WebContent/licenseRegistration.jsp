@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="model.entity.LicenseBean"
+    pageEncoding="UTF-8"
+    import="model.entity.LicenseBean"
+    import="model.entity.EmployeeBean"
     import="java.util.List"%>
 
 <!DOCTYPE html>
@@ -13,6 +15,7 @@
 <body>
 	<%@include file="anywhereHeader.jsp" %>
 	<% LicenseBean regLicense = (LicenseBean)session.getAttribute("licensebean"); %>
+	<% List<EmployeeBean> empList = (List<EmployeeBean>)session.getAttribute("emplist");%>
 <div>
 
 
@@ -47,10 +50,33 @@
 </form></td></tr></table>
 </div>
 
+<table id="tbl" style="display:none;">
+<%for(EmployeeBean bean:empList){ %>
+	<tr>
+	<td><%=bean.getEmpCode() %></td>
+	</tr>
+<%} %>
+</table>
+
 <script>
     function check(){
         var form = document.forms.submitForm;
-        var msg = "この内容で保有資格を登録しますか？";
+        var flag = false;
+        var msg = "存在しない従業員コードです";
+
+        var tblData = document.getElementById("tbl");
+        for (var i = 0, rowlen = tblData.rows.length; i < rowlen; i++) {
+			if(tblData.rows[i].cells[0].innerText == form.emp_code.value){
+				flag = true;
+				break;
+			}
+		}
+
+		if(!flag){
+			alert(msg);
+			return false;
+		}
+        msg = "この内容で保有資格を登録しますか？";
         var result = confirm(msg);
         return result;
     }
