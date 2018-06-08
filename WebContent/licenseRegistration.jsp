@@ -13,11 +13,16 @@
 <body>
 	<%@include file="anywhereHeader.jsp" %>
 <div>
+
+
 <p class="all-title">従業員の保有資格の登録</p>
+
+<table class="table1">
+<tr><td class="td1">
 <form class="yoko" name="submitForm" action="LicenseRegistrationServlet" method="POST" onsubmit="return check();">
-従業員コード：<input type="text" name="emp_code" pattern="^E[0-9]{3}$" maxlength="4" required><br>
-資格名：
-<select name="license_name">
+従業員コード：</td><td class="td2"><input type="text" name="emp_code" pattern="^E[0-9]{3}$" maxlength="4" required></td></tr>
+<tr><td class="td1">資格名：</td>
+<td class="td2"><select name="license_name">
 	<% List<LicenseBean> lclist = (List<LicenseBean>)session.getAttribute("lclist");
 
 	if(lclist != null){
@@ -28,16 +33,17 @@
 
 	 <%}} %>
 
-</select>
-<br>
-取得日(任意)：<input type="date" id="date" name="get_license_date" min="0000-01-01"><br>
-<br>
-<br>
-<input class="submit" type="submit" value="追加" name="ACTION">&nbsp;
-</form>
+</select></td></tr>
+<tr><td class="td1">
+取得日(任意)：</td><td class="td2"><input type="date" id="date" name="get_license_date" min="0000-01-01"></td></tr>
+</table>
+<table class="table2">
+<tr><td>
+<input class="submit" type="submit" value="追加" name="ACTION">
+</form></td><td>
 <form class="yoko" action="menu.jsp" method="POST">
 <input class="submit" type="submit" value="キャンセル">
-</form>
+</form></td></tr></table>
 </div>
 
 <script>

@@ -8,11 +8,48 @@
 body{
 	margin:0;
 }
-
 div{
     margin:0 auto;
    	text-align:center;
 }
+
+
+table{
+	margin:0 auto;
+
+}
+
+.table1,tr,.td1,.td2{
+	border:1px solid #a1a1a1;
+	border-collapse: collapse;
+	padding:12px;
+	text-align:left;
+
+
+
+}
+
+.td1 { background-color: #87cefa;
+
+ }
+.td2{
+	background-color: #d1ffff;
+}
+.td1{
+	text-align:left;
+}
+
+.select{
+	width:175px;
+	height:27px;
+}
+.form{
+	width:170px;
+	height:23px;
+
+}
+
+
 
 .submit {
   margin-top: 20px;
