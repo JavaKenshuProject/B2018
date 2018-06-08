@@ -65,7 +65,7 @@
 					<option value="1" <%if ("1".equals(sex)) {%> selected <%}%>>女</option>
 				</select>
 				</td>
-				<td rowspan="2"><strong>検索したい名前：</strong> <input type="text" name="name" value="<%if(name!=null){ %><%=name%><%}%>"></td>
+				<td rowspan="2"><strong>　検索したい名前：</strong> <input type="text" name="name" value="<%if(name!=null){ %><%=name%><%}%>"></td>
 				<td rowspan="2"><input type="submit" value="絞り込み" name="ACTION" class="button2">
 				<button type="submit" value="従業員一覧" name="ACTION" class="button2">リセット</button></td>
 			</tr>
@@ -89,7 +89,7 @@
 	<%
 		if (empList != null) {
 	%>
-	<div style="height: 320px; overflow-y: scroll;">
+	<div style="height: 340px; overflow-y: scroll;">
 		<table class="list">
 			<tr>
 				<%
