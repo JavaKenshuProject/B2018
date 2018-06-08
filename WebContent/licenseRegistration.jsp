@@ -16,7 +16,7 @@
 <div>
 
 
-<p class="all-title">従業員の保有資格の登録</p>
+<p class="all-title">保有資格追加</p>
 
 <table class="table1">
 <tr><td class="td1">

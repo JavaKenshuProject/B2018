@@ -41,7 +41,7 @@
 		<%if(user.getSectionCode().equals("S1") || user.getSectionCode().equals("S2")){%>
 		<li id="menu05"><form method="post" name="form5" action="ChangeLogServlet">
 		    <input type="hidden" name="ACTION" value="情報の変更ログを表示">
-		    <a href="javascript:form5.submit()">変更ログ表示</a>
+		    <a href="javascript:form5.submit()">情報の変更ログ</a>
 		</form></li>
 
 		<%} %>

@@ -9,14 +9,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>従業員情報登録画面</title>
+<title>従業員情報登録</title>
 <link rel="stylesheet" href="employeeRegistration.css" type="text/css">
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp" %>
 	<% EmployeeBean emp = (EmployeeBean)session.getAttribute("regEmpInfo"); %>
 	<div>
-	  <p class="all-title">従業員情報登録画面</p>
+	  <p class="all-title">従業員情報登録</p>
 
 	  <table class="table1">
 		 <form class="yoko" name="submitForm" action="EmployeeRegistrationServlet" method="POST" onsubmit="return check();">

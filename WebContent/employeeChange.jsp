@@ -8,7 +8,7 @@
 	<html>
 		<head>
 			<meta charset="UTF-8">
-			<title>従業員情報変更画面</title>
+			<title>従業員情報変更</title>
 			<link rel="stylesheet" href="employeeChange.css" type="text/css">
 		</head>
 		<body>

@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>従業員一覧画面</title>
+<title>従業員一覧</title>
 <link rel="stylesheet" href="employeeList.css" type="text/css">
 <script type="text/javascript" src="jquery.min.js"></script>
 </head>

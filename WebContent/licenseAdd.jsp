@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="author" content="Namioka Saki">
-<title>新規資格追加画面</title>
+<title>新規資格追加</title>
 <link rel="stylesheet" href="licenseAdd.css" type="text/css">
 
 </head>
@@ -16,7 +16,7 @@
 	<%LicenseBean license = (LicenseBean)session.getAttribute("licensebean"); %>
 <div>
 
-<p class="all-title">新規資格の追加</p>
+<p class="all-title">新規資格追加</p>
 
 
 <form class="yoko"  name="submitForm" action="LicenseAddServlet"method="POST" onsubmit="return check();">
