@@ -64,6 +64,7 @@ public class LicenseRegistrationServlet extends HttpServlet {
 			} catch (ClassNotFoundException | SQLException e) {
 				url="employeeListError.jsp";
 			}
+			session.removeAttribute("licensebean");
 
 		}else if("追加".equals(action)){
 

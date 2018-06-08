@@ -12,6 +12,7 @@
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp" %>
+	<% LicenseBean regLicense = (LicenseBean)session.getAttribute("licensebean"); %>
 <div>
 
 
@@ -20,7 +21,7 @@
 <table class="table1">
 <tr><td class="td1">
 <form class="yoko" name="submitForm" action="LicenseRegistrationServlet" method="POST" onsubmit="return check();">
-従業員コード</td><td class="td2"><input class="form" type="text" name="emp_code" pattern="^E[0-9]{3}$" maxlength="4" required></td></tr>
+従業員コード</td><td class="td2"><input class="form" type="text" name="emp_code" pattern="^E[0-9]{3}$" maxlength="4" value="<%if(regLicense!=null){%><%=regLicense.getEmpCode() %><%}%>" required></td></tr>
 <tr><td class="td1">資格名</td>
 <td class="td2"><select name="license_name">
 	<% List<LicenseBean> lclist = (List<LicenseBean>)session.getAttribute("lclist");
@@ -29,13 +30,13 @@
 	for(int i=0; i < lclist.size(); i++){
 	LicenseBean license =lclist.get(i);%>
 
-	 <option value="<%= license.getLicenseCode() %>"><%= license.getLicenseName() %></option>
+	 <option value="<%= license.getLicenseCode() %>" <%if(regLicense!=null && license.getLicenseCode().equals(regLicense.getLicenseCode()) ){%>selected<%}%>><%= license.getLicenseName() %></option>
 
 	 <%}} %>
 
 </select></td></tr>
 <tr><td class="td1">
-取得日(任意)</td><td class="td2"><input class="form" type="date" id="date" name="get_license_date" min="0000-01-01"></td></tr>
+取得日(任意)</td><td class="td2"><input class="form" type="date" id="date" name="get_license_date" min="0000-01-01"  value="<%if(regLicense!=null){%><%=regLicense.getGetLicenseDate() %><%}%>"></td></tr>
 </table>
 <table class="table2">
 <tr><td>
