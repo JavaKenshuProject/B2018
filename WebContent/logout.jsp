@@ -11,7 +11,7 @@
 	<%@include file="login_menuHeader.jsp" %>
 		<form action="login.jsp" method ="post">
 
-			<div>
+			<div class="divdiv">
 			<p class="all-title">ログアウト完了</p>
 			<p class="mess">お疲れさまでした</p>
 				<input class="button" type="submit" value="ログイン画面に戻る">

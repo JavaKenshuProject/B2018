@@ -10,7 +10,7 @@
 </head>
 <body>
 	<%@include file="login_menuHeader.jsp"%>
-<div>
+<div class="divdiv">
 	<% 	if(user == null){response.sendRedirect("login.jsp");}else{%>
 
 			<form class="menu" action="EmployeeListServlet" method="post">

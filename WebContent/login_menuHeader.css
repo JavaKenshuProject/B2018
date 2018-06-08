@@ -1,33 +1,61 @@
 @charset "UTF-8";
 
-ul#menu {
-	height:60px; background-color:#87cefa; font-weight:bold;margin-top:0px;
-}
-li#menu00,li#menu01 {
-	float:left;			/*リスト項目を横に並べる*/
-	display:inline;			/*リスト項目をインライン表示にする*/
-	list-style-type:none;		/*リストマーカー無しにする*/
-	background-repeat:no-repeat; 	/*背景画像を繰り返さない*/
-padding-top:25px;}
 
+.one{
+	margin-left:20px;
+	 float: left;
+	 font-size:30px;
+	     height:65px;
 
+	     }
 
-/*ボタン01～05にはそれぞれ異なる背景画像を指定する*/
-li#menu00{
-
-	font-size:30px;
+	     #menu li.active a {
+    background: #333;
 }
 
-li#menu01 {
-	width:164px; height:42px;	/*背景画像に合わせたサイズ指定*/
-	text-align:right;
-
+#back{
+	background: #333;
+	margin:0 auto;
 }
 
 
-ul#menu  a {
-	display:block;				/*リンクをブロック表示にする*/
-	height:42px; padding-top:4px; text-align:center;
-	text-decoration:none; 			/*リンクの下線を無くす*/
-	font-family:Arial, Helvetica, sans-serif;	/*フォントの種類*/
+#black,strong{
+
+	color:#ffffff;
+}
+
+#menu {
+    list-style: none;
+    overflow: hidden;
+}
+.active {
+     display: inline-block;
+    border-left: 1px solid #DDD;
+    text-decoration: none;
+    margin: 0px 0px;
+
+}
+
+#menu li {
+    float: left;
+        border-right: 1px solid #DDD;
+}
+
+#menu li a {
+    display: block;
+    padding: 10px 15px;
+         text-align: center;
+     text-decoration: none;
+     color: #333;
+}
+#menu li a span {
+    display: block;
+    color: #AAA;
+    margin: 1px 0 0 0;
+    text-transform: uppercase;
+    font-size: 80%;
+    letter-spacing: 1px;
+}
+#menu li a:hover {
+    background: #7d7d7d;
 }
