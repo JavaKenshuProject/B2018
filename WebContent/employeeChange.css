@@ -8,15 +8,46 @@ body{
 	margin:0;
 }
 
-.all-title{
-	margin-top:50px;
-	font-size:32px;
-	font-weight:30px;
-	margin-bottom:10px;
+
+table{
+	margin:0 auto;
+
 }
 
-hr{
-	margin:20px auto;
+.table1,tr,.td1,.td2{
+
+	padding:11px;
+	text-align:left;
+
+
+
+}
+
+.td1 { background-color: #222;
+color:#ffffff;
+
+ }
+
+.td1{
+	text-align:left;
+}
+
+select{
+	width:150px;
+	height:27px;
+}
+.form{
+	width:170px;
+	height:23px;
+
+}
+
+
+
+.all-title{
+	font-size: 30px;
+	text-align:center;
+	margin-bottom:0px;
 }
 
 .button {
