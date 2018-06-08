@@ -13,16 +13,23 @@
 <body>
 	<%@include file="anywhereHeader.jsp" %>
 <div>
+
 <p class="all-title">新規資格の追加</p>
+
+
 <form class="yoko"  name="submitForm" action="LicenseAddServlet"method="POST" onsubmit="return check();">
-資格コード：<input type="text" name="license_code" pattern="^L[0-9]{4}$" maxlength="5" required><br>
-資格名：<input type="text" name="license_name" maxlength="100" required><br>
-<br>
-<input class="submit" type="submit" value="追加" name="ACTION">&nbsp;
-</form>
-<form class="yoko" action="menu.jsp" method="POST">
+<table class="table1">
+<tr><td class="td1">
+資格コード：</td><td class="td2"><input type="text" name="license_code" pattern="^L[0-9]{4}$" maxlength="5" required></td></tr>
+<tr><td class="td1">資格名：</td><td class="td2"><input type="text" name="license_name" maxlength="100" required></td></tr>
+</table>
+
+<table class="table2">
+<tr><td><input class="submit" type="submit" value="追加" name="ACTION">&nbsp;
+</form></td>
+<td><form class="yoko" action="menu.jsp" method="POST">
 <input class="submit" type="submit" value="キャンセル">
-</form>
+</form></td></tr></table>
 </div>
 <script>
     function check(){
