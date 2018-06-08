@@ -5,7 +5,7 @@ body{
 .all-title{
 	font-size: 30px;
 	text-align:center;
-	margin-bottom:0px;
+	margin-bottom:10px;
 }
 
 .nonEmployee{
@@ -23,6 +23,7 @@ table.search {
 
 table.search td {
 	text-align: left;
+	font-size:15px;
 }
 
 div.menu {
@@ -84,23 +85,35 @@ form {
 	margin:0 auto;
 }
 
-.button {
+.mess{
+	font-size:15px;
+}
+
+.button{
+	line-height: 30px;
+}
+
+.button2{
+	line-height: 20px;
+}
+
+
+.button, .button2 {
   position: relative;
   background-color: #1abc9c;
   border-radius: 4px;
   color: #fff;
-  line-height: 30px;
   margin-bottom: 5px;
   -webkit-transition: none;
   transition: none;
   box-shadow: 0 3px 0 #0e8c73;
   text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
 }
-.button:hover {
+.button:hover, .button2:hover  {
   background-color: #31c8aa;
   box-shadow: 0 3px 0 #23a188;
 }
-.button:active {
+.button:active, .button2:active {
   top: 3px;
   box-shadow: none;
 }

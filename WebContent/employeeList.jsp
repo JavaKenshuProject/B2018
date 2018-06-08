@@ -66,8 +66,8 @@
 				</select>
 				</td>
 				<td rowspan="2"><strong>検索したい名前：</strong> <input type="text" name="name" value="<%if(name!=null){ %><%=name%><%}%>"></td>
-				<td rowspan="2"><input type="submit" value="絞り込み" name="ACTION" class="button"></td>
-				<td rowspan="2"><button type="submit" value="従業員一覧" name="ACTION" class="button">リセット</button></td>
+				<td rowspan="2"><input type="submit" value="絞り込み" name="ACTION" class="button2">
+				<button type="submit" value="従業員一覧" name="ACTION" class="button2">リセット</button></td>
 			</tr>
 			<tr>
 				<td>
@@ -82,23 +82,9 @@
 			</tr>
 		</table>
 	</form>
-	<hr>
+
 	<form method="POST" name="submitForm">
-	<div class="menu">
-	<a href="menu.jsp" class="back"><input type="button" value="メニューに戻る" class="button"></a>
-	<%
-		user = (UserBean)session.getAttribute("user");
-		if (user.getSectionCode().equals("S1")) {
-	%>
-	<button type="submit" value="従業員情報変更" name="ACTION" onClick="form.action='EmployeeChangeServlet';return checkOnly()" class="button">従業員情報変更</button>
-	<button type="submit" value="従業員情報削除" name="ACTION" onClick="form.action='EmployeeDeleteServlet';return check()" class="button">従業員情報削除</button>
-	<br>
-	従業員情報の変更や削除は、従業員を選択してからボタンを押してください。
-	</div>
-	<hr>
-	<%
-		}
-	%>
+
 
 	<%
 		if (empList != null) {
@@ -178,6 +164,21 @@
 		} else {
 	%>
 	<p class="nonEmployee">条件に当てはまる従業員が存在しません</p>
+	<%
+		}
+	%>
+
+	<div class="menu">
+	<a href="menu.jsp" class="back"><input type="button" value="メニューに戻る" class="button"></a>　　
+	<%
+		user = (UserBean)session.getAttribute("user");
+		if (user.getSectionCode().equals("S1")) {
+	%>
+	<button type="submit" value="従業員情報変更" name="ACTION" onClick="form.action='EmployeeChangeServlet';return checkOnly()" class="button">従業員情報変更</button>　
+	<button type="submit" value="従業員情報削除" name="ACTION" onClick="form.action='EmployeeDeleteServlet';return check()" class="button">従業員情報削除</button>
+	<br>
+	<p class="mess">従業員情報の変更や削除は、従業員を選択してからボタンを押してください。</p>
+	</div>
 	<%
 		}
 	%>
