@@ -12,7 +12,7 @@
 	<%@include file="anywhereHeader.jsp" %>
 <div>
 <p class="comp-title">保有資格登録の完了</p>
-保有資格を登録しました。
+保有資格を登録しました。<br>
 <form class="yoko" action="licenseRegistration.jsp" method="POST">
 <input class="button" type="submit" value="続けて登録する"><span>&nbsp;&nbsp;</span>
 </form>

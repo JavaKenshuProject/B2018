@@ -17,7 +17,7 @@
 <br><%=emp.getEmpCode() %>の従業員の情報を変更しました。
 <br>
 <form class="yoko">
-<a href="menu.jsp"><input class="button" type="button" value="メニューに戻る"></a></form>>
+<a href="menu.jsp"><input class="button" type="button" value="メニューに戻る"></a></form>
 &nbsp;
 <form class="yoko" action="EmployeeListServlet" method="POST">
 <input class="button" type="submit" value="従業員一覧に戻る">

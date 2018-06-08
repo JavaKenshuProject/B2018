@@ -14,11 +14,11 @@
 <div>
 <p class="comp-title">登録処理の完了</p>
 <br>
-新規資格登録を完了しました。
-<form action="licenseAdd.jsp" method="POST">
-<input class="button" type="submit" value="続けて登録する"><span>&nbsp;&nbsp;</span>
+新規資格登録を完了しました。<br>
+<form class="yoko" action="licenseAdd.jsp" method="POST">
+<input class="button" type="submit" value="続けて登録"><span>&nbsp;&nbsp;</span>
 </form>
-<form action="menu.jsp" method="POST">
+<form class="yoko" action="menu.jsp" method="POST">
 <input class="button" type="submit" value="メニュー画面へ">
 </form>
 </div>
