@@ -16,7 +16,7 @@
 <br>
 時間をおいて再度削除処理をおこなってください
 <form action="EmployeeListServlet" method="POST">
-<input class="submit" type="submit" value="従業員一覧に戻る">
+<input class="submit2" type="submit" value="従業員一覧に戻る">
 </form>
 </div>
 </body>

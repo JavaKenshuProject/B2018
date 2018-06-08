@@ -15,26 +15,34 @@ div{
    	text-align:center;
 }
 
+.button, .submit{
+  line-height: 30px;
+  width: 90px;
+}
 
-.button, .submit {
+.submit2{
+  line-height: 30px;
+  width: 130px;
+}
+
+
+.button, .submit, .submit2 {
   margin-top: 20px;
   font-size:15px;
   position: relative;
   background-color: #1abc9c;
   border-radius: 4px;
   color: #fff;
-  line-height: 30px;
-  width: 90px;
   -webkit-transition: none;
   transition: none;
   box-shadow: 0 3px 0 #0e8c73;
   text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
 }
-.button:hover, .submit:hover {
+.button:hover, .submit:hover .submit2:hover {
   background-color: #31c8aa;
   box-shadow: 0 3px 0 #23a188;
 }
-.button:active, .submit:active {
+.button:active, .submit:active, .submit2:active {
   top: 3px;
   box-shadow: none;
 }

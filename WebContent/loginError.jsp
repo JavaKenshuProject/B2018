@@ -17,7 +17,7 @@
 			ログインできませんでした<br> ユーザIDとパスワードを正しく入力してください
 
 		<form action="login.jsp">
-				<input class="submit "id="back_button" type="submit" value="ログイン画面に戻る">
+				<input class="submit2"id="back_button" type="submit" value="ログイン画面に戻る">
 
 		</form>
 	</div>
