@@ -77,12 +77,17 @@ public class EmployeeRegistrationServlet extends HttpServlet {
 				LicenseDAO licDAO = new LicenseDAO();
 				List<LicenseBean> licenselist = licDAO.getLicenseList();
 
+				EmployeeDAO empDAO = new EmployeeDAO();
+				List<EmployeeBean> employeelist = empDAO.selectAllEmployee();
+
 				session.setAttribute("sectionlist", sectionlist);
 				session.setAttribute("licenselist", licenselist);
+				session.setAttribute("employeelist", employeelist);
 				session.removeAttribute("regEmpInfo");
 
 				url = "employeeRegistration.jsp";
 			}catch(Exception e) {
+				e.printStackTrace();
 				url = "employeeListError.jsp";
 			}
 

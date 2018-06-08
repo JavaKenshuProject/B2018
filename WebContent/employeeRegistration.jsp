@@ -15,6 +15,7 @@
 <body>
 	<%@include file="anywhereHeader.jsp" %>
 	<% EmployeeBean emp = (EmployeeBean)session.getAttribute("regEmpInfo"); %>
+	<% List<EmployeeBean> empList = (List<EmployeeBean>)session.getAttribute("employeelist");%>
 	<div>
 	  <p class="all-title">従業員情報登録</p>
 
@@ -70,17 +71,41 @@
             %>
 
 		  </select></td></tr></table>
-<input class="submit" type="submit" name="ACTION" value="登録">
+	<input class="submit" type="submit" name="ACTION" value="登録">
 			</form>
 			<form class="yoko" action="menu.jsp" method="POST" >
 			<input class="submit" type="submit" value="キャンセル">
 			</form>
 	</div>
 
+<table id="tbl" style="display:none;">
+<%for(EmployeeBean bean:empList){ %>
+	<tr>
+	<td><%=bean.getEmpCode() %></td>
+	</tr>
+<%} %>
+</table>
+
 
 <script>
     function check(){
         var form = document.forms.submitForm;
+        var flag = false;
+        var msg = "";
+
+        var tblData = document.getElementById("tbl");
+        for (var i = 0, rowlen = tblData.rows.length; i < rowlen; i++) {
+			if(tblData.rows[i].cells[0].innerText == form.emp_code.value){
+				flag = true;
+				msg = "既に登録されている従業員コードです";
+				break;
+			}
+		}
+
+		if(flag){
+			alert(msg);
+			return false;
+		}
         var msg = "この内容で従業員情報を登録しますか？";
         var result = confirm(msg);
         return result;
