@@ -92,23 +92,26 @@
 	<div align="center">
 	<div class="scrollList">
 		<table class="list">
+		<thead id="scrollHead">
 			<tr>
 				<%
 					if (user.getSectionCode().equals("S1")) {
 				%>
-				<th>選択</th>
+				<th class="select">選択</th>
 				<%
 					}
 				%>
-				<th>従業員コード</th>
-				<th>氏名</th>
-				<th>フリガナ</th>
-				<th>性別</th>
-				<th>生年月日</th>
-				<th>部署</th>
-				<th>入社日</th>
-				<th>保有資格</th>
+				<th class="code">従業員コード</th>
+				<th class="name">氏名</th>
+				<th class="hurigana">フリガナ</th>
+				<th class="sex">性別</th>
+				<th class="birthday">生年月日</th>
+				<th class="section">部署</th>
+				<th class="date">入社日</th>
+				<th class="license">保有資格</th>
 			</tr>
+		</thead>
+		<tbody id="scrollBody">
 			<%
 				for (EmployeeBean emp : empList) {
 			%>
@@ -116,14 +119,14 @@
 				<%
 					if (user.getSectionCode().equals("S1")) {
 				%>
-				<td><input type="radio" name="target" value="<%=emp.getEmpCode()%>" required></td>
+				<td class="select"><input type="radio" name="target" value="<%=emp.getEmpCode()%>" required></td>
 				<%
 					}
 				%>
-				<td><%=emp.getEmpCode()%></td>
-				<td><%=emp.getlName()%><%=emp.getfName()%></td>
-				<td><%=emp.getlKanaName()%><%=emp.getfKanaName()%></td>
-				<td>
+				<td class="code"><%=emp.getEmpCode()%></td>
+				<td class="name"><%=emp.getlName()%><%=emp.getfName()%></td>
+				<td class="hurigana"><%=emp.getlKanaName()%><%=emp.getfKanaName()%></td>
+				<td class="sex">
 					<%
 						if (emp.getSex() == 0) {
 					%> 男 <%
@@ -132,11 +135,11 @@
 						}
 					%>
 				</td>
-				<td><%=emp.getBirthDay()%></td>
-				<td><%=emp.getSectionName()%></td>
-				<td><%=emp.getEmpDate()%></td>
+				<td class="birthday"><%=emp.getBirthDay()%></td>
+				<td class="section"><%=emp.getSectionName()%></td>
+				<td class="date"><%=emp.getEmpDate()%></td>
 
-				<td>
+				<td class="license">
 				<% if(emp.getLicenseList().size()!=0){%>
 					<div class="fukidiv">
 						<span class="text"><%=emp.getLicenseList().size() %>個</span>
@@ -159,6 +162,7 @@
 			<%
 				}
 			%>
+			</tbody>
 		</table>
 	</div>
 	</div>
@@ -170,7 +174,7 @@
 		}
 	%>
 
-	<div class="menu">
+	<div class="buttonMenu">
 	<a href="menu.jsp" class="back"><input type="button" value="メニューに戻る" class="button"></a>　　
 	<%
 		user = (UserBean)session.getAttribute("user");
@@ -220,8 +224,8 @@
 		return true;
 	}
 	$(function(){
-	  $("table.list tr:nth-child(even)").addClass("even");
-	  $("table.list tr:not(:first-child)").mouseover(function(){
+	  $("table.list tbody tr:nth-child(even)").addClass("even");
+	  $("table.list tbody tr").mouseover(function(){
 	    $(this).addClass("hover");
 	  }).mouseout(function(){
 	    $(this).removeClass("hover");

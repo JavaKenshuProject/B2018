@@ -13,11 +13,14 @@ body{
 	text-align:center;
 }
 
-.scrollList{
-	display: inline-block;
-	margin: 0 auto;
-	height: 340px;
-	overflow-y: scroll;
+
+#scrollHead, #scrollBody{
+	display:block;
+}
+
+#scrollBody{
+	overflow-y:scroll;
+	height:300px;
 }
 
 .back {
@@ -33,12 +36,13 @@ table.search td {
 	font-size:15px;
 }
 
-div.menu {
+div.buttonMenu {
 	text-align: center;
 }
 
 table.list {
-  margin: 10px auto;
+  margin: 5px auto;
+  border: 1px solid gray;
 }
 table.list th {
   background: #222222;
@@ -48,6 +52,7 @@ table.list th, td {
   padding: 5px;
   font-size: small;
   text-align: center;
+  table-layout:fixed;
 }
 }
 .even {
@@ -65,10 +70,10 @@ table.list th, td {
 }
 .fukidashi {
 	display: none;
-	width: 300px;
+	width: 250px;
 	position: absolute;
 	top:215px;
-	left:1035px;
+	left:1085px;
 	background: #33cc99;
 	color: #fff;
 	font-weight: bold;
@@ -123,4 +128,32 @@ form {
 .button:active, .button2:active {
   top: 3px;
   box-shadow: none;
+}
+
+.select{
+	width:30px;
+}
+.code{
+	width:80px;
+}
+.name{
+	width:80px;
+}
+.hurigana{
+	width:120px;
+}
+.sex{
+	width:30px;
+}
+.birthday{
+	width:80px;
+}
+.section{
+	width:50px;
+}
+.date{
+	width:80px;
+}
+.license{
+	width:74px;
 }
