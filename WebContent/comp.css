@@ -1,8 +1,11 @@
 
 div{
-    margin:20px auto;
-   	padding-top: 20px;
+    margin:0 auto;
    	text-align:center;
+}
+
+body{
+	margin:0;
 }
 
 .comp-title{
@@ -18,7 +21,8 @@ div{
   background-color: #1abc9c;
   border-radius: 4px;
   color: #fff;
-  line-height: 40px;
+  line-height: 30px;
+  width: 90px;
   -webkit-transition: none;
   transition: none;
   box-shadow: 0 3px 0 #0e8c73;
@@ -31,4 +35,8 @@ div{
 .button:active {
   top: 3px;
   box-shadow: none;
+}
+
+.yoko{
+	display:inline;
 }

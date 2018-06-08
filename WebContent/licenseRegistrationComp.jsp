@@ -11,12 +11,13 @@
 <body>
 	<%@include file="anywhereHeader.jsp" %>
 <div>
-<p class="all-title">保有資格の登録が完了しました。</p>
-<form action="licenseRegistration.jsp" method="POST">
-<input type="submit" value="続けて登録する"><span>&nbsp;&nbsp;</span>
+<p class="comp-title">保有資格登録の完了</p>
+保有資格を登録しました。
+<form class="yoko" action="licenseRegistration.jsp" method="POST">
+<input class="button" type="submit" value="続けて登録する"><span>&nbsp;&nbsp;</span>
 </form>
-<form action="menu.jsp" method="POST">
-<input type="submit" value="メニュー画面へ">
+<form class="yoko" action="menu.jsp" method="POST">
+<input class="button "type="submit" value="メニュー画面へ">
 </form>
 </div>
 
