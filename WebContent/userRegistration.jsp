@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>システム利用者追加画面</title>
+<title>システム利用者追加</title>
 <link rel="stylesheet" href="userRegistration.css" type="text/css">
 </head>
 
