@@ -15,7 +15,7 @@
 </head>
 <body>
 	<%@include file="login_menuHeader.jsp" %>
-<div class="divdiv"  id= "form">
+<div class="haikei" id= "form">
 <p class ="form-title">Login</p><br>
 	<form action="LoginServlet" method="post" >
 		<p class="moji">　　　　&nbsp;ユーザーID</p>
