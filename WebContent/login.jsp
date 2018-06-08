@@ -14,7 +14,7 @@
 <meta name="author" content="Namioka Saki">
 </head>
 <body>
-	<%@include file="login_menuHeader.jsp" %>
+	<%@include file="login_logout.jsp" %>
 <div class="haikei" id= "form">
 <p class ="form-title">Login</p><br>
 	<form action="LoginServlet" method="post" >
