@@ -42,7 +42,7 @@
 		    	for(int i = 0; i < sectionlist.size(); i++) {
                     SectionBean section = sectionlist.get(i);
 			%>
-            <option value="<%= section.getSectionCode() %>" <%if(emp!=null && emp.getSectionName()==section.getSectionName()){ %>selected<%}%>><%= section.getSectionName() %></option>
+            <option value="<%= section.getSectionCode() %>" <%if(emp!=null && emp.getSectionName().equals(section.getSectionName())){ %>selected<%}%>><%= section.getSectionName() %></option>
 
             <%
 		    	}
@@ -62,7 +62,7 @@
 		    	for(int i = 0; i < licenselist.size(); i++) {
                     LicenseBean license = licenselist.get(i);
 			%>
-			<option value="<%= license.getLicenseCode() %>" <%if(emp!=null && !emp.getLicenseList().isEmpty() && license.getLicenseCode()==emp.getLicenseList().get(0)){ %>selected<%}%>><%= license.getLicenseName() %></option>
+			<option value="<%= license.getLicenseCode() %>" <%if(emp!=null && !emp.getLicenseList().isEmpty() && license.getLicenseCode().equals(emp.getLicenseList().get(0))){ %>selected<%}%>><%= license.getLicenseName() %></option>
 
 			<%
 		    	}
