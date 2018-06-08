@@ -1,15 +1,27 @@
 body,p,form,input{margin:0}
 
 
-body{
-	background-color:#c5c5c5;
+
+.form-title{
+width:355px;
+height:70px;
+background-color:#006a6c;
+margin:0 auto;
+font-size:40px;
+text-align:center;
+padding:5px;
+color:#ffffff;
+
 }
+.moji{
+	font-size:15px;
+}
+
 #form{
 width:500px;
 height:500px;
 margin:0 auto;
-padding:20px;
-border:1px solid #555;
+padding:50px;
 background-color:#ffffff;
 
 }
@@ -19,16 +31,12 @@ font-size: 25px;
 margin:0 auto;
 }
 
-.form-title{
-font-size:40px;
-text-align:center;
-padding:30px;
-}
+
 
 input[type="text"],input[type="password"]{
 width:350px;
 padding:8px;
-font-size:20px;
+font-size:18px;
 margin:0 auto;
 }
 
@@ -38,17 +46,19 @@ height:50px;
 font-size:20px;
   background-color: #006a6c;
   color: #fff;
+
 }
 
 .Psubmit{
 text-align:center;
+	padding-top:15px;
 
 
 }
 
 .id,.pass{
 text-align:center;
-padding-bottom:30px;
+padding-bottom:20px;
 }
 
 .submit {
@@ -78,6 +88,7 @@ padding-bottom:30px;
   box-sizing: border-box;
   -webkit-transition: all .3s;
   transition: all .3s;
+
 }
 
 .submit {
