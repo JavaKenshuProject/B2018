@@ -20,8 +20,8 @@
 <form class="yoko"  name="submitForm" action="LicenseAddServlet"method="POST" onsubmit="return check();">
 <table class="table1">
 <tr><td class="td1">
-資格コード  ※必須</td><td class="td2"><input class="form" type="text" name="license_code" pattern="^L[0-9]{4}$" maxlength="5" required></td></tr>
-<tr><td class="td1">資格名　　 ※必須</td><td class="td2"><input class="form" type="text" name="license_name" maxlength="100" required></td></tr>
+資格コード</td><td class="td2"><input class="form" type="text" name="license_code" pattern="^L[0-9]{4}$" maxlength="5" required></td></tr>
+<tr><td class="td1">資格名</td><td class="td2"><input class="form" type="text" name="license_name" maxlength="100" required></td></tr>
 </table>
 
 <table class="table2">
