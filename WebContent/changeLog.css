@@ -1,9 +1,8 @@
 
 .all-title{
-	margin-top:30px;
+	margin:100px auto;
 	font-size: 30px;
 	text-align:center;
-	margin-bottom:40px;
 }
 
 
@@ -12,9 +11,15 @@ div{
    	text-align:center;
 }
 
+.log{
+	margin-bottom:50px;
+	height:300px;
+	overflow-y:scroll;
+}
+
 
 .submit {
-  margin-top: 20px;
+  margin-top: 50px;
   font-size:15px;
   position: relative;
   background-color: #1abc9c;
