@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.entity.UserBean;
 
@@ -20,12 +23,12 @@ public class UserDAO {
 	 * @param userId　ユーザID
 	 * @param password　パスワード
 	 * @return 認証成功したユーザのBeanオブジェクト
-	 * @throws SQLException 
+	 * @throws SQLException
 	 */
 
 	public UserBean login(String userId, String password) throws SQLException, ClassNotFoundException{
 		UserBean user = null;
-		
+
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(
 						"SELECT * FROM m_user WHERE user_id = ? AND password = ?")){
@@ -79,5 +82,40 @@ public class UserDAO {
 			throw e;
 		}
 
+	}
+	/**
+	 * 引数で指定した情報をユーザマスタに登録（挿入）する
+	 * @param userId　ユーザID
+	 * @param password　パスワード
+	 * @param sectionCode
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
+	public List<UserBean> getUserList()throws SQLException, ClassNotFoundException{
+		List<UserBean> userList = null;
+
+		try(Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+						ResultSet res = stmt.executeQuery("SELECT * FROM m_user")){
+
+			while(res.next()) {
+				if(userList == null) {
+					userList = new ArrayList<>();
+				}
+				UserBean user = new UserBean();
+				user.setUserId(res.getString("user_id"));
+				user.setPassword(res.getString("password"));
+				user.setSectionCode(res.getString("section_code"));
+
+				userList.add(user);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+			throw e;
+		}catch(ClassNotFoundException e) {
+			e.printStackTrace();
+			throw e;
+		}
+		return userList;
 	}
 }

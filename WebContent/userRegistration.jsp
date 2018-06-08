@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8" errorPage="userRegistrationError.jsp"%>
 <%@ page import="java.util.List"%>
 <%@ page import="model.entity.SectionBean"%>
+<%@ page import="model.entity.UserBean"%>
 
 <!DOCTYPE html>
 <html>
@@ -13,7 +14,8 @@
 
 <body>
 	<%@include file="anywhereHeader.jsp"%>
-	<%UserBean userBean = (UserBean)session.getAttribute("userBean"); %>
+	<% UserBean userBean = (UserBean)session.getAttribute("userBean"); %>
+	<% List<UserBean> userList = (List<UserBean>)session.getAttribute("userlist");%>
 	<div>
 
 
@@ -64,11 +66,34 @@
 				</tr>
 			</table>
 	</div>
+	<table id="tbl" style="display:none;">
+	<%for(UserBean bean:userList){ %>
+		<tr>
+		<td><%=bean.getUserId() %></td>
+		</tr>
+	<%} %>
+	</table>
 
 	<script>
 		function check() {
 			var form = document.forms.submitForm;
-			var msg = "この内容でシステム利用者を登録しますか？";
+			var flag = false;
+	        var msg = "";
+
+	        var tblData = document.getElementById("tbl");
+	        for (var i = 0, rowlen = tblData.rows.length; i < rowlen; i++) {
+				if(tblData.rows[i].cells[0].innerText == form.user_id.value){
+					flag = true;
+					msg = "既に登録されているユーザIDです"
+					break;
+				}
+			}
+
+			if(flag){
+				alert(msg);
+				return false;
+			}
+			msg = "この内容でシステム利用者を登録しますか？";
 			var result = confirm(msg);
 			return result;
 		}
