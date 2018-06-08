@@ -48,10 +48,9 @@ public class UserRegistrationServlet extends HttpServlet {
 
 		String action = request.getParameter("ACTION");
 		String url = null;
+		HttpSession session = request.getSession();
 
 		if("システム利用者追加".equals(action)) {
-			HttpSession session = request.getSession();
-
 			try {
 				SectionDAO secDAO = new SectionDAO();
 				List<SectionBean> sectionlist = secDAO.getSectionList();
@@ -76,6 +75,8 @@ public class UserRegistrationServlet extends HttpServlet {
 			ub.setUserId(userId);
 			ub.setPassword(password);
 			ub.setSectionCode(sectionCode);
+
+			session.setAttribute("userBean", ub);
 
 			try{
 				UserDAO usDAO = new UserDAO();

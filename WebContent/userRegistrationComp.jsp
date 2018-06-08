@@ -10,6 +10,7 @@
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp" %>
+	<%session.removeAttribute("userBean"); %>
 <div>
 <p class="comp-title">追加登録処理の完了</p>
 

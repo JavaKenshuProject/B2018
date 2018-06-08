@@ -13,6 +13,7 @@
 
 <body>
 	<%@include file="anywhereHeader.jsp"%>
+	<%UserBean userBean = (UserBean)session.getAttribute("userBean"); %>
 	<div>
 
 
@@ -24,12 +25,12 @@
 				<tr>
 					<td class="td1">ユーザID<br>(半角英数字24文字以内)</td>
 					<td class="td2"><input class="form" id="userID" type="text" name="user_id"
-						pattern="^[a-zA-Z0-9]{0,24}$" required></td>
+						pattern="^[a-zA-Z0-9]{0,24}$" value="<%if(userBean!=null){ %><%=userBean.getUserId() %><%} %>" required></td>
 				</tr>
 				<tr>
 					<td class="td1">パスワード<br>(半角英数字32文字以内)</td>
 					<td class="td2"><input class="form" id="pass" type="text" name="password"
-						pattern="^[a-zA-Z0-9]{0,32}$" required></td>
+						pattern="^[a-zA-Z0-9]{0,32}$" value="<%if(userBean!=null){ %><%=userBean.getPassword() %><%} %>" required></td>
 				</tr>
 				<tr>
 					<td class="td1">所属部署</td>
@@ -41,7 +42,7 @@
 									for (int i = 0; i < sectionlist.size(); i++) {
 										SectionBean section = sectionlist.get(i);
 							%>
-							<option value="<%=section.getSectionCode()%>"><%=section.getSectionName()%></option>
+							<option value="<%=section.getSectionCode()%>" <%if(userBean!=null && section.getSectionCode().equals(userBean.getSectionCode())){ %>selected<%} %>><%=section.getSectionName()%></option>
 
 							<%
 								}
