@@ -2,6 +2,32 @@
 body{margin:0
 }
 
+table{
+	margin:0 auto;
+
+}
+
+.table1,tr,.td1{
+	border:1px solid;
+	border-collapse: collapse;
+	padding:12px;
+
+}
+
+.td1{
+	text-align:left;
+}
+
+.select{
+	width:175px;
+	height:27px;
+}
+.form{
+	width:170px;
+	height:23px;
+}
+
+
 .all-title{
 	font-size: 30px;
 	text-align:center;
