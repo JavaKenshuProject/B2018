@@ -20,8 +20,8 @@ table{
 }
 
 .table1,tr,.td1,.td2{
-	border:1px solid #a1a1a1;
-	border-collapse: collapse;
+
+
 	padding:12px;
 	text-align:left;
 
@@ -29,12 +29,11 @@ table{
 
 }
 
-.td1 { background-color: #87cefa;
+.td1 { background-color: #222;
+color:#ffffff;
 
  }
-.td2{
-	background-color: #d1ffff;
-}
+
 .td1{
 	text-align:left;
 }

@@ -69,12 +69,12 @@
 		 	}
             %>
 
-		  </select></td></tr>
-			<table class="table2"><tr><td><input class="submit" type="submit" name="ACTION" value="登録"></td>
-			</form><td>
+		  </select></td></tr></table>
+<input class="submit" type="submit" name="ACTION" value="登録">
+			</form>
 			<form class="yoko" action="menu.jsp" method="POST" >
 			<input class="submit" type="submit" value="キャンセル">
-			</form></td></tr></table>
+			</form>
 	</div>
 
 

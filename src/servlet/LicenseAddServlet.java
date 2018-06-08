@@ -50,6 +50,8 @@ public class LicenseAddServlet extends HttpServlet {
 
 		if("新規資格追加".equals(action)) {
 
+			HttpSession session = request.getSession();
+			session.removeAttribute("licensebean");
 			url="licenseAdd.jsp";
 
 		}else if("追加".equals(action)){
@@ -65,7 +67,7 @@ public class LicenseAddServlet extends HttpServlet {
 
 
 			//beanに入った値をsessionに入れて渡す
-			HttpSession session =request.getSession();
+			HttpSession session = request.getSession();
 			session.setAttribute("licensebean",bean );
 
 			response.setContentType("text/html; charset=UTF-8");
