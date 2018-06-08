@@ -13,6 +13,13 @@ body{
 	text-align:center;
 }
 
+.scrollList{
+	display: inline-block;
+	margin: 0 auto;
+	height: 340px;
+	overflow-y: scroll;
+}
+
 .back {
 	margin-right:50px;
 }
@@ -60,7 +67,7 @@ table.list th, td {
 	display: none;
 	width: 300px;
 	position: absolute;
-	top:306px;
+	top:215px;
 	left:1035px;
 	background: #33cc99;
 	color: #fff;

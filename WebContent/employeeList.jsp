@@ -89,7 +89,8 @@
 	<%
 		if (empList != null) {
 	%>
-	<div style="height: 340px; overflow-y: scroll;">
+	<div align="center">
+	<div class="scrollList">
 		<table class="list">
 			<tr>
 				<%
@@ -160,6 +161,7 @@
 			%>
 		</table>
 	</div>
+	</div>
 	<%
 		} else {
 	%>
@@ -177,7 +179,7 @@
 	<button type="submit" value="従業員情報変更" name="ACTION" onClick="form.action='EmployeeChangeServlet';return checkOnly()" class="button">従業員情報変更</button>　
 	<button type="submit" value="従業員情報削除" name="ACTION" onClick="form.action='EmployeeDeleteServlet';return check()" class="button">従業員情報削除</button>
 	<br>
-	<p class="mess">従業員情報の変更や削除は、従業員を選択してからボタンを押してください。</p>
+	<span class="mess">従業員情報の変更や削除は、従業員を選択してからボタンを押してください。</span>
 	</div>
 	<%
 		}
