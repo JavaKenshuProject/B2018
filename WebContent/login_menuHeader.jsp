@@ -18,7 +18,7 @@
 	<%if(user!=null){ %>
 		<li class="active"><form method="post" name="form7" action="LogoutServlet">
 		    <input type="hidden" name="ACTION" value="ログアウト">
-		    <a href="javascript:form7.submit()"><strong>ログアウト</strong><span>company</span></a>
+		    <a href="javascript:form7.submit()"><strong>ログアウト</strong><span>Logout</span></a>
 		</form></li>
 		<%} %>
 
