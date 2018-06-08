@@ -66,7 +66,7 @@
 				</select>
 				</td>
 				<td rowspan="2"><strong>検索したい名前：</strong> <input type="text" name="name" value="<%if(name!=null){ %><%=name%><%}%>"></td>
-				<td rowspan="2"><input type="submit" value="絞り込み" name="ACTION"></td>
+				<td rowspan="2"><input type="submit" value="絞り込み" name="ACTION" class="button"></td>
 			</tr>
 			<tr>
 				<td>
@@ -84,13 +84,13 @@
 	<hr>
 	<form method="POST" name="submitForm">
 	<div class="menu">
-	<a href="menu.jsp" class="back"><input type="button" value="メニューに戻る"></a>
+	<a href="menu.jsp" class="back"><input type="button" value="メニューに戻る" class="button"></a>
 	<%
 		user = (UserBean)session.getAttribute("user");
 		if (user.getSectionCode().equals("S1")) {
 	%>
-	<button type="submit" value="従業員情報変更" name="ACTION" onClick="form.action='EmployeeChangeServlet';return true">従業員情報変更</button>
-	<button type="submit" value="従業員情報削除" name="ACTION" onClick="form.action='EmployeeDeleteServlet';return check()">従業員情報削除</button>
+	<button type="submit" value="従業員情報変更" name="ACTION" onClick="form.action='EmployeeChangeServlet';return checkOnly()" class="button">従業員情報変更</button>
+	<button type="submit" value="従業員情報削除" name="ACTION" onClick="form.action='EmployeeDeleteServlet';return check()" class="button">従業員情報削除</button>
 	<br>
 	従業員情報の変更や削除は、従業員を選択してからボタンを押してください。
 	</div>
@@ -148,10 +148,10 @@
 				<td><%=emp.getSectionName()%></td>
 				<td><%=emp.getEmpDate()%></td>
 
-				<td><% if(emp.getLicenseList().size()==0){%>
+				<td><% if(emp.getLicenseList().size()!=0){%>
 				<div class="fukidiv">
 				<span class="text"><%=emp.getLicenseList().size() %>個</span>
-				<span class="fukidashi"><%=emp.getEmpCode()%>の<%=emp.getlName()%><%=emp.getfName()%>さんの保有資格<br>
+				<span class="fukidashi"><span class="fukititle"><%=emp.getlName()%><%=emp.getfName()%>さんの保有資格</span><br>
 				<ul>
 				<%for(String code:emp.getLicenseList()){ %>
 				<li><%=licenseMap.get(code) %></li>
@@ -212,8 +212,8 @@
 		return true;
 	}
 	$(function(){
-	  $("table.list > tr:nth-child(even)").addClass("even");
-	  $("table.list > tr:not(:first-child)").mouseover(function(){
+	  $("table.list tr:nth-child(even)").addClass("even");
+	  $("table.list tr:not(:first-child)").mouseover(function(){
 	    $(this).addClass("hover");
 	  }).mouseout(function(){
 	    $(this).removeClass("hover");

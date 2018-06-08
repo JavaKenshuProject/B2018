@@ -12,16 +12,11 @@ body{
 	margin-right:50px;
 }
 
-div table {
-	border: 1px solid black;
-	margin:0 auto;
-}
-
 table.search {
 	margin: 0px auto;
 }
 
-table.search > td {
+table.search td {
 	text-align: left;
 }
 
@@ -32,11 +27,11 @@ div.menu {
 table.list {
   margin: 0px auto;
 }
-table.list > th {
+table.list th {
   background: #222222;
   color: white;
 }
-table.list > th, td {
+table.list th, td {
   padding: 5px;
   font-size: small;
   text-align: center;
@@ -64,11 +59,42 @@ table.list > th, td {
 	color: #fff;
 	font-weight: bold;
 }
+
+.fukidashi > .fukititle {
+	color: #222;
+	font-size: 18px;
+}
 .fukidiv:hover > .fukidashi {
 	display: block;
+}
+
+div.fukidiv ul {
+	list-style:none;
+	padding-left: 0px;;
 }
 
 form {
 	display: inline;
 	margin:0 auto;
+}
+
+.button {
+  position: relative;
+  background-color: #1abc9c;
+  border-radius: 4px;
+  color: #fff;
+  line-height: 30px;
+  margin-bottom: 5px;
+  -webkit-transition: none;
+  transition: none;
+  box-shadow: 0 3px 0 #0e8c73;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}
+.button:hover {
+  background-color: #31c8aa;
+  box-shadow: 0 3px 0 #23a188;
+}
+.button:active {
+  top: 3px;
+  box-shadow: none;
 }
