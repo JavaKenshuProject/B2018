@@ -103,10 +103,12 @@ form {
 
 .button{
 	line-height: 30px;
+	padding:2px 10px;
 }
 
 .button2{
 	line-height: 20px;
+	padding:2px 10px;
 }
 
 
