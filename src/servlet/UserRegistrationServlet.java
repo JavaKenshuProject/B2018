@@ -57,6 +57,11 @@ public class UserRegistrationServlet extends HttpServlet {
 
 				session.setAttribute("sectionlist", sectionlist);
 
+				UserDAO usrDAO = new UserDAO();
+				List<UserBean> userList = usrDAO.getUserList();
+
+				session.setAttribute("userlist", userList);
+
 				url = "userRegistration.jsp";
 
 			}catch(Exception e) {

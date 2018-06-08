@@ -2,10 +2,11 @@
 
 body{
 	margin:0;
+	text-align:center;
 }
 
 .comp-title{
-	margin-top:50px;
+	margin-top:150px;
 	font-size:32px;
 	font-weight:30px;
 	margin-bottom:10px;

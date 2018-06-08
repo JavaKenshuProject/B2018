@@ -16,7 +16,7 @@
 
 		<ul id="menu">
 	<%if(user!=null){ %>
-		<li class="active" id="menu01"><form method="post" name="form7" action="LogoutServlet">
+		<li class="active"><form method="post" name="form7" action="LogoutServlet">
 		    <input type="hidden" name="ACTION" value="ログアウト">
 		    <a href="javascript:form7.submit()"><strong>ログアウト</strong><span>company</span></a>
 		</form></li>
