@@ -182,7 +182,7 @@
 		var form = document.forms.submitForm;
 		//チェックされているかの判定
 		var flag = false;
-		for(var i=0;i<form.target.length-1;i++){
+		for(var i=0;i<form.target.length;i++){
 			if(form.target[i].checked){
 				flag = true;
 			}
@@ -200,7 +200,7 @@
 		var form = document.forms.submitForm;
 		//チェックされているかの判定
 		var flag = false;
-		for(var i=0;i<form.target.length-1;i++){
+		for(var i=0;i<form.target.length;i++){
 			if(form.target[i].checked){
 				flag = true;
 			}
