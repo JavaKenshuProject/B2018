@@ -18,7 +18,7 @@
 
 
 		<p class="all-title">システム利用者追加</p>
-		追加したい従業員情報を入力してください
+		追加したいシステム利用者情報を入力してください
 		<form class="yoko" name="submitForm" action="UserRegistrationServlet"
 			method="POST" onsubmit="return check();">
 			<table class="table1">
