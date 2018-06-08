@@ -106,7 +106,7 @@
 			alert(msg);
 			return false;
 		}
-        var msg = "この内容で従業員情報を登録しますか？";
+        msg = "この内容で従業員情報を登録しますか？";
         var result = confirm(msg);
         return result;
     }
