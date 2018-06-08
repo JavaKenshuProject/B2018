@@ -16,9 +16,10 @@
 <p class="comp-title">変更処理の完了</p>
 <br><%=emp.getEmpCode() %>の従業員の情報を変更しました。
 <br>
-<a href="menu.jsp"><input class="button" type="button" value="メニューに戻る"></a>
+<form class="yoko">
+<a href="menu.jsp"><input class="button" type="button" value="メニューに戻る"></a></form>>
 &nbsp;
-<form action="EmployeeListServlet" method="POST">
+<form class="yoko" action="EmployeeListServlet" method="POST">
 <input class="button" type="submit" value="従業員一覧に戻る">
 </form>
 </div>
