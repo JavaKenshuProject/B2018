@@ -79,6 +79,7 @@ public class EmployeeRegistrationServlet extends HttpServlet {
 
 				session.setAttribute("sectionlist", sectionlist);
 				session.setAttribute("licenselist", licenselist);
+				session.removeAttribute("regEmpInfo");
 
 				url = "employeeRegistration.jsp";
 			}catch(Exception e) {
@@ -113,6 +114,8 @@ public class EmployeeRegistrationServlet extends HttpServlet {
 			eb.setEmpDate(empDate);
 			eb.setLicenseList(licenseList);
 
+			session.setAttribute("regEmpInfo", eb);
+
 
 			//保有資格情報の登録
 
@@ -143,8 +146,6 @@ public class EmployeeRegistrationServlet extends HttpServlet {
 			} catch (ClassNotFoundException | SQLException e) {
 				url = "employeeRegistrationError.jsp";
 			}
-
-
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher(url);

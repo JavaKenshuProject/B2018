@@ -10,6 +10,7 @@
 </head>
 <body>
 	<%@include file="anywhereHeader.jsp" %>
+	<% session.removeAttribute("regEmpInfo"); %>
 <div>
 <p class="comp-title">登録処理の完了</p>
 <br>
