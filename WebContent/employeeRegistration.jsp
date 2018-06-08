@@ -15,18 +15,17 @@
 	<%@include file="anywhereHeader.jsp" %>
 	<div>
 	  <p class="all-title">従業員情報登録画面</p>
-	  登録する従業員情報を入力してください
-	  <br>
-	  <hr><br>
-		<form class="yoko" name="submitForm" action="EmployeeRegistrationServlet" method="POST" onsubmit="return check();">
-		  従業員コード（E***の形式 例：E001）：<input type="text" name="emp_code"  pattern="^E[0-9]{3}$" maxlength="4" required><br>
-		  氏名：<input type="text" name="l_name" placeholder="氏" maxlength="16" required>
-		  		<input type="text" name="f_name" placeholder="名" maxlength="16" required><br>
-		  氏名（フリガナ）（全角カタカナ）：<input type="text" name="l_kana_name" placeholder="氏(フリガナ)" maxlength="24" pattern="^[ア-ン゛゜ァ-ォャ-ョー「」、]+$" required>
-		  					<input type="text" name="f_kana_name" placeholder="名(フリガナ)" maxlength="24" pattern="^[ア-ン゛゜ァ-ォャ-ョー「」、]+$" required><br>
-		  性別：<input type="radio" name="sex" value="0" checked="checked">男 <input type="radio" name="sex" value="1">女<br>
-		  生年月日：<input type="date" id="date" name="birth_day" min="0000-01-01" required><br>
-		  所属部署名：<select name="section_code">
+
+	  <table class="table1">
+		 <form class="yoko" name="submitForm" action="EmployeeRegistrationServlet" method="POST" onsubmit="return check();">
+		<tr> <td class="td1">従業員コード<br>（E***の形式 例：E001）</td><td class="td2"><input class="form" type="text" name="emp_code"  pattern="^E[0-9]{3}$" maxlength="4" required></td></tr>
+		  <tr><td class="td1">氏　名</td><td class="td2"><input class="form" type="text" name="l_name" placeholder="氏" maxlength="16" required>
+		  		<input class="form" type="text" name="f_name" placeholder="名" maxlength="16" required></td></tr>
+		  <tr><td class="td1">氏名（全角カタカナ）</td><td class="td2"><input class="form" type="text" name="l_kana_name" placeholder="氏(フリガナ)" maxlength="24" pattern="^[ア-ン゛゜ァ-ォャ-ョー「」、]+$" required>
+		  					<input class="form" type="text" name="f_kana_name" placeholder="名(フリガナ)" maxlength="24" pattern="^[ア-ン゛゜ァ-ォャ-ョー「」、]+$" required></td></tr>
+		 <tr><td class="td1">性　別</td><td class="td2"><input type="radio" name="sex" value="0" checked="checked">男 　　　<input type="radio" name="sex" value="1">女</td></tr>
+		 <tr><td class="td1">生年月日</td><td class="td2"><input class="form" type="date" id="date" name="birth_day" min="0000-01-01" required></td></tr>
+		  <tr><td class="td1">所属部署名</td><td class="td2"><select class="select" name="section_code">
 		    <%
 
 		    List<SectionBean> sectionlist = (List<SectionBean>)session.getAttribute("sectionlist");
@@ -43,9 +42,9 @@
             %>
 
 
-		  </select><br>
-		  入社日：<input type="date" id="date2" name="emp_date" min="0000-01-01" required><br>
-		  保有資格：<select name="license_code">
+		  </select></td></tr>
+		 <tr><td class="td1">入社日</td><td class="td2"><input class="form" type="date" id="date2" name="emp_date" min="0000-01-01" required></td></tr>
+		  <tr><td class="td1">保有資格</td><td class="td2"><select  class="select" name="license_code">
 		  	<option value="">未選択</option>
 		 	<%
 
@@ -62,13 +61,12 @@
 		 	}
             %>
 
-		  </select> <br>
-		  <hr><br>
-			<input class="submit" type="submit" name="ACTION" value="登録">
-			</form>
+		  </select></td></tr>
+			<table class="table2"><tr><td><input class="submit" type="submit" name="ACTION" value="登録"></td>
+			</form><td>
 			<form class="yoko" action="menu.jsp" method="POST" >
 			<input class="submit" type="submit" value="キャンセル">
-			</form>
+			</form></td></tr></table>
 	</div>
 
 
