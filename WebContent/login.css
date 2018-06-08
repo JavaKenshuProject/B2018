@@ -1,3 +1,6 @@
+body{
+	margin:0px;
+}
 
 .form-title{
 width:355px;
@@ -27,8 +30,6 @@ form p{
 font-size: 25px;
 margin:0 auto;
 }
-
-
 
 input[type="text"],input[type="password"]{
 width:350px;
