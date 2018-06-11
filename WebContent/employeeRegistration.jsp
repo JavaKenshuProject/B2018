@@ -21,9 +21,9 @@
 
 	  <table class="table1">
 		 <form class="yoko" name="submitForm" action="EmployeeRegistrationServlet" method="POST" onsubmit="return check();">
-		<tr> <td class="td1">従業員コード<br>（E***の形式 例：E001）</td>
+		<tr> <td class="td1">従業員コード<br>（E***の形式 例：E001）※</td>
 		<td class="td2"><input class="form" type="text" name="emp_code"  pattern="^E[0-9]{3}$" maxlength="4" value="<%if(emp!=null){ %><%=emp.getEmpCode()%><%}%>" required></td></tr>
-		  <tr><td class="td1">氏　名（各16字以内）</td><td class="td2"><input class="form" type="text" name="l_name" placeholder="氏" maxlength="16" value="<%if(emp!=null){ %><%=emp.getlName()%><%}%>" required>
+		  <tr><td class="td1">氏　名（各16字以内）※</td><td class="td2"><input class="form" type="text" name="l_name" placeholder="氏" maxlength="16" value="<%if(emp!=null){ %><%=emp.getlName()%><%}%>" required>
 		  		<input class="form" type="text" name="f_name" placeholder="名" maxlength="16" value="<%if(emp!=null){ %><%=emp.getfName()%><%}%>" required></td></tr>
 		  <tr><td class="td1">氏　名（全角カタカナ　各24字以内）</td>
 		  <td class="td2"><input class="form" type="text" name="l_kana_name" placeholder="氏(フリガナ)" maxlength="24" pattern="^[ア-ン゛゜ァ-ォャ-ョー「」、]+$" value="<%if(emp!=null){ %><%=emp.getlKanaName()%><%}%>" required>

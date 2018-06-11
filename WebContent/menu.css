@@ -38,7 +38,7 @@ background-color: #4169e1;
 font-weight:bold;
 }
 #b4{background:url('images/pencil-striped-symbol-for-interface-edit-buttons.png')no-repeat top;
-background-color: #008080;
+background-color: #a4a8d4;
 font-weight:bold;
 }
 #b5{background:url('images/documents-symbol.png')no-repeat top;
@@ -47,7 +47,6 @@ font-weight:bold;
 }
 #b6{background:url('images/about-us.png')no-repeat top;
 background-color: #3cb371;
-color:#ffffff;
 font-weight:bold;
 }
 
@@ -56,7 +55,6 @@ padding-top:150px;
 vertical-align: bottom;
 margin-top:10px;;
 text-decoration: none;
-color: #E1E2CF;
 margin: 1px 0px;
 font-size: 20px;
 
