@@ -21,21 +21,23 @@
 
 		<p class="all-title">システム利用者追加</p>
 		追加したいシステム利用者情報を入力してください
+
 		<form class="yoko" name="submitForm" action="UserRegistrationServlet"
 			method="POST" onsubmit="return check();">
 			<table class="table1">
+				<tr><td><span class="red">※</span>必須項目です</td></tr>
 				<tr>
-					<td class="td1">ユーザID<br>(半角英数字24文字以内)</td>
+					<td class="td1">ユーザID<span class="red">※</span><br>(半角英数字24文字以内)</td>
 					<td class="td2"><input class="form" id="userID" type="text" name="user_id"
 						pattern="^[a-zA-Z0-9]{0,24}$" value="<%if(userBean!=null){ %><%=userBean.getUserId() %><%} %>" required></td>
 				</tr>
 				<tr>
-					<td class="td1">パスワード<br>(半角英数字32文字以内)</td>
+					<td class="td1">パスワード<span class="red">※</span><br>(半角英数字32文字以内)</td>
 					<td class="td2"><input class="form" id="pass" type="text" name="password"
 						pattern="^[a-zA-Z0-9]{0,32}$" value="<%if(userBean!=null){ %><%=userBean.getPassword() %><%} %>" required></td>
 				</tr>
 				<tr>
-					<td class="td1">所属部署</td>
+					<td class="td1">所属部署<span class="red">※</span></td>
 					<td class="td2"><select name="section_code">
 							<%
 								List<SectionBean> sectionlist = (List<SectionBean>) session.getAttribute("sectionlist");
