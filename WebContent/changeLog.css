@@ -33,11 +33,17 @@ div{
   top: 3px;
   box-shadow: none;
 }
+.even {
+  background: #F2F2F2;
+}
+.hover {
+  background: #B2D8FF;
+}
 
 .scrollList{
+	display: inline-block;
 	overflow-y:scroll;
 	height:400px;
-	width: 800px;
 	border: 1px solid gray;
 }
 table.list {

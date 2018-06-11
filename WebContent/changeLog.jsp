@@ -9,7 +9,7 @@
 	<title>情報の変更ログ</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="changeLog.css" type="text/css">
-
+	<script type="text/javascript" src="jquery.min.js"></script>
 </head>
 <body>
 
@@ -31,5 +31,15 @@
 </div>
 </div>
 <p style="text-align:center;"><a href="menu.jsp"><input class="submit" style="width:80px;height:40px; font-size:14px;" type="button" value="戻 る"></a></p>
+<script>
+	$(function(){
+	  $("table.list tbody tr:nth-child(even)").addClass("even");
+	  $("table.list tbody tr").mouseover(function(){
+	    $(this).addClass("hover");
+	  }).mouseout(function(){
+	    $(this).removeClass("hover");
+	  });
+	});
+</script>
 </body>
 </html>
