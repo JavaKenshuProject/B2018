@@ -124,8 +124,8 @@
 					}
 				%>
 				<td class="code"><%=emp.getEmpCode()%></td>
-				<td class="name"><%=emp.getlName()%><%=emp.getfName()%></td>
-				<td class="hurigana"><%=emp.getlKanaName()%><%=emp.getfKanaName()%></td>
+				<td class="name"><%=emp.getlName()%><%if(emp.getlName().length()+emp.getfName().length()>6){%><br><%}else{%>&thinsp;<%}%><%=emp.getfName()%></td>
+				<td class="hurigana"><%=emp.getlKanaName()%><%if(emp.getlKanaName().length()+emp.getfKanaName().length()>=9){%><br><%}else{%>&thinsp;<%}%><%=emp.getfKanaName()%></td>
 				<td class="sex">
 					<%
 						if (emp.getSex() == 0) {
