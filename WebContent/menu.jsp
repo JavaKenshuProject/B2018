@@ -55,5 +55,6 @@
 				</form> <%} %>
 				</div>
 <%} %>
+<div class="iconAuthor">Icon made by <a href="https://jp.freepik.com/flaticon">FLATICON</a></div>
 </body>
 </html>

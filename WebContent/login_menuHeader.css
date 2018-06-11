@@ -9,13 +9,13 @@ padding: 0px;
     list-style: none;
     overflow: hidden;
     text-align:right;
-
+	height:60px;
 }
 
 #back{
 	background: #333;
 	margin:0 auto;
-	height:65px;
+	height:60px;
 }
 
 #black{
@@ -42,6 +42,7 @@ padding: 0px;
     border-left: 1px solid #DDD;
     text-decoration: none;
     margin: 0px 0px;
+    height: 60px;
 
 }
 
