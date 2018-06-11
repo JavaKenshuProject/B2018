@@ -34,3 +34,17 @@ div{
   top: 3px;
   box-shadow: none;
 }
+
+.scrollList{
+	overflow-y:scroll;
+	height:400px;
+	width: 800px;
+	border: 1px solid gray;
+}
+table.list {
+  margin: 5px auto;
+  table-layout: fixed;
+}
+.list tr td{
+	text-align: left;
+}
