@@ -21,11 +21,13 @@
 
 <p class="all-title">保有資格追加</p>
 
+
 <table class="table1">
+<tr><td><span class="red">※</span>必須項目です</td></tr>
 <tr><td class="td1">
 <form class="yoko" name="submitForm" action="LicenseRegistrationServlet" method="POST" onsubmit="return check();">
-従業員コード<br>（E***の形式 例：E001）</td><td class="td2"><input class="form" type="text" name="emp_code" pattern="^E[0-9]{3}$" maxlength="4" value="<%if(regLicense!=null){%><%=regLicense.getEmpCode() %><%}%>" required></td></tr>
-<tr><td class="td1">資格名</td>
+従業員コード<span class="red">※</span><br>（E***の形式 例：E001）</td><td class="td2"><input class="form" type="text" name="emp_code" pattern="^E[0-9]{3}$" maxlength="4" value="<%if(regLicense!=null){%><%=regLicense.getEmpCode() %><%}%>" required></td></tr>
+<tr><td class="td1">資格名<span class="red">※</span></td>
 <td class="td2"><select name="license_name">
 	<% List<LicenseBean> lclist = (List<LicenseBean>)session.getAttribute("lclist");
 
@@ -39,7 +41,7 @@
 
 </select></td></tr>
 <tr><td class="td1">
-取得日(任意)</td><td class="td2"><input class="form" type="date" id="date" name="get_license_date" min="0000-01-01"  value="<%if(regLicense!=null){%><%=regLicense.getGetLicenseDate() %><%}%>"></td></tr>
+取得日</td><td class="td2"><input class="form" type="date" id="date" name="get_license_date" min="0000-01-01"  value="<%if(regLicense!=null){%><%=regLicense.getGetLicenseDate() %><%}%>"></td></tr>
 </table>
 <table class="table2">
 <tr><td>
