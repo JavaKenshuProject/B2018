@@ -24,25 +24,31 @@ padding: 0;
 }
 
 #b1{background:url('images/profile (2).png') no-repeat top;
-background-color: #006a6c;
-
+background-color: #8d93c8;
+font-weight:bold;
 
 
 }
 #b2{background:url('images/user-filled-person-shape (1).png')no-repeat top;
 background-color: #20b2aa;
+font-weight:bold;
 }
 #b3{background:url('images/credential.png')no-repeat top;
 background-color: #4169e1;
+font-weight:bold;
 }
 #b4{background:url('images/pencil-striped-symbol-for-interface-edit-buttons.png')no-repeat top;
-background-color: #043c78;
+background-color: #008080;
+font-weight:bold;
 }
 #b5{background:url('images/documents-symbol.png')no-repeat top;
-background-color: #191970;
+background-color: #4682b4;
+font-weight:bold;
 }
 #b6{background:url('images/about-us.png')no-repeat top;
-background-color: #001e43;
+background-color: #3cb371;
+color:#ffffff;
+font-weight:bold;
 }
 
 .all{
