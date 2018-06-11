@@ -31,7 +31,6 @@
 					  <input type="radio" value="1" name="sex" <%if(emp.getSex() == 1){%>checked<%} %>>女</td></tr>
 
 				<tr><td class="td1">所属部署名</td><td class="td2"><select name="section_code">
-					<option>選択してください</option>
 					<%List<SectionBean> sectionList = (List<SectionBean>)session.getAttribute("scList") ; %>
 					<%for(SectionBean section: sectionList){%>
 					<option value="<%=section.getSectionCode()%>" <%if(section.getSectionName().equals(emp.getSectionName())){%>selected<%}%>><%=section.getSectionName() %></option>
