@@ -24,9 +24,10 @@
 
 <form class="yoko"  name="submitForm" action="LicenseAddServlet" method="POST" onsubmit="return check();">
 <table class="table1">
+<tr><td> <span class="red">※</span>必須項目です</td></tr>
 <tr><td class="td1">
-資格コード<br>（L****の形式 例：L0001）</td><td class="td2"><input class="form" type="text" name="license_code" pattern="^L[0-9]{4}$" maxlength="5" value="<%if(license!=null){ %><%=license.getLicenseCode() %><%} %>" required></td></tr>
-<tr><td class="td1">資格名</td><td class="td2"><input class="form" type="text" name="license_name" maxlength="100" value="<%if(license!=null){ %><%=license.getLicenseName() %><%} %>" required></td></tr>
+資格コード <span class="red">※</span><br>（L****の形式 例：L0001）</td><td class="td2"><input class="form" type="text" name="license_code" pattern="^L[0-9]{4}$" maxlength="5" value="<%if(license!=null){ %><%=license.getLicenseCode() %><%} %>" required></td></tr>
+<tr><td class="td1">資格名 <span class="red">※</span></td><td class="td2"><input class="form" type="text" name="license_name" maxlength="100" value="<%if(license!=null){ %><%=license.getLicenseName() %><%} %>" required></td></tr>
 </table>
 
 <table class="table2">
