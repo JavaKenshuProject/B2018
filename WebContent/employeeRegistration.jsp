@@ -98,10 +98,18 @@
         for (var i = 0, rowlen = tblData.rows.length; i < rowlen; i++) {
 			if(tblData.rows[i].cells[0].innerText == form.emp_code.value){
 				flag = true;
-				msg = "既に登録されている従業員コードです";
+				msg = "既に登録されている従業員コードです\n";
 				break;
 			}
 		}
+
+        var date1 = form.birth_day.value;
+        var date2 = form.emp_date.value;
+
+        if(date1 > date2){
+        	flag = true;
+        	msg += "入社日は生年月日よりも後にしてください";
+        }
 
 		if(flag){
 			alert(msg);
